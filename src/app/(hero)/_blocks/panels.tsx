@@ -1,0 +1,51 @@
+import { Section } from '@/components/section'
+import { Grid } from '@/components/grid'
+import { Buttons } from '@/components/buttons'
+import { Button } from '@/components/button'
+import { SectionHeading } from '@/components/section-heading'
+import { PanelProfileCard } from '@/components/panel-profile-card'
+import { FEATURED_PANELS } from '@/catalog'
+import arrowRightIcon from '@iconify/icons-heroicons/arrow-right-20-solid'
+
+export default function Panels() {
+  return (
+    <Section
+      id="panels"
+      className="bg-body2 py-20 md:py-28"
+    >
+      <SectionHeading
+        eyebrow="Panel Systems"
+        heading="Profiles for Roofing, Walls, and Interior Applications"
+        className="mb-12 max-w-3xl md:mb-16"
+      />
+
+      <Grid
+        cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        gap="gap-6 lg:gap-8"
+      >
+        {FEATURED_PANELS.map((panel) => (
+          <PanelProfileCard
+            key={panel.slug}
+            panel={panel}
+            // The card defaults to /products/panels/<slug>; the real route is
+            // /panels/[profile].
+            href={`/panels/${panel.slug}`}
+          />
+        ))}
+      </Grid>
+
+      <Buttons margin="mt-12 mb-0">
+        <Button
+          href="/panels"
+          variant="outline"
+          size="medium"
+          icon={arrowRightIcon}
+          iconPlacement="after"
+          className="max-sm:w-full"
+        >
+          Compare All Panel Profiles
+        </Button>
+      </Buttons>
+    </Section>
+  )
+}

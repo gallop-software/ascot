@@ -1,0 +1,104 @@
+import Link from 'next/link'
+import { Section } from '@/components/section'
+import { Grid } from '@/components/grid'
+import { SectionHeading } from '@/components/section-heading'
+import { Heading } from '@/components/heading'
+import { Paragraph } from '@/components/paragraph'
+import { Span } from '@/components/span'
+import { Image } from '@/components/image'
+import { Buttons } from '@/components/buttons'
+import { Button } from '@/components/button'
+import { TRIM_PRODUCTS } from '@/catalog'
+
+/**
+ * Matching trim for the panel profiles above, driven by the catalog rather than
+ * the retired 3D trim dataset — the trim library is a product list, not a
+ * viewer, so a card grid links straight through to the category page.
+ */
+export default function Trims() {
+  return (
+    <Section
+      id="trims"
+      className="bg-body2 py-20 md:py-28"
+    >
+      <SectionHeading
+        eyebrow="Matching Trim"
+        heading="Trim and Flashing Formed to the Profile"
+        intro="Ridge, rake, eave, corner, and base conditions formed from the same coil as the panels, plus custom flashing for anything a standard piece does not cover."
+        className="mb-12 max-w-3xl md:mb-16"
+      />
+
+      <Grid
+        cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        gap="gap-6 lg:gap-8"
+        className="mb-12"
+      >
+        {TRIM_PRODUCTS.map((trim) => (
+          <article
+            key={trim.slug}
+            className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-colors duration-200 hover:border-accent4 focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-dark"
+          >
+            <div className="overflow-hidden border-b border-accent3-dark">
+              <Image
+                src={trim.image.src}
+                alt={trim.image.alt}
+                size="medium"
+                rounded="rounded-none"
+                aspect="aspect-[3/2]"
+                className="w-full object-cover"
+              />
+            </div>
+
+            <div className="flex flex-1 flex-col p-6">
+              <Heading
+                as="h3"
+                fontSize="text-lg"
+                fontWeight="font-bold"
+                letterSpacing="tracking-tight"
+                lineHeight="leading-tight"
+                color="text-contrast"
+                margin="mb-2"
+              >
+                <Link
+                  href={`/products/trim-and-flashing#${trim.slug}`}
+                  className="no-underline! before:absolute before:inset-0 focus:outline-none"
+                >
+                  {trim.name}
+                </Link>
+              </Heading>
+
+              <Paragraph
+                fontSize="text-base"
+                color="text-contrast-light"
+                margin="mb-4"
+                className="flex-1"
+              >
+                {trim.shortDescription}
+              </Paragraph>
+
+              <Span
+                fontFamily="font-heading2"
+                fontSize="text-sm"
+                fontWeight="font-semibold"
+                color="text-accent-dark"
+                className="uppercase tracking-[0.16em]"
+              >
+                {trim.applications.join(' · ')}
+              </Span>
+            </div>
+          </article>
+        ))}
+      </Grid>
+
+      <Buttons margin="mt-0 mb-0">
+        <Button
+          href="/products/trim-and-flashing"
+          size="medium"
+          className="max-sm:w-full"
+        >
+          View All Trim and Flashing
+        </Button>
+      </Buttons>
+    </Section>
+  )
+}

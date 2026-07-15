@@ -1,0 +1,71 @@
+# ForgeSpan Metals
+
+> ForgeSpan Metals manufactures metal roofing, wall panels, trim, structural building components, and complete steel building packages for agricultural, commercial, industrial, and residential projects. Serving West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets, with pickup and regional jobsite delivery.
+
+TEMPLATE NOTE: This file is a static, hand-maintained summary for AI crawlers.
+Nothing generates it — update every fact and URL below when rebranding, and keep
+it in sync with `src/config.ts` and `src/catalog.ts`.
+
+## Company
+
+- Name: ForgeSpan Metals
+- Tagline: Built for the Work Ahead.
+- Founded: 1998
+- Address: 4820 Industrial Parkway, Redstone, TX 79541
+- Phone: (325) 555-0186
+- Email: sales@forgespanmetals.com
+- Hours: Mon–Fri 7:30 AM–5:30 PM; Sat 8:00 AM–12:00 PM; Sun closed
+- Service area: West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets
+
+## Panels
+
+- [Panel Profiles](/panels): Overview of all metal panel profiles.
+- [FS-R36 Structural Rib Panel](/panels/fs-r36): Exposed-fastener structural rib panel, 36" coverage, 1-1/4" ribs on 12" centers, 24/26/29 gauge.
+- [FS-A36 Agricultural Panel](/panels/fs-a36): Agricultural profile, 36" coverage, 3/4" ribs on 9" centers, 26/29 gauge.
+- [FS-U36 Utility Panel](/panels/fs-u36): Utility profile, 36" coverage, 3/4" ribs on 6" centers, 26/29 gauge.
+- [FS-S16 Standing Seam Panel](/panels/fs-s16): Concealed-fastener standing seam roofing, 16" coverage, 24/26 gauge.
+- [FS-I40 Insulated Wall Panel](/panels/fs-i40): Insulated sandwich wall panel, 40" coverage, 2"–4" thickness.
+- [FS-L29 Interior Liner Panel](/panels/fs-l29): Light-gauge interior liner panel, 36" coverage, 29 gauge.
+- [Color Chart](/colorchart): 30 standard factory-applied panel colors.
+
+## Products
+
+- [Products](/products): All manufactured product categories.
+- [Roofing Panels](/products/roofing-panels): Cut-to-length metal roofing panels.
+- [Wall Panels](/products/wall-panels): Exterior and interior wall and liner panel systems.
+- [Structural Components](/products/structural-components): Frames, purlins, girts, eave struts, base angles, framed openings, bracing.
+- [Trim and Flashing](/products/trim-and-flashing): Standard and custom-formed trim.
+- [Fasteners and Accessories](/products/fasteners-and-accessories): Screws, closures, sealants, ventilation, pipe flashing, tools.
+
+## Building systems
+
+- [Building Systems](/building-systems): Complete steel building packages.
+- [Agricultural Buildings](/building-systems/agricultural-buildings)
+- [Commercial Buildings](/building-systems/commercial-buildings)
+- [Industrial Buildings](/building-systems/industrial-buildings)
+- [Shops and Garages](/building-systems/shops-and-garages)
+- [Warehouses](/building-systems/warehouses)
+- [Storage Buildings](/building-systems/storage-buildings)
+
+## Industries
+
+- [Industries](/industries): Customer groups we supply.
+- [Agriculture](/industries/agriculture)
+- [Commercial Construction](/industries/commercial-construction)
+- [Industrial Facilities](/industries/industrial-facilities)
+- [Roofing Contractors](/industries/roofing-contractors)
+- [Residential Construction](/industries/residential-construction)
+- [Municipal and Utility](/industries/municipal-and-utility)
+
+## Other
+
+- [Projects](/projects): Completed project examples.
+- [Resources](/resources): Guides, specifications, and articles.
+- [About](/about): Company history and values.
+- [Contact](/contact): Location, hours, and contact details.
+- [Request a Quote](/#quote): Submit measurements, plans, or a material list.
+
+## Notes
+
+- Pricing, stock, availability, and lead times are not published on the site — contact sales.
+- Certification, warranty, and testing details are configurable placeholders in this template, not published claims.

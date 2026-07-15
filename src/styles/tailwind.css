@@ -1,0 +1,318 @@
+@import 'tailwindcss';
+
+/* @custom-variant hero (.hero &); */
+
+@theme {
+  --font-heading: var(--font-heading-family);
+  --font-heading2: var(--font-heading2-family);
+  --font-heading3: var(--font-heading3-family);
+  --font-body: var(--font-body-family);
+  --font-accent: var(--font-accent-family);
+
+  --radius-4xl: 2rem;
+
+  /* Main content max-width — exposes `max-w-content` */
+  --container-content: 1345px;
+
+  --text-xs: 0.9rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 1.1rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.2rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.3rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.5rem;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.6rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 1.7rem;
+  --text-3xl--line-height: 1.3;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 1.3;
+  --text-5xl: 2.9rem;
+  --text-5xl--line-height: 1.3;
+  --text-6xl: 3.2rem;
+  --text-6xl--line-height: 1.3;
+
+  /* ══════════════════════════════════════════════════════════════════
+     ForgeSpan Metals brand palette.
+
+     Swap the hex values below to rebrand the entire site — every component
+     reads these semantic tokens, never raw colors (enforced by ESLint rules
+     gallop/no-raw-colors + gallop/no-arbitrary-colors).
+
+     Source palette:
+       Forge Navy #142331 · Industrial Blue #1F4E66 · Safety Orange #D7622A
+       Steel Gray #66737D · Charcoal #20272D · Warm White #F5F4F0
+       Light Steel #D9DFE3 · Pure White #FFFFFF
+
+     Contrast ratios noted inline are against the paired *-contrast token and
+     meet WCAG AA (4.5:1 body text, 3:1 large text/UI).
+     ══════════════════════════════════════════════════════════════════ */
+
+  /* ── Surface / Background ── (warm white page + light steel) */
+  --color-body: #f5f4f0; /* Warm White — main page background */
+  --color-body-light: #ffffff; /* Pure White — raised cards on warm white */
+  --color-body-dark: #d9dfe3; /* Light Steel — borders, dividers, rules */
+  --color-body2: #e9edef; /* Alternating section background */
+
+  /* ── Text / Foreground ── */
+  --color-contrast: #142331; /* Forge Navy — headings + primary text (16.0:1 on body) */
+  --color-contrast-light: #5a666f; /* Deepened Steel Gray — supporting text (5.4:1 on body) */
+  --color-contrast-dark: #0d1720; /* Deepest navy — strongest anchors */
+
+  /* ── Overlay (fixed context — image/video scrims) ── */
+  --color-overlay: #000000;
+  --color-overlay-text: #ffffff;
+
+  /* ── Accent 1 — Safety Orange (primary CTA, active states, accents) ──
+     Used as an industrial accent, never a dominant surface.
+     `accent` is for icons/borders/large text; `accent-dark` backs buttons so
+     white label text clears AA (5.9:1 vs 3.7:1 on pure Safety Orange). */
+  --color-accent: #d7622a;
+  --color-accent-light: #e8823f;
+  --color-accent-dark: #a8461b;
+  --color-accent-contrast: #ffffff;
+
+  /* ── Accent 2 — Forge Navy (navigation, footer, dark sections) ── */
+  --color-accent2: #142331; /* 16.0:1 with white */
+  --color-accent2-light: #1f4e66; /* Industrial Blue — hover/raised on navy */
+  --color-accent2-dark: #0d1720;
+  --color-accent2-contrast: #ffffff;
+
+  /* ── Accent 3 — Light Steel (cards, dividers, specification tables) ── */
+  --color-accent3: #d9dfe3;
+  --color-accent3-light: #e9edef;
+  --color-accent3-dark: #c3cbd1;
+  --color-accent3-contrast: #142331; /* 12.4:1 */
+
+  /* ── Accent 4 — Steel Gray (borders, technical detail, secondary UI) ── */
+  --color-accent4: #66737d; /* 4.9:1 with white */
+  --color-accent4-light: #8a959d;
+  --color-accent4-dark: #4a555d;
+  --color-accent4-contrast: #ffffff;
+
+  /* ── Accent 5 — Industrial Blue (secondary surfaces, links, info) ── */
+  --color-accent5: #1f4e66; /* 9.0:1 with white */
+  --color-accent5-light: #2c6a8a;
+  --color-accent5-dark: #163a4c;
+  --color-accent5-contrast: #ffffff;
+
+  /* ── Accent 6 — Charcoal ── */
+  --color-accent6: #20272d;
+  --color-accent6-light: #333b42;
+  --color-accent6-dark: #14191d;
+  --color-accent6-contrast: #ffffff;
+}
+
+* {
+  scroll-margin-top: 40px !important;
+}
+
+/* Hide scrollbars while keeping scroll functionality */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  /* Text stroke/outline effect */
+  .text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+  }
+  .text-stroke-body {
+    -webkit-text-stroke-color: var(--color-body);
+  }
+  .text-stroke-contrast {
+    -webkit-text-stroke-color: var(--color-contrast);
+  }
+  .text-stroke-accent {
+    -webkit-text-stroke-color: var(--color-accent);
+  }
+
+  /* Padding top matching navbar height at different breakpoints */
+  /* Navbar: pt-12 sm:pt-16 + logo (~60px mobile, ~80px desktop) + pb-10 */
+  .pt-navbar {
+    @apply pt-40 sm:pt-48 md:pt-56 lg:pt-60;
+  }
+
+  /* Subtle cross pattern background */
+  .bg-pattern-cross {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@keyframes move-x {
+  0% {
+    transform: translateX(var(--move-x-from));
+  }
+  100% {
+    transform: translateX(var(--move-x-to));
+  }
+}
+
+@keyframes fall-slow {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(600px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-medium {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(550px) rotate(-270deg) translateX(30px);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-fast {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(500px) rotate(180deg) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-fall-slow {
+    animation: fall-slow 8s ease-in-out infinite;
+  }
+  .animate-fall-medium {
+    animation: fall-medium 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  .animate-fall-fast {
+    animation: fall-fast 5s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  .animate-spin-slow-reverse {
+    animation: spin-slow-reverse 10s linear infinite;
+  }
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  .animate-spin-medium {
+    animation: spin-medium 15s linear infinite;
+  }
+  .animate-spin-medium-reverse {
+    animation: spin-medium-reverse 15s linear infinite;
+  }
+  .thinking-dots::after {
+    content: '';
+    animation: dots 1.2s linear infinite;
+  }
+}
+
+@keyframes dots {
+  0%,
+  33% {
+    content: '.';
+  }
+  34%,
+  66% {
+    content: '..';
+  }
+  67%,
+  100% {
+    content: '...';
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-medium {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-medium-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Diagonal clip path for hero sections */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 65%);
+}
+
+/* Confetti explosion and fall animation - plays once */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(120vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-confetti-fall {
+    animation: confetti-fall cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+}
