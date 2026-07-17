@@ -16,7 +16,7 @@ export default function Buildings() {
   return (
     <Section
       id="buildings"
-      className="bg-accent2 py-20 md:py-28"
+      className="bg-body py-20 md:py-28"
     >
       <Columns
         cols="grid-cols-1 lg:grid-cols-2"
@@ -27,12 +27,11 @@ export default function Buildings() {
           <SectionHeading
             eyebrow="Complete Building Solutions"
             heading="From Individual Components to Complete Steel Packages"
-            dark
             className="mb-6"
           />
           <Paragraph
             variant="large"
-            color="text-accent3"
+            color="text-contrast-light"
             margin="mb-8"
             className="text-pretty"
           >
@@ -47,7 +46,7 @@ export default function Buildings() {
               fontFamily="font-heading2"
               fontSize="text-sm"
               fontWeight="font-semibold"
-              color="text-accent-light"
+              color="text-accent"
               className="mb-3 block uppercase tracking-[0.2em]"
             >
               Building Types
@@ -60,7 +59,7 @@ export default function Buildings() {
               {BUILDING_TYPES.map((type) => (
                 <Li key={type}>
                   <Span
-                    color="text-overlay-text"
+                    color="text-contrast"
                     fontSize="text-base"
                     fontWeight="font-medium"
                   >
@@ -75,7 +74,6 @@ export default function Buildings() {
             <Button
               href={cta.buildings.href}
               size="medium"
-              dark
               icon={arrowRightIcon}
               iconPlacement="after"
               className="max-sm:w-full"
@@ -87,7 +85,7 @@ export default function Buildings() {
 
         <Column>
           <Image
-            src="/images/buildings/steel-building-package.jpg"
+            src="/placeholder.png"
             alt="Erected steel building frame with roof purlins and wall panels partially installed"
             size="large"
             rounded="rounded-none"

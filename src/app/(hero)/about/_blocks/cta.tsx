@@ -10,7 +10,7 @@ export default function Cta() {
       primaryCta={cta.quote}
       secondaryCta={{ label: 'Contact ForgeSpan', href: '/contact' }}
       image={{
-        src: '/images/about/loading-panel-bundles.jpg',
+        src: '/placeholder.png',
         alt: 'Bundled metal panels being loaded onto a delivery truck at the ForgeSpan Metals plant',
       }}
     />

@@ -90,7 +90,7 @@ function getThumbnailPath(originalPath: string, size: ImageSize): string {
  * ```tsx
  * // Get large version, fallback to full if large doesn't exist
  * const image = getStudioImage('/portfolio/photo.jpg', 'large')
- * // Returns: { url: '/images/portfolio/photo-lg.jpg', width: 1400, height: 934 }
+ * // Returns: { url: '/placeholder.png', width: 1400, height: 934 }
  *
  * // Get medium version, fallback to full if medium doesn't exist
  * const mediumImage = getStudioImage('/portfolio/photo.jpg', 'medium')
@@ -214,23 +214,23 @@ export function getStudioImage(
  * @example
  * ```tsx
  * // Image in cloud returns CDN URL (defaults to 'large' size)
- * studioUrl('/images/hero-bg.png')
- * // Returns: 'https://speedwell-cdn.gallop.software/images/hero-bg-lg.jpg'
+ * studioUrl('/placeholder.png')
+ * // Returns: 'https://speedwell-cdn.gallop.software/placeholder.png'
  *
  * // Specify a size
- * studioUrl('/images/hero-bg.png', 'medium')
- * // Returns: 'https://speedwell-cdn.gallop.software/images/hero-bg-md.jpg'
+ * studioUrl('/placeholder.png', 'medium')
+ * // Returns: 'https://speedwell-cdn.gallop.software/placeholder.png'
  *
  * // Image not in cloud returns original path
- * studioUrl('/images/local-only.png')
- * // Returns: '/images/local-only.png'
+ * studioUrl('/placeholder.png')
+ * // Returns: '/placeholder.png'
  *
  * // Works with or without /images prefix
  * studioUrl('/hero-bg.png')
- * studioUrl('/images/hero-bg.png')
+ * studioUrl('/placeholder.png')
  * ```
  *
- * @param src - The image path (e.g., '/images/hero-bg.png' or '/hero-bg.png')
+ * @param src - The image path (e.g., '/placeholder.png' or '/hero-bg.png')
  * @param size - The desired image size ('small', 'medium', 'large', 'full'). Defaults to 'large'.
  * @returns The resolved URL (CDN URL if in cloud, original path otherwise)
  */

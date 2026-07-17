@@ -1,7 +1,7 @@
 import { CTASection } from '@/components/cta-section'
 import { cta } from '@/config'
 
-/** Closing quote CTA for the building systems index. */
+/** Closing quote CTA for the buildings index. */
 export default function Cta() {
   return (
     <CTASection
@@ -10,7 +10,7 @@ export default function Cta() {
       primaryCta={cta.quote}
       secondaryCta={cta.call}
       image={{
-        src: '/images/buildings/steel-package-delivery.jpg',
+        src: '/placeholder.png',
         alt: '',
       }}
     />

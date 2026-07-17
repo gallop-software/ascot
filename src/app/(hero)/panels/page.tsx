@@ -21,9 +21,9 @@ function Content() {
 }
 
 const metadata: PageMetadata = {
-  title: `Metal Panel Profiles — Roofing, Wall and Liner | ${company.name}`,
+  title: `Panel Profiles — Roofing and Wall | ${company.name}`,
   description:
-    'Compare the six ForgeSpan panel profiles — exposed-fastener rib, agricultural, utility, standing seam, insulated wall, and interior liner — with coverage, rib geometry, gauges, and finishes.',
+    'Compare the three ForgeSpan panel profiles — exposed-fastener structural rib, concealed-fastener standing seam, and insulated wall — with coverage, rib geometry, gauges, and finishes.',
   slug: 'panels',
   keywords: [
     'metal panel profiles',
@@ -40,7 +40,7 @@ const metadata: PageMetadata = {
   },
   openGraph: {
     image: {
-      url: '/images/categories/metal-roofing-panels.jpg',
+      url: '/placeholder.png',
       alt: 'Stacked metal roofing panels in multiple colors on a manufacturing floor',
     },
   },
@@ -67,7 +67,7 @@ const metadata: PageMetadata = {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'Metal Panel Profiles',
+      name: 'Panel Profiles',
       itemListElement: PANEL_PROFILES.map((panel, index) => ({
         '@type': 'ListItem',
         position: index + 1,

@@ -30,7 +30,7 @@ const metadata: PageMetadata = {
   alternates: { canonical: '/contact' },
   openGraph: {
     image: {
-      url: '/images/contact/forgespan-plant-entrance.jpg',
+      url: '/placeholder.png',
       alt: 'Entrance to the ForgeSpan Metals manufacturing plant and will-call yard',
     },
   },

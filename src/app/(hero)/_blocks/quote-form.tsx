@@ -105,10 +105,7 @@ export default function QuoteForm() {
             prepare a clear quote.
           </Paragraph>
 
-          <Form
-            honeypot
-            turnstile
-          >
+          <Form honeypot>
             <FormInput
               name="emailSubject"
               defaultValue="Quote Request"
@@ -280,7 +277,7 @@ export default function QuoteForm() {
 
         <Column className="relative aspect-[8/9]">
           <Image
-            src="/images/facility/roll-forming-line.jpg"
+            src="/placeholder.png"
             alt="Steel roofing panels running through a roll-forming line at the ForgeSpan Metals facility"
             className="absolute inset-0 h-full w-full object-cover"
             rounded="rounded-none"

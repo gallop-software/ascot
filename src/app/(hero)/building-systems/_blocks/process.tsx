@@ -6,19 +6,15 @@ import { SectionHeading } from '@/components/section-heading'
 /** How a building package moves from planning to delivery. */
 export default function Process() {
   return (
-    <Section className="bg-accent2 py-20 lg:py-28">
+    <Section className="bg-body2 py-20 lg:py-28">
       <SectionHeading
-        dark
         eyebrow="How It Works"
         heading="Typical Project Process"
         intro="The same four steps apply whether the order is a single roof or a complete building package."
         className="mb-12 lg:mb-16"
       />
 
-      <ProcessSteps
-        dark
-        steps={PROCESS_STEPS}
-      />
+      <ProcessSteps steps={PROCESS_STEPS} />
     </Section>
   )
 }

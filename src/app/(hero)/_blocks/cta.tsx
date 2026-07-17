@@ -13,7 +13,7 @@ export default function Cta() {
       primaryCta={cta.quote}
       secondaryCta={cta.call}
       image={{
-        src: '/images/cta/steel-plant-night.jpg',
+        src: '/placeholder.png',
         alt: 'Steel coil and formed panel bundles staged in the ForgeSpan Metals yard',
       }}
     />

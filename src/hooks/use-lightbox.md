@@ -19,9 +19,9 @@ export default function Gallery() {
 
       {renderLightbox({
         slides: [
-          { src: '/images/photo1.jpg' },
-          { src: '/images/photo2.jpg' },
-          { src: '/images/photo3.jpg' },
+          { src: '/placeholder.png' },
+          { src: '/placeholder.png' },
+          { src: '/placeholder.png' },
         ],
       })}
     </>

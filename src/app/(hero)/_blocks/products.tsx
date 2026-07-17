@@ -13,7 +13,7 @@ const LINK_LABELS: Record<string, string> = {
   'roofing-panels': 'View Roofing Panels',
   'wall-panels': 'View Wall and Liner Panels',
   'structural-components': 'View Structural Components',
-  'trim-and-flashing': 'View Trim and Flashing',
+  'trim-and-flashing': 'View Trim',
   'fasteners-and-accessories': 'View Fasteners and Accessories',
   'building-packages': 'View Building Packages',
 }

@@ -1,9 +1,6 @@
-import Link from 'next/link'
-import arrowRight from '@iconify/icons-lucide/arrow-right'
 import { BUILDING_SYSTEMS, type BuildingSystem } from '@/catalog'
 import { Grid } from '@/components/grid'
 import { Heading } from '@/components/heading'
-import { Icon } from '@/components/icon'
 import { Image } from '@/components/image'
 import { Paragraph } from '@/components/paragraph'
 import { Section } from '@/components/section'
@@ -16,7 +13,10 @@ import { Span } from '@/components/span'
  */
 function SystemCard({ system }: { system: BuildingSystem }) {
   return (
-    <article className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-colors duration-200 hover:border-accent4 focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-dark">
+    <article
+      id={system.slug}
+      className="flex flex-col rounded-none border border-accent3-dark bg-body-light scroll-mt-28"
+    >
       <div className="overflow-hidden border-b border-accent3-dark">
         <Image
           src={system.image.src}
@@ -38,12 +38,7 @@ function SystemCard({ system }: { system: BuildingSystem }) {
           color="text-contrast"
           margin="mb-3"
         >
-          <Link
-            href={`/building-systems/${system.slug}`}
-            className="no-underline! before:absolute before:inset-0 focus:outline-none"
-          >
-            {system.name}
-          </Link>
+          {system.name}
         </Heading>
 
         <Paragraph
@@ -56,16 +51,13 @@ function SystemCard({ system }: { system: BuildingSystem }) {
         </Paragraph>
 
         <Span
+          fontFamily="font-heading2"
           fontSize="text-sm"
           fontWeight="font-semibold"
           color="text-accent-dark"
-          className="inline-flex items-center gap-x-2"
+          className="uppercase tracking-[0.16em]"
         >
-          {`View ${system.name}`}
-          <Icon
-            icon={arrowRight}
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-          />
+          {system.applications.slice(0, 3).join(' · ')}
         </Span>
       </div>
     </article>
@@ -78,7 +70,7 @@ export default function Systems() {
     <Section className="py-20 lg:py-28">
       <SectionHeading
         eyebrow="What We Package"
-        heading="Steel Building Systems We Supply"
+        heading="Steel Buildings We Supply"
         intro="Each package draws from the same manufactured panel, trim, and structural lines — what changes is how the pieces are specified for the work the building has to do."
         className="mb-12 lg:mb-16"
       />

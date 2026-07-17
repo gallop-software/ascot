@@ -69,7 +69,7 @@ export default function Story() {
 
         <Column className="lg:col-span-5">
           <Image
-            src="/images/about/trim-brake-operator.jpg"
+            src="/placeholder.png"
             alt="ForgeSpan Metals operator forming a custom trim piece on a press brake"
             size="large"
             rounded="rounded-none"

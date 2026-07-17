@@ -23,7 +23,7 @@ export default function Trims() {
     >
       <SectionHeading
         eyebrow="Matching Trim"
-        heading="Trim and Flashing Formed to the Profile"
+        heading="Trims Formed to the Profile"
         intro="Ridge, rake, eave, corner, and base conditions formed from the same coil as the panels, plus custom flashing for anything a standard piece does not cover."
         className="mb-12 max-w-3xl md:mb-16"
       />
@@ -60,7 +60,7 @@ export default function Trims() {
                 margin="mb-2"
               >
                 <Link
-                  href={`/products/trim-and-flashing#${trim.slug}`}
+                  href={`/trims#${trim.slug}`}
                   className="no-underline! before:absolute before:inset-0 focus:outline-none"
                 >
                   {trim.name}
@@ -92,11 +92,11 @@ export default function Trims() {
 
       <Buttons margin="mt-0 mb-0">
         <Button
-          href="/products/trim-and-flashing"
+          href="/trims"
           size="medium"
           className="max-sm:w-full"
         >
-          View All Trim and Flashing
+          View All Trims
         </Button>
       </Buttons>
     </Section>

@@ -7,14 +7,10 @@ import Hero from './_blocks/hero'
 import TrustBar from './_blocks/trust-bar'
 import Products from './_blocks/products'
 import Panels from './_blocks/panels'
-import Colors from './_blocks/colors'
 import Buildings from './_blocks/buildings'
 import Process from './_blocks/process'
-import Industries from './_blocks/industries'
-import Projects from './_blocks/projects'
 import Contractors from './_blocks/contractors'
 import Testimonials from './_blocks/testimonials'
-import Resources from './_blocks/resources'
 import Cta from './_blocks/cta'
 import QuoteForm from './_blocks/quote-form'
 
@@ -25,14 +21,10 @@ function Content() {
       <TrustBar />
       <Products />
       <Panels />
-      <Colors />
       <Buildings />
       <Process />
-      <Industries />
-      <Projects />
       <Contractors />
       <Testimonials />
-      <Resources />
       <Cta />
       <QuoteForm />
     </>
@@ -40,7 +32,7 @@ function Content() {
 }
 
 const OG_IMAGE = {
-  url: '/images/brand/forgespan-og.jpg',
+  url: '/placeholder.png',
   alt: 'Stacked metal roofing panels and steel building components manufactured by ForgeSpan Metals',
 }
 
@@ -53,7 +45,7 @@ const metadata: PageMetadata = {
     'standing seam roofing',
     'structural steel components',
     'metal building packages',
-    'trim and flashing',
+    'trim',
     'steel building supplier',
   ],
   publishDate: '2024-01-01T00:00:00Z',

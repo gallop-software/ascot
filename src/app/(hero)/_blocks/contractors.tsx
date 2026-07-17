@@ -26,7 +26,7 @@ export default function Contractors() {
       >
         <Column>
           <Image
-            src="/images/contractors/material-bundles-loading.jpg"
+            src="/placeholder.png"
             alt="Labeled bundles of metal panels and trim staged on a flatbed trailer for jobsite delivery"
             size="large"
             rounded="rounded-none"

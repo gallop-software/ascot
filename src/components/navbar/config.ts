@@ -1,8 +1,7 @@
 import mapMarkerIcon from '@iconify/icons-mdi/map-marker'
 import phoneIcon from '@iconify/icons-mdi/phone'
 import emailOutlineIcon from '@iconify/icons-mdi/email-outline'
-import clockOutlineIcon from '@iconify/icons-mdi/clock-outline'
-import { contact, hoursSummary, cta } from '@/config'
+import { contact, cta } from '@/config'
 import type { NavLink, SocialLink, ContactItem } from './types'
 
 /**
@@ -28,71 +27,18 @@ export const links: NavLink[] = [
   { href: '/', label: 'Home' },
   {
     href: '/panels',
-    label: 'Metal Panels',
+    label: 'Panels',
     dropdown: true,
     children: [
       { href: '/panels/fs-r36', label: 'FS-R36 Structural Rib' },
-      { href: '/panels/fs-a36', label: 'FS-A36 Agricultural' },
-      { href: '/panels/fs-u36', label: 'FS-U36 Utility' },
       { href: '/panels/fs-s16', label: 'FS-S16 Standing Seam' },
       { href: '/panels/fs-i40', label: 'FS-I40 Insulated' },
-      { href: '/panels/fs-l29', label: 'FS-L29 Interior Liner' },
-      { href: '/colorchart', label: 'Panel Color Chart' },
+      { href: '/panels', label: 'Compare All Profiles' },
     ],
   },
-  {
-    href: '/building-systems',
-    label: 'Building Systems',
-    dropdown: true,
-    children: [
-      { href: '/building-systems/commercial-buildings', label: 'Commercial Buildings' },
-      { href: '/building-systems/agricultural-buildings', label: 'Agricultural Buildings' },
-      { href: '/building-systems/industrial-buildings', label: 'Industrial Buildings' },
-      { href: '/building-systems/shops-and-garages', label: 'Shops and Garages' },
-      { href: '/building-systems/warehouses', label: 'Warehouses' },
-      { href: '/building-systems/storage-buildings', label: 'Storage Buildings' },
-      { href: '/products/structural-components', label: 'Building Components' },
-    ],
-  },
-  {
-    href: '/products',
-    label: 'Products',
-    dropdown: true,
-    children: [
-      { href: '/products/roofing-panels', label: 'Roofing Panels' },
-      { href: '/products/wall-panels', label: 'Wall Panels' },
-      { href: '/products/trim-and-flashing', label: 'Trim and Flashing' },
-      { href: '/products/structural-components', label: 'Structural Components' },
-      { href: '/products/fasteners-and-accessories', label: 'Fasteners and Accessories' },
-    ],
-  },
-  {
-    href: '/industries',
-    label: 'Industries',
-    dropdown: true,
-    children: [
-      { href: '/industries/agriculture', label: 'Agriculture' },
-      { href: '/industries/commercial-construction', label: 'Commercial Construction' },
-      { href: '/industries/industrial-facilities', label: 'Industrial Facilities' },
-      { href: '/industries/residential-construction', label: 'Residential Construction' },
-      { href: '/industries/municipal-and-utility', label: 'Municipal and Utility' },
-      { href: '/industries/roofing-contractors', label: 'Roofing Contractors' },
-    ],
-  },
-  { href: '/projects', label: 'Projects' },
-  {
-    href: '/resources',
-    label: 'Resources',
-    dropdown: true,
-    children: [
-      { href: '/colorchart', label: 'Color Chart' },
-      { href: '/panels', label: 'Panel Specifications' },
-      { href: '/resources/how-to-measure-for-metal-roofing', label: 'Installation Guides' },
-      { href: '/resources#faq', label: 'Frequently Asked Questions' },
-      { href: '/resources', label: 'Articles' },
-      { href: '/resources#warranty', label: 'Warranty Information' },
-    ],
-  },
+  { href: '/trims', label: 'Trims' },
+  { href: '/building-systems', label: 'Buildings' },
+  { href: '/products', label: 'Products' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -120,12 +66,6 @@ export const contactItems: ContactItem[] = [
     value: contact.email,
     href: contact.emailHref,
     icon: emailOutlineIcon,
-  },
-  {
-    title: 'Hours',
-    value: hoursSummary,
-    href: '/contact#hours',
-    icon: clockOutlineIcon,
   },
 ]
 

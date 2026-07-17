@@ -27,52 +27,34 @@ export const socialLinks: SocialLink[] = []
 export const hasSocials = companySocials.length > 0
 
 /**
- * Products column
+ * Primary navigation column — mirrors the first half of the main navbar.
+ * Footer links intentionally match the navbar (whole-page links, no anchors).
  */
 export const productLinks: FooterLink[] = [
-  { label: 'Roofing Panels', href: '/products/roofing-panels' },
-  { label: 'Wall and Liner Panels', href: '/products/wall-panels' },
-  { label: 'Structural Components', href: '/products/structural-components' },
-  { label: 'Trim and Flashing', href: '/products/trim-and-flashing' },
-  { label: 'Fasteners and Accessories', href: '/products/fasteners-and-accessories' },
-  { label: 'Panel Color Chart', href: '/colorchart' },
+  { label: 'Home', href: '/' },
+  { label: 'Panels', href: '/panels' },
+  { label: 'Trims', href: '/trims' },
+  { label: 'Buildings', href: '/building-systems' },
 ]
 
 /**
- * Building systems column
+ * Secondary navigation column — mirrors the rest of the main navbar.
  */
 export const buildingLinks: FooterLink[] = [
-  { label: 'Agricultural Buildings', href: '/building-systems/agricultural-buildings' },
-  { label: 'Commercial Buildings', href: '/building-systems/commercial-buildings' },
-  { label: 'Industrial Buildings', href: '/building-systems/industrial-buildings' },
-  { label: 'Shops and Garages', href: '/building-systems/shops-and-garages' },
-  { label: 'Warehouses', href: '/building-systems/warehouses' },
-  { label: 'Storage Buildings', href: '/building-systems/storage-buildings' },
+  { label: 'Products', href: '/products' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 /**
- * Resources column
- */
-export const resourceLinks: FooterLink[] = [
-  { label: 'Panel Specifications', href: '/panels' },
-  { label: 'Color Chart', href: '/colorchart' },
-  { label: 'Articles and Guides', href: '/resources' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Industries We Serve', href: '/industries' },
-  { label: 'About Us', href: '/about' },
-]
-
-/**
- * Quick links column (retained for layouts that use a single link list)
+ * Full navbar link set, kept for layouts that use a single link list.
  */
 export const quickLinks: FooterLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Metal Panels', href: '/panels' },
-  { label: 'Building Systems', href: '/building-systems' },
+  { label: 'Panels', href: '/panels' },
+  { label: 'Trims', href: '/trims' },
+  { label: 'Buildings', href: '/building-systems' },
   { label: 'Products', href: '/products' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Resources', href: '/resources' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -80,11 +62,7 @@ export const quickLinks: FooterLink[] = [
 /**
  * Legal / policy links
  */
-export const legalLinks: FooterLink[] = [
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms', href: '/terms' },
-  { label: 'Accessibility', href: '/accessibility' },
-]
+export const legalLinks: FooterLink[] = []
 
 /**
  * Business contact details — sourced from `src/config.ts`.

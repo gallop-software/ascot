@@ -9,7 +9,7 @@ export default function Cta() {
       primaryCta={cta.quote}
       secondaryCta={cta.call}
       image={{
-        src: '/images/categories/structural-steel-components.jpg',
+        src: '/placeholder.png',
         alt: '',
       }}
     />

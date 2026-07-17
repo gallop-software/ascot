@@ -74,24 +74,26 @@ export const contact = {
 
 export const hours: BusinessHours[] = [
   {
-    days: 'Monday – Friday',
-    time: '7:30 AM – 5:30 PM',
+    days: 'Monday – Saturday',
+    time: '8:00 AM – 5:00 PM',
     schema: {
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '07:30',
-      closes: '17:30',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+      ],
+      opens: '08:00',
+      closes: '17:00',
     },
-  },
-  {
-    days: 'Saturday',
-    time: '8:00 AM – 12:00 PM',
-    schema: { dayOfWeek: ['Saturday'], opens: '08:00', closes: '12:00' },
   },
   { days: 'Sunday', time: 'Closed' },
 ]
 
 /** Compact hours string for the utility bar. */
-export const hoursSummary = 'Mon–Fri 7:30–5:30 · Sat 8–12'
+export const hoursSummary = 'Mon–Sat 8–5'
 
 export const serviceArea = {
   summary:
@@ -133,7 +135,7 @@ export const socialLinks: { name: string; href: string }[] = []
 export const cta = {
   quote: { label: 'Request a Quote', href: '/#quote' },
   products: { label: 'Explore Our Products', href: '/products' },
-  buildings: { label: 'Explore Building Systems', href: '/building-systems' },
+  buildings: { label: 'Explore Buildings', href: '/building-systems' },
   contractor: { label: 'Open a Contractor Account', href: '/#quote' },
   sales: { label: 'Talk With Sales', href: contact.phoneHref },
   call: { label: `Call ${contact.phone}`, href: contact.phoneHref },
@@ -143,7 +145,7 @@ export const cta = {
 export const seo = {
   siteName: company.name,
   titleSuffix: company.name,
-  defaultTitle: `Metal Roofing, Steel Panels & Building Systems | ${company.name}`,
+  defaultTitle: `Metal Roofing, Steel Panels & Buildings | ${company.name}`,
   defaultDescription:
     'ForgeSpan Metals manufactures metal roofing, wall panels, trim, structural components, and complete steel building packages for agricultural, commercial, industrial, and residential projects.',
   category: 'Building Materials',

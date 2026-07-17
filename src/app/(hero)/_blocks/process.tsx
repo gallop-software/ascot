@@ -24,7 +24,7 @@ export default function Process() {
       >
         <Column className="lg:col-span-2">
           <Image
-            src="/images/process/roll-forming-line.jpg"
+            src="/placeholder.png"
             alt="Roll-forming line shaping a steel coil into ribbed roofing panels at the ForgeSpan plant"
             size="large"
             rounded="rounded-none"

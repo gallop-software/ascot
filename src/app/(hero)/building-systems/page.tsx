@@ -21,17 +21,17 @@ function PageBody() {
 }
 
 const metadata: PageMetadata = {
-  title: `Steel Building Systems & Complete Packages | ${company.name}`,
+  title: `Steel Buildings & Complete Packages | ${company.name}`,
   description:
     'Coordinated steel building packages for agricultural, commercial, industrial, warehouse, shop, and storage projects — panels, trim, structural framing, and accessories supplied together.',
   slug: 'building-systems',
-  focusKeyword: 'steel building systems',
+  focusKeyword: 'steel buildings',
   publishDate: '2026-07-15T00:00:00Z',
   modifiedDate: '2026-07-15T00:00:00Z',
   alternates: { canonical: '/building-systems' },
   openGraph: {
     image: {
-      url: '/images/buildings/steel-building-package.jpg',
+      url: '/placeholder.png',
       alt: `Steel building package supplied by ${company.name}`,
     },
   },
@@ -39,7 +39,7 @@ const metadata: PageMetadata = {
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'Steel Building Systems',
+      name: 'Steel Buildings',
       description:
         'Complete steel building packages and the components that make them up.',
       url: `${baseURL}/building-systems`,
@@ -50,7 +50,7 @@ const metadata: PageMetadata = {
           '@type': 'ListItem',
           position: index + 1,
           name: system.name,
-          url: `${baseURL}/building-systems/${system.slug}`,
+          url: `${baseURL}/building-systems#${system.slug}`,
         })),
       },
     },
@@ -62,7 +62,7 @@ const metadata: PageMetadata = {
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'Building Systems',
+          name: 'Buildings',
           item: `${baseURL}/building-systems`,
         },
       ],

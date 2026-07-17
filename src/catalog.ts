@@ -74,69 +74,13 @@ export const PANEL_PROFILES: PanelProfile[] = [
       { label: 'Available Gauges', value: '24, 26 & 29 ga.' },
     ],
     image: {
-      src: '/images/panels/structural-rib-panel.jpg',
+      src: '/placeholder.png',
       alt: 'FS-R36 structural rib metal roofing panel with 1-1/4 inch ribs on 12 inch centers',
     },
     featured: true,
     viewerProfile: 'fs-r36',
     relatedProducts: ['long-life-panel-screws', 'ridge-cap', 'foam-closure-strips'],
     fastenerNote: 'Exposed fastener system. Fastener pattern varies by substrate and span.',
-  },
-  {
-    slug: 'fs-a36',
-    name: 'FS-A36 Agricultural Panel',
-    category: 'Roofing & Wall',
-    shortDescription:
-      'Versatile agricultural profile for barns, equipment sheds, workshops, and utility buildings.',
-    description:
-      'A versatile panel profile for barns, equipment sheds, residential roofing, workshops, and utility buildings.',
-    bestFor: 'Best for roof, wall, barn, and utility structures',
-    applications: ['Roof', 'Wall', 'Barn', 'Utility structures'],
-    substrates: ['Wood framing', 'Light-gauge steel'],
-    gauges: ['26 ga.', '29 ga.'],
-    finishes: ['Factory-applied color', 'Galvalume'],
-    specs: [
-      { label: 'Coverage', value: '36"' },
-      { label: 'Rib Height', value: '3/4"' },
-      { label: 'Rib Spacing', value: '9" centers' },
-      { label: 'Available Gauges', value: '26 & 29 ga.' },
-    ],
-    image: {
-      src: '/images/panels/agricultural-panel.jpg',
-      alt: 'FS-A36 agricultural metal panel with 3/4 inch ribs on 9 inch centers',
-    },
-    featured: true,
-    viewerProfile: 'fs-a36',
-    relatedProducts: ['long-life-panel-screws', 'ridge-ventilation', 'butyl-sealant-tape'],
-    fastenerNote: 'Exposed fastener system suited to wood or light-gauge steel framing.',
-  },
-  {
-    slug: 'fs-u36',
-    name: 'FS-U36 Utility Panel',
-    category: 'Roofing & Wall',
-    shortDescription:
-      'Closely spaced rib profile for utility buildings, walls, soffits, and fencing.',
-    description:
-      'A clean, closely spaced rib profile for utility buildings, walls, soffits, fencing, and light commercial projects.',
-    bestFor: 'Best for wall, roof, liner, and fencing applications',
-    applications: ['Wall', 'Roof', 'Liner', 'Fencing'],
-    substrates: ['Wood framing', 'Steel framing'],
-    gauges: ['26 ga.', '29 ga.'],
-    finishes: ['Factory-applied color', 'Galvalume'],
-    specs: [
-      { label: 'Coverage', value: '36"' },
-      { label: 'Rib Height', value: '3/4"' },
-      { label: 'Rib Spacing', value: '6" centers' },
-      { label: 'Available Gauges', value: '26 & 29 ga.' },
-    ],
-    image: {
-      src: '/images/panels/utility-panel.jpg',
-      alt: 'FS-U36 utility metal panel with closely spaced ribs on 6 inch centers',
-    },
-    featured: true,
-    viewerProfile: 'fs-u36',
-    relatedProducts: ['stitch-screws', 'base-trim', 'corner-trim'],
-    fastenerNote: 'Exposed fastener system. Close rib spacing supports fencing and soffit use.',
   },
   {
     slug: 'fs-s16',
@@ -158,11 +102,11 @@ export const PANEL_PROFILES: PanelProfile[] = [
       { label: 'Available Gauges', value: '24 & 26 ga.' },
     ],
     image: {
-      src: '/images/panels/standing-seam-panel.jpg',
+      src: '/placeholder.png',
       alt: 'FS-S16 standing seam metal roof panel with concealed fasteners and raised seams',
     },
-    featured: false,
-    relatedProducts: ['snap-lock-roof-clips', 'butyl-sealant-tape', 'pipe-flashing'],
+    featured: true,
+    relatedProducts: ['long-life-panel-screws', 'butyl-sealant-tape', 'foam-closure-strips'],
     fastenerNote: 'Concealed clip attachment. No exposed fasteners in the roof plane.',
   },
   {
@@ -185,39 +129,12 @@ export const PANEL_PROFILES: PanelProfile[] = [
       { label: 'Core', value: 'Insulating foam core' },
     ],
     image: {
-      src: '/images/panels/insulated-wall-panel.jpg',
+      src: '/placeholder.png',
       alt: 'FS-I40 insulated metal wall panel showing the insulating core between steel faces',
     },
-    featured: false,
+    featured: true,
     relatedProducts: ['silicone-sealant', 'corner-trim', 'base-trim'],
     fastenerNote: 'Concealed fastener system. Panel thickness selected per project.',
-  },
-  {
-    slug: 'fs-l29',
-    name: 'FS-L29 Interior Liner Panel',
-    category: 'Interior',
-    shortDescription:
-      'Light-gauge interior liner panel for a clean, washable interior finish.',
-    description:
-      'A light-gauge interior liner panel that provides a clean, durable, and easily cleaned interior surface for shops, barns, and commercial buildings.',
-    bestFor: 'Best for interior wall and ceiling liner',
-    applications: ['Interior wall', 'Ceiling liner'],
-    substrates: ['Steel framing', 'Wood framing'],
-    gauges: ['29 ga.'],
-    finishes: ['Factory-applied color'],
-    specs: [
-      { label: 'Coverage', value: '36"' },
-      { label: 'Rib Height', value: '3/8"' },
-      { label: 'Rib Spacing', value: '6" centers' },
-      { label: 'Available Gauges', value: '29 ga.' },
-    ],
-    image: {
-      src: '/images/panels/interior-liner-panel.jpg',
-      alt: 'FS-L29 interior liner panel installed as a clean white shop wall finish',
-    },
-    featured: false,
-    relatedProducts: ['stitch-screws', 'j-channel', 'corner-trim'],
-    fastenerNote: 'Exposed fastener system sized for light-gauge interior applications.',
   },
 ]
 
@@ -241,9 +158,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     title: 'Metal Roofing Panels',
     description:
       'Cut-to-length roofing panels available in multiple profiles, gauges, finishes, and colors.',
-    href: '/products/roofing-panels',
+    href: '/panels',
     image: {
-      src: '/images/categories/metal-roofing-panels.jpg',
+      src: '/placeholder.png',
       alt: 'Stacked metal roofing panels in multiple colors on a manufacturing floor',
     },
   },
@@ -252,9 +169,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     title: 'Wall and Liner Panels',
     description:
       'Strong exterior and interior panel systems for commercial, agricultural, and industrial buildings.',
-    href: '/products/wall-panels',
+    href: '/panels',
     image: {
-      src: '/images/categories/wall-and-liner-panels.jpg',
+      src: '/placeholder.png',
       alt: 'Metal wall panels being installed on a commercial steel building',
     },
   },
@@ -263,21 +180,21 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     title: 'Structural Components',
     description:
       'Frames, purlins, girts, base angles, eave struts, and other building-system components.',
-    href: '/products/structural-components',
+    href: '/products',
     image: {
-      src: '/images/categories/structural-steel-components.jpg',
+      src: '/placeholder.png',
       alt: 'Structural steel frame of a metal building against an open sky',
     },
   },
   {
     slug: 'trim-and-flashing',
-    title: 'Trim and Flashing',
+    title: 'Trims',
     description:
       'Standard and custom-formed trim manufactured for accurate fit and dependable weather protection.',
-    href: '/products/trim-and-flashing',
+    href: '/trims',
     image: {
-      src: '/images/categories/trim-and-flashing.jpg',
-      alt: 'Formed metal trim and flashing pieces bundled for delivery',
+      src: '/placeholder.png',
+      alt: 'Formed metal trim pieces bundled for delivery',
     },
   },
   {
@@ -285,9 +202,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     title: 'Fasteners and Accessories',
     description:
       'Screws, closures, sealants, ventilation products, pipe flashings, and installation tools.',
-    href: '/products/fasteners-and-accessories',
+    href: '/products',
     image: {
-      src: '/images/categories/fasteners-and-accessories.jpg',
+      src: '/placeholder.png',
       alt: 'Metal roofing screws, closures, and sealant products arranged on a bench',
     },
   },
@@ -298,7 +215,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Coordinated steel packages for shops, barns, warehouses, garages, and commercial facilities.',
     href: '/building-systems',
     image: {
-      src: '/images/categories/complete-building-packages.jpg',
+      src: '/placeholder.png',
       alt: 'Completed commercial metal building with matching roof and wall panels',
     },
   },
@@ -340,11 +257,11 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Shop-primed' },
     ],
     image: {
-      src: '/images/structural/primary-rigid-frames.jpg',
+      src: '/placeholder.png',
       alt: 'Primary rigid steel frames erected on a building site',
     },
     featured: true,
-    relatedProducts: ['endwall-frames', 'roof-purlins', 'bracing-systems'],
+    relatedProducts: ['endwall-frames', 'roof-purlins', 'eave-struts'],
   },
   {
     slug: 'endwall-frames',
@@ -358,11 +275,11 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Shop-primed' },
     ],
     image: {
-      src: '/images/structural/endwall-frames.jpg',
+      src: '/placeholder.png',
       alt: 'Steel endwall framing on a metal building under construction',
     },
     featured: false,
-    relatedProducts: ['primary-rigid-frames', 'wall-girts', 'framed-openings'],
+    relatedProducts: ['primary-rigid-frames', 'wall-girts', 'base-angles'],
   },
   {
     slug: 'roof-purlins',
@@ -376,7 +293,7 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/images/structural/roof-purlins.jpg',
+      src: '/placeholder.png',
       alt: 'Z-section steel roof purlins spanning between building frames',
     },
     featured: true,
@@ -394,7 +311,7 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/images/structural/wall-girts.jpg',
+      src: '/placeholder.png',
       alt: 'Steel wall girts installed horizontally across a building frame',
     },
     featured: false,
@@ -412,7 +329,7 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/images/structural/eave-struts.jpg',
+      src: '/placeholder.png',
       alt: 'Steel eave strut at the roof and wall transition of a metal building',
     },
     featured: false,
@@ -430,65 +347,11 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/images/structural/base-angles.jpg',
+      src: '/placeholder.png',
       alt: 'Galvanized base angle fastened along a concrete slab edge',
     },
     featured: false,
     relatedProducts: ['base-trim', 'wall-girts', 'foam-closure-strips'],
-  },
-  {
-    slug: 'framed-openings',
-    name: 'Framed Openings',
-    category: 'structural-components',
-    shortDescription:
-      'Pre-detailed framing for overhead doors, walk doors, windows, and louvers.',
-    applications: ['Doors', 'Windows', 'Louvers'],
-    specs: [
-      { label: 'Type', value: 'Overhead, walk, window' },
-      { label: 'Finish', value: 'Galvanized' },
-    ],
-    image: {
-      src: '/images/structural/framed-openings.jpg',
-      alt: 'Framed overhead door opening in a steel building wall',
-    },
-    featured: true,
-    relatedProducts: ['door-trim', 'endwall-frames', 'wall-girts'],
-  },
-  {
-    slug: 'canopy-framing',
-    name: 'Canopy Framing',
-    category: 'structural-components',
-    shortDescription:
-      'Framing for entry canopies, loading canopies, and covered work areas.',
-    applications: ['Canopies', 'Loading areas'],
-    specs: [
-      { label: 'Type', value: 'Cantilever or column-supported' },
-      { label: 'Finish', value: 'Shop-primed' },
-    ],
-    image: {
-      src: '/images/structural/canopy-framing.jpg',
-      alt: 'Steel canopy framing extending over a loading dock',
-    },
-    featured: false,
-    relatedProducts: ['primary-rigid-frames', 'rake-trim', 'eave-trim'],
-  },
-  {
-    slug: 'bracing-systems',
-    name: 'Bracing Systems',
-    category: 'structural-components',
-    shortDescription:
-      'Cable, rod, and portal bracing that resists lateral loads across the structure.',
-    applications: ['Lateral bracing'],
-    specs: [
-      { label: 'Type', value: 'Cable, rod, or portal' },
-      { label: 'Finish', value: 'Galvanized' },
-    ],
-    image: {
-      src: '/images/structural/bracing-systems.jpg',
-      alt: 'Diagonal cable bracing inside a steel building frame',
-    },
-    featured: false,
-    relatedProducts: ['primary-rigid-frames', 'roof-purlins', 'wall-girts'],
   },
 ]
 
@@ -501,7 +364,7 @@ export const TRIM_PRODUCTS: Product[] = [
     applications: ['Roof ridge'],
     specs: [{ label: 'Form', value: 'Formed to panel profile' }],
     image: {
-      src: '/images/trim/ridge-cap.jpg',
+      src: '/placeholder.png',
       alt: 'Metal ridge cap trim installed along a roof ridge line',
     },
     featured: true,
@@ -515,7 +378,7 @@ export const TRIM_PRODUCTS: Product[] = [
     applications: ['Gable edge'],
     specs: [{ label: 'Form', value: 'Standard and custom' }],
     image: {
-      src: '/images/trim/rake-trim.jpg',
+      src: '/placeholder.png',
       alt: 'Metal rake trim finishing the gable edge of a metal roof',
     },
     featured: false,
@@ -529,11 +392,11 @@ export const TRIM_PRODUCTS: Product[] = [
     applications: ['Roof eave'],
     specs: [{ label: 'Form', value: 'Standard and custom' }],
     image: {
-      src: '/images/trim/eave-trim.jpg',
+      src: '/placeholder.png',
       alt: 'Metal eave trim installed at the lower edge of a metal roof',
     },
     featured: false,
-    relatedProducts: ['drip-edge', 'eave-struts', 'foam-closure-strips'],
+    relatedProducts: ['eave-trim', 'eave-struts', 'foam-closure-strips'],
   },
   {
     slug: 'valley-trim',
@@ -543,7 +406,7 @@ export const TRIM_PRODUCTS: Product[] = [
     applications: ['Roof valley'],
     specs: [{ label: 'Form', value: 'Formed valley pan' }],
     image: {
-      src: '/images/trim/valley-trim.jpg',
+      src: '/placeholder.png',
       alt: 'Metal valley trim channel between two intersecting roof planes',
     },
     featured: false,
@@ -557,39 +420,11 @@ export const TRIM_PRODUCTS: Product[] = [
     applications: ['Wall corners'],
     specs: [{ label: 'Form', value: 'Outside and inside' }],
     image: {
-      src: '/images/trim/corner-trim.jpg',
+      src: '/placeholder.png',
       alt: 'Metal corner trim finishing the outside corner of a steel building',
     },
     featured: false,
-    relatedProducts: ['base-trim', 'j-channel', 'stitch-screws'],
-  },
-  {
-    slug: 'j-channel',
-    name: 'J-Channel',
-    category: 'trim-and-flashing',
-    shortDescription: 'Receives and finishes panel ends at openings and terminations.',
-    applications: ['Openings', 'Panel terminations'],
-    specs: [{ label: 'Form', value: 'J profile' }],
-    image: {
-      src: '/images/trim/j-channel.jpg',
-      alt: 'Metal J-channel trim receiving panel ends around a wall opening',
-    },
-    featured: false,
-    relatedProducts: ['door-trim', 'corner-trim', 'custom-flashing'],
-  },
-  {
-    slug: 'drip-edge',
-    name: 'Drip Edge',
-    category: 'trim-and-flashing',
-    shortDescription: 'Carries runoff clear of the underlying structure at roof edges.',
-    applications: ['Roof edge'],
-    specs: [{ label: 'Form', value: 'Formed edge' }],
-    image: {
-      src: '/images/trim/drip-edge.jpg',
-      alt: 'Metal drip edge trim along the edge of a metal roof',
-    },
-    featured: false,
-    relatedProducts: ['eave-trim', 'rake-trim', 'butyl-sealant-tape'],
+    relatedProducts: ['base-trim', 'corner-trim', 'stitch-screws'],
   },
   {
     slug: 'base-trim',
@@ -599,40 +434,11 @@ export const TRIM_PRODUCTS: Product[] = [
     applications: ['Wall base'],
     specs: [{ label: 'Form', value: 'Formed base' }],
     image: {
-      src: '/images/trim/base-trim.jpg',
+      src: '/placeholder.png',
       alt: 'Metal base trim closing the joint between wall panels and a concrete slab',
     },
     featured: false,
     relatedProducts: ['base-angles', 'foam-closure-strips', 'corner-trim'],
-  },
-  {
-    slug: 'door-trim',
-    name: 'Door Trim',
-    category: 'trim-and-flashing',
-    shortDescription: 'Frames and weatherproofs walk-door and overhead-door openings.',
-    applications: ['Door openings'],
-    specs: [{ label: 'Form', value: 'Jamb and header' }],
-    image: {
-      src: '/images/trim/door-trim.jpg',
-      alt: 'Metal door trim framing an overhead door opening',
-    },
-    featured: false,
-    relatedProducts: ['framed-openings', 'j-channel', 'silicone-sealant'],
-  },
-  {
-    slug: 'custom-flashing',
-    name: 'Custom Flashing',
-    category: 'trim-and-flashing',
-    shortDescription:
-      'Made-to-measure flashing formed for conditions standard trim does not cover.',
-    applications: ['Non-standard conditions', 'Retrofit'],
-    specs: [{ label: 'Form', value: 'Formed to submitted dimensions' }],
-    image: {
-      src: '/images/trim/custom-flashing.jpg',
-      alt: 'Custom formed metal flashing pieces on a press brake',
-    },
-    featured: true,
-    relatedProducts: ['j-channel', 'valley-trim', 'silicone-sealant'],
   },
 ]
 
@@ -646,11 +452,11 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel attachment'],
     specs: [{ label: 'Washer', value: 'Bonded sealing washer' }],
     image: {
-      src: '/images/accessories/long-life-panel-screws.jpg',
+      src: '/placeholder.png',
       alt: 'Coated metal roofing screws with bonded sealing washers',
     },
     featured: true,
-    relatedProducts: ['stitch-screws', 'touch-up-paint', 'installation-tools'],
+    relatedProducts: ['stitch-screws', 'foam-closure-strips', 'stitch-screws'],
   },
   {
     slug: 'stitch-screws',
@@ -660,11 +466,11 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel sidelaps', 'Trim laps'],
     specs: [{ label: 'Use', value: 'Panel-to-panel' }],
     image: {
-      src: '/images/accessories/stitch-screws.jpg',
+      src: '/placeholder.png',
       alt: 'Stitch screws used to fasten metal panel sidelaps together',
     },
     featured: false,
-    relatedProducts: ['long-life-panel-screws', 'installation-tools', 'corner-trim'],
+    relatedProducts: ['long-life-panel-screws', 'stitch-screws', 'corner-trim'],
   },
   {
     slug: 'butyl-sealant-tape',
@@ -674,7 +480,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel laps', 'Trim joints'],
     specs: [{ label: 'Type', value: 'Non-hardening butyl' }],
     image: {
-      src: '/images/accessories/butyl-sealant-tape.jpg',
+      src: '/placeholder.png',
       alt: 'Roll of butyl sealant tape used at metal panel laps',
     },
     featured: true,
@@ -688,11 +494,11 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Penetrations', 'Trim details'],
     specs: [{ label: 'Type', value: 'Gun-grade silicone' }],
     image: {
-      src: '/images/accessories/silicone-sealant.jpg',
+      src: '/placeholder.png',
       alt: 'Tubes of silicone sealant for metal building trim details',
     },
     featured: false,
-    relatedProducts: ['butyl-sealant-tape', 'pipe-flashing', 'touch-up-paint'],
+    relatedProducts: ['butyl-sealant-tape', 'ridge-ventilation', 'foam-closure-strips'],
   },
   {
     slug: 'foam-closure-strips',
@@ -703,7 +509,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Eave', 'Ridge', 'Base'],
     specs: [{ label: 'Fit', value: 'Matched to panel profile' }],
     image: {
-      src: '/images/accessories/foam-closure-strips.jpg',
+      src: '/placeholder.png',
       alt: 'Foam closure strips shaped to match metal panel ribs',
     },
     featured: true,
@@ -717,81 +523,11 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Roof ventilation'],
     specs: [{ label: 'Location', value: 'Roof ridge' }],
     image: {
-      src: '/images/accessories/ridge-ventilation.jpg',
+      src: '/placeholder.png',
       alt: 'Ridge ventilation product installed along a metal roof ridge',
     },
     featured: false,
     relatedProducts: ['ridge-cap', 'foam-closure-strips', 'fs-a36'],
-  },
-  {
-    slug: 'pipe-flashing',
-    name: 'Pipe Flashing',
-    category: 'fasteners-and-accessories',
-    shortDescription: 'Flexible boots that seal pipe and vent penetrations through panels.',
-    applications: ['Roof penetrations'],
-    specs: [{ label: 'Type', value: 'Flexible boot' }],
-    image: {
-      src: '/images/accessories/pipe-flashing.jpg',
-      alt: 'Flexible pipe flashing boot sealing a vent pipe on a metal roof',
-    },
-    featured: false,
-    relatedProducts: ['silicone-sealant', 'butyl-sealant-tape', 'custom-flashing'],
-  },
-  {
-    slug: 'snow-retention',
-    name: 'Snow Retention',
-    category: 'fasteners-and-accessories',
-    shortDescription: 'Rail and clamp systems that hold snow on the roof plane until it melts.',
-    applications: ['Snow management'],
-    specs: [{ label: 'Type', value: 'Rail and clamp' }],
-    image: {
-      src: '/images/accessories/snow-retention.jpg',
-      alt: 'Snow retention rail mounted across a standing seam metal roof',
-    },
-    featured: false,
-    relatedProducts: ['fs-s16', 'snap-lock-roof-clips', 'silicone-sealant'],
-  },
-  {
-    slug: 'touch-up-paint',
-    name: 'Touch-Up Paint',
-    category: 'fasteners-and-accessories',
-    shortDescription: 'Color-matched paint for field cuts, scratches, and minor finish repairs.',
-    applications: ['Field touch-up'],
-    specs: [{ label: 'Match', value: 'Matched to panel color' }],
-    image: {
-      src: '/images/accessories/touch-up-paint.jpg',
-      alt: 'Bottles of color-matched touch-up paint for metal panels',
-    },
-    featured: false,
-    relatedProducts: ['long-life-panel-screws', 'installation-tools', 'silicone-sealant'],
-  },
-  {
-    slug: 'installation-tools',
-    name: 'Installation Tools',
-    category: 'fasteners-and-accessories',
-    shortDescription: 'Drivers, sockets, shears, and hand tools used to install panels and trim.',
-    applications: ['Installation'],
-    specs: [{ label: 'Includes', value: 'Drivers, sockets, shears' }],
-    image: {
-      src: '/images/accessories/installation-tools.jpg',
-      alt: 'Hand tools and drivers used for metal panel installation',
-    },
-    featured: false,
-    relatedProducts: ['long-life-panel-screws', 'stitch-screws', 'touch-up-paint'],
-  },
-  {
-    slug: 'snap-lock-roof-clips',
-    name: 'Snap-Lock Roof Clips',
-    category: 'fasteners-and-accessories',
-    shortDescription: 'Concealed clips that secure standing seam panels while allowing movement.',
-    applications: ['Standing seam attachment'],
-    specs: [{ label: 'Type', value: 'Concealed clip' }],
-    image: {
-      src: '/images/accessories/snap-lock-roof-clips.jpg',
-      alt: 'Concealed snap-lock clips for standing seam roof panel attachment',
-    },
-    featured: false,
-    relatedProducts: ['fs-s16', 'snow-retention', 'butyl-sealant-tape'],
   },
 ]
 
@@ -905,7 +641,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/images/buildings/agricultural-barn.jpg',
+      src: '/placeholder.png',
       alt: 'Metal agricultural barn with equipment doors on a working farm',
     },
   },
@@ -955,7 +691,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/images/buildings/commercial-facility.jpg',
+      src: '/placeholder.png',
       alt: 'Commercial metal building with a finished exterior and entry canopy',
     },
   },
@@ -1005,7 +741,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/images/buildings/industrial-facility.jpg',
+      src: '/placeholder.png',
       alt: 'Industrial steel facility with wide clear span and large equipment doors',
     },
   },
@@ -1055,7 +791,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/images/buildings/shop-and-garage.jpg',
+      src: '/placeholder.png',
       alt: 'Metal shop building with overhead doors and a wainscot color band',
     },
   },
@@ -1105,7 +841,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/images/buildings/warehouse.jpg',
+      src: '/placeholder.png',
       alt: 'Steel warehouse building with loading dock canopy and overhead doors',
     },
   },
@@ -1155,7 +891,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/images/buildings/storage-building.jpg',
+      src: '/placeholder.png',
       alt: 'Simple metal storage building with roll-up doors',
     },
   },
@@ -1213,7 +949,7 @@ export const INDUSTRIES: Industry[] = [
       'Regional delivery to rural sites',
     ],
     image: {
-      src: '/images/industries/agriculture.jpg',
+      src: '/placeholder.png',
       alt: 'Metal agricultural building on a working farm at sunrise',
     },
     relatedSystems: [
@@ -1235,7 +971,7 @@ export const INDUSTRIES: Industry[] = [
       'Responsive order changes',
     ],
     image: {
-      src: '/images/industries/commercial-construction.jpg',
+      src: '/placeholder.png',
       alt: 'Commercial metal building under construction with steel framing exposed',
     },
     relatedSystems: [
@@ -1257,7 +993,7 @@ export const INDUSTRIES: Industry[] = [
       'Custom flashing for non-standard conditions',
     ],
     image: {
-      src: '/images/industries/industrial-facilities.jpg',
+      src: '/placeholder.png',
       alt: 'Interior of an industrial steel facility with liner panels and overhead framing',
     },
     relatedSystems: [
@@ -1279,7 +1015,7 @@ export const INDUSTRIES: Industry[] = [
       'Contractor and volume pricing',
     ],
     image: {
-      src: '/images/industries/roofing-contractors.jpg',
+      src: '/placeholder.png',
       alt: 'Roofing contractors installing metal roofing panels on a steep roof',
     },
     relatedSystems: [
@@ -1301,7 +1037,7 @@ export const INDUSTRIES: Industry[] = [
       'Trim matched to the roof line',
     ],
     image: {
-      src: '/images/industries/residential-construction.jpg',
+      src: '/placeholder.png',
       alt: 'Standing seam metal roof on a newly built residence',
     },
     relatedSystems: [
@@ -1323,7 +1059,7 @@ export const INDUSTRIES: Industry[] = [
       'Regional delivery',
     ],
     image: {
-      src: '/images/industries/municipal-utility.jpg',
+      src: '/placeholder.png',
       alt: 'Municipal maintenance building with metal siding and equipment bays',
     },
     relatedSystems: [
@@ -1434,7 +1170,7 @@ export const PROJECTS: ProjectSummary[] = [
       'Structural framing components',
     ],
     image: {
-      src: '/images/projects/redstone-equipment-workshop.jpg',
+      src: '/placeholder.png',
       alt: 'Metal equipment workshop with roll-up doors on an agricultural property in Redstone, Texas',
     },
   },
@@ -1453,7 +1189,7 @@ export const PROJECTS: ProjectSummary[] = [
       'Loading-canopy components',
     ],
     image: {
-      src: '/images/projects/mesa-county-distribution-center.jpg',
+      src: '/placeholder.png',
       alt: 'Commercial distribution center with standing seam roofing and loading dock canopies in San Angelo, Texas',
     },
   },
@@ -1472,7 +1208,7 @@ export const PROJECTS: ProjectSummary[] = [
       'Fasteners and sealants',
     ],
     image: {
-      src: '/images/projects/high-plains-agricultural-storage.jpg',
+      src: '/placeholder.png',
       alt: 'Agricultural storage building with ventilated ridge and large equipment openings near Levelland, Texas',
     },
   },
@@ -1491,7 +1227,7 @@ export const PROJECTS: ProjectSummary[] = [
       'Custom formed trim',
     ],
     image: {
-      src: '/images/projects/westline-service-facility.jpg',
+      src: '/placeholder.png',
       alt: 'Industrial service facility with liner-panel interior and large bay doors in Abilene, Texas',
     },
   },

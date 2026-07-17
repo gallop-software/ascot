@@ -1,18 +1,18 @@
 import { PageWrapper } from '@/components/page-wrapper'
 import { generatePageMetadata, type PageMetadata } from '@/utils/page-helpers'
 import { baseURL } from '@/app/metadata'
-import { PRODUCT_CATEGORIES } from '@/catalog'
+import { STRUCTURAL_COMPONENTS, ACCESSORY_PRODUCTS } from '@/catalog'
 import { company } from '@/config'
 
 import Hero from './_blocks/hero'
-import Categories from './_blocks/categories'
+import Products from './_blocks/products'
 import Cta from './_blocks/cta'
 
 function Content() {
   return (
     <>
       <Hero />
-      <Categories />
+      <Products />
       <Cta />
     </>
   )
@@ -21,13 +21,13 @@ function Content() {
 const metadata: PageMetadata = {
   title: `Steel Products — Panels, Trim, Components | ${company.name}`,
   description:
-    'Metal roofing and wall panels, structural components, trim and flashing, fasteners and accessories, and complete steel building packages — manufactured to order by ForgeSpan Metals.',
+    'Metal roofing and wall panels, structural components, trim, fasteners and accessories, and complete steel building packages — manufactured to order by ForgeSpan Metals.',
   slug: 'products',
   keywords: [
     'metal roofing panels',
     'wall and liner panels',
     'structural steel components',
-    'metal trim and flashing',
+    'metal trim',
     'metal roofing fasteners',
     'steel building packages',
   ],
@@ -39,7 +39,7 @@ const metadata: PageMetadata = {
   },
   openGraph: {
     image: {
-      url: '/images/categories/structural-steel-components.jpg',
+      url: '/placeholder.png',
       alt: 'Structural steel frame of a metal building against an open sky',
     },
   },
@@ -60,13 +60,15 @@ const metadata: PageMetadata = {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'Steel Product Categories',
-      itemListElement: PRODUCT_CATEGORIES.map((category, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: category.title,
-        url: `${baseURL}${category.href}`,
-      })),
+      name: 'Steel Products',
+      itemListElement: [...STRUCTURAL_COMPONENTS, ...ACCESSORY_PRODUCTS].map(
+        (product, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: product.name,
+          url: `${baseURL}/products#${product.slug}`,
+        })
+      ),
     },
   ],
 }

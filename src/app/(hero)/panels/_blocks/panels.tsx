@@ -3,8 +3,6 @@ import { Grid } from '@/components/grid'
 import { SectionHeading } from '@/components/section-heading'
 import { PanelProfileCard } from '@/components/panel-profile-card'
 import { Paragraph } from '@/components/paragraph'
-import { Buttons } from '@/components/buttons'
-import { Button } from '@/components/button'
 import { ColorSwatchGrid } from '@/components/color-swatch'
 import { PANEL_PROFILES, PANEL_COLORS, COLOR_DISCLAIMER } from '@/catalog'
 
@@ -22,7 +20,7 @@ export default function Panels() {
       >
         <SectionHeading
           eyebrow="Compare Profiles"
-          heading="Six Panel Profiles, One Coordinated System"
+          heading="Three Panel Profiles, One Coordinated System"
           intro="Each profile is manufactured to order and pairs with matching trim, closures, and fasteners so the package arrives complete."
           className="mb-12 max-w-3xl md:mb-16"
         />
@@ -60,21 +58,11 @@ export default function Panels() {
         <Paragraph
           fontSize="text-sm"
           color="text-contrast-light"
-          margin="mb-8"
+          margin="mb-0"
           className="max-w-3xl"
         >
           {COLOR_DISCLAIMER}
         </Paragraph>
-
-        <Buttons margin="mt-0 mb-0">
-          <Button
-            href="/colorchart"
-            size="medium"
-            className="max-sm:w-full"
-          >
-            View the Full Color Chart
-          </Button>
-        </Buttons>
       </Section>
     </>
   )

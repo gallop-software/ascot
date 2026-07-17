@@ -34,7 +34,7 @@ const metadata: PageMetadata = {
   alternates: { canonical: '/about' },
   openGraph: {
     image: {
-      url: '/images/about/roll-forming-line.jpg',
+      url: '/placeholder.png',
       alt: 'Roll-forming line running finished metal roofing panels inside the ForgeSpan Metals plant',
     },
   },

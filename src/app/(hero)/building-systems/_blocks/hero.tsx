@@ -9,27 +9,26 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { cta } from '@/config'
 import phoneIcon from '@iconify/icons-lucide/phone'
 
-/** Index hero for the building systems overview. */
+/** Index hero for the buildings overview. */
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-accent2">
+    <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/images/buildings/steel-building-package.jpg"
+        src="/placeholder.png"
         alt="Erected steel building frame with roof and wall panels being installed"
         size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-accent2-dark/95 via-accent2-dark/85 to-accent2-dark/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
 
       <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-64 lg:pb-36">
         <Breadcrumbs
-          dark
           className="mb-8"
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Building Systems' },
+            { label: 'Buildings' },
           ]}
         />
 
@@ -38,16 +37,16 @@ export default function Hero() {
             fontFamily="font-heading2"
             fontSize="text-sm"
             fontWeight="font-semibold"
-            color="text-accent-light"
+            color="text-accent"
             margin="mb-4"
             className="uppercase tracking-[0.2em]"
           >
-            Building Systems
+            Buildings
           </Span>
 
           <Heading
             as="h1"
-            color="text-overlay-text"
+            color="text-contrast"
             margin="mb-6"
             className="text-balance"
           >
@@ -56,7 +55,7 @@ export default function Hero() {
 
           <Paragraph
             variant="large"
-            color="text-accent3"
+            color="text-contrast-light"
             margin="mb-8"
             className="max-w-2xl text-pretty"
           >
@@ -69,7 +68,6 @@ export default function Hero() {
             <Button
               href={cta.quote.href}
               size="medium"
-              dark
               className="w-full sm:w-auto"
             >
               {cta.quote.label}
@@ -78,7 +76,6 @@ export default function Hero() {
               href={cta.call.href}
               variant="outline"
               size="medium"
-              dark
               native
               icon={phoneIcon}
               iconPlacement="before"

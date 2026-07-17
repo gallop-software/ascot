@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import fileTextIcon from '@iconify/icons-lucide/file-text'
+import phoneIcon from '@iconify/icons-lucide/phone'
 import { PageWrapper } from '@/components/page-wrapper'
+import { Container } from '@/components/container'
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -185,27 +187,81 @@ export default async function Page({ params }: PageProps) {
   return (
     <PageWrapper metadata={{ structuredData: buildStructuredData(panel) }}>
       {/* Header */}
-      <Section className="bg-accent2 pt-40 pb-16 md:pt-52 md:pb-20 lg:pt-64">
-        <Breadcrumbs
-          dark
-          className="mb-8"
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Products', href: '/products' },
-            { label: 'Panel Profiles', href: '/panels' },
-            { label: panel.name },
-          ]}
+      <section className="relative overflow-hidden bg-body2">
+        <Image
+          src={panel.image.src}
+          alt={panel.image.alt}
+          size="full"
+          rounded="rounded-none"
+          lazy={false}
+          className="absolute inset-0 h-full w-full object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
 
-        <SectionHeading
-          as="h1"
-          dark
-          eyebrow={panel.category}
-          heading={panel.name}
-          intro={panel.description}
-          className="max-w-3xl"
-        />
-      </Section>
+        <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-64 lg:pb-36">
+          <Breadcrumbs
+            className="mb-8"
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Products', href: '/products' },
+              { label: 'Panel Profiles', href: '/panels' },
+              { label: panel.name },
+            ]}
+          />
+
+          <div className="max-w-3xl border-l-2 border-accent pl-6 sm:pl-8">
+            <Span
+              fontFamily="font-heading2"
+              fontSize="text-sm"
+              fontWeight="font-semibold"
+              color="text-accent"
+              margin="mb-4"
+              className="uppercase tracking-[0.2em]"
+            >
+              {panel.category}
+            </Span>
+
+            <Heading
+              as="h1"
+              color="text-contrast"
+              margin="mb-6"
+              className="text-balance"
+            >
+              {panel.name}
+            </Heading>
+
+            <Paragraph
+              variant="large"
+              color="text-contrast-light"
+              margin="mb-8"
+              className="text-pretty"
+            >
+              {panel.description}
+            </Paragraph>
+
+            <Buttons margin="mt-0 mb-0">
+              <Button
+                href={cta.quote.href}
+                size="medium"
+                className="max-sm:w-full"
+              >
+                {cta.quote.label}
+              </Button>
+              <Button
+                href={cta.call.href}
+                variant="outline"
+                size="medium"
+                native
+                icon={phoneIcon}
+                iconPlacement="before"
+                className="max-sm:w-full"
+              >
+                {cta.call.label}
+              </Button>
+            </Buttons>
+          </div>
+        </Container>
+      </section>
 
       {/* Visual — interactive model where one exists, photography otherwise */}
       <Section className="bg-body py-16 md:py-20">
