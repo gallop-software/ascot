@@ -6,6 +6,7 @@ import { company } from '@/config'
 
 import Hero from './_blocks/hero'
 import Systems from './_blocks/systems'
+import Anatomy from './_blocks/anatomy'
 import Process from './_blocks/process'
 import Cta from './_blocks/cta'
 
@@ -14,6 +15,7 @@ function PageBody() {
     <>
       <Hero />
       <Systems />
+      <Anatomy />
       <Process />
       <Cta />
     </>
