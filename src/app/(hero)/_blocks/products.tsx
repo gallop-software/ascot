@@ -32,7 +32,7 @@ export default function Products() {
           color="text-contrast-light"
           margin="mb-0"
         >
-          From individual roofing panels to complete building packages, ForgeSpan
+          From individual roofing panels to complete building packages, Frontier
           Metals supplies dependable components manufactured to project
           specifications.
         </Paragraph>

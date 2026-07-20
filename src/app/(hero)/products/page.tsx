@@ -21,7 +21,7 @@ function Content() {
 const metadata: PageMetadata = {
   title: `Steel Products — Panels, Trim, Components | ${company.name}`,
   description:
-    'Metal roofing and wall panels, structural components, trim, fasteners and accessories, and complete steel building packages — manufactured to order by ForgeSpan Metals.',
+    'Metal roofing and wall panels, structural components, trim, fasteners and accessories, and complete steel building packages — manufactured to order by Frontier Metals.',
   slug: 'products',
   keywords: [
     'metal roofing panels',

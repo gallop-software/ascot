@@ -1,6 +1,6 @@
-# ForgeSpan Metals
+# Frontier Metals
 
-> ForgeSpan Metals manufactures metal roofing, wall panels, trim, structural building components, and complete steel building packages for agricultural, commercial, industrial, and residential projects. Serving West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets, with pickup and regional jobsite delivery.
+> Frontier Metals manufactures metal roofing, wall panels, trim, structural building components, and complete steel building packages for agricultural, commercial, industrial, and residential projects. Serving West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets, with pickup and regional jobsite delivery.
 
 TEMPLATE NOTE: This file is a static, hand-maintained summary for AI crawlers.
 Nothing generates it — update every fact and URL below when rebranding, and keep
@@ -8,21 +8,21 @@ it in sync with `src/config.ts` and `src/catalog.ts`.
 
 ## Company
 
-- Name: ForgeSpan Metals
+- Name: Frontier Metals
 - Tagline: Built for the Work Ahead.
 - Founded: 1998
 - Address: 4820 Industrial Parkway, Redstone, TX 79541
 - Phone: (325) 555-0186
-- Email: sales@forgespanmetals.com
+- Email: sales@frontiermetals.com
 - Hours: Mon–Fri 7:30 AM–5:30 PM; Sat 8:00 AM–12:00 PM; Sun closed
 - Service area: West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets
 
 ## Panels
 
 - [Panel Profiles](/panels): Overview of all metal panel profiles.
-- [FS-R36 Structural Rib Panel](/panels/fs-r36): Exposed-fastener structural rib panel, 36" coverage, 1-1/4" ribs on 12" centers, 24/26/29 gauge.
-- [FS-S16 Standing Seam Panel](/panels/fs-s16): Concealed-fastener standing seam roofing, 16" coverage, 24/26 gauge.
-- [FS-I40 Insulated Wall Panel](/panels/fs-i40): Insulated sandwich wall panel, 40" coverage, 2"–4" thickness.
+- [Pro-Rib Panel](/panels/pro-rib): Exposed-fastener structural rib panel, 36" coverage, 1-1/4" ribs on 12" centers, 24/26/29 gauge.
+- [Standing Seam Panel](/panels/standing-seam): Concealed-fastener standing seam roofing, 16" coverage, 24/26 gauge.
+- [Insulated Wall Panel](/panels/insulated-wall): Insulated sandwich wall panel, 40" coverage, 2"–4" thickness.
 
 ## Trims
 

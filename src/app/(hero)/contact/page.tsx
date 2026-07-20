@@ -20,18 +20,18 @@ function PageBody() {
 }
 
 const metadata: PageMetadata = {
-  title: 'Contact ForgeSpan Metals | Plant Location, Hours & Phone',
+  title: 'Contact Frontier Metals | Plant Location, Hours & Phone',
   description:
-    'Reach ForgeSpan Metals in Redstone, Texas — plant address, phone, email, business hours, and the regions we deliver to. Send us your project and we will price the material.',
+    'Reach Frontier Metals in Redstone, Texas — plant address, phone, email, business hours, and the regions we deliver to. Send us your project and we will price the material.',
   slug: 'contact',
-  focusKeyword: 'contact ForgeSpan Metals',
+  focusKeyword: 'contact Frontier Metals',
   publishDate: '2026-07-15T00:00:00Z',
   modifiedDate: '2026-07-15T00:00:00Z',
   alternates: { canonical: '/contact' },
   openGraph: {
     image: {
       url: '/placeholder.png',
-      alt: 'Entrance to the ForgeSpan Metals manufacturing plant and will-call yard',
+      alt: 'Entrance to the Frontier Metals manufacturing plant and will-call yard',
     },
   },
   structuredData: [
@@ -40,7 +40,7 @@ const metadata: PageMetadata = {
       '@type': 'ContactPage',
       name: `Contact ${company.name}`,
       description:
-        'Plant location, phone, email, business hours, and service area for ForgeSpan Metals.',
+        'Plant location, phone, email, business hours, and service area for Frontier Metals.',
       url: `${baseURL}/contact`,
       // The business entity itself is emitted site-wide in @/app/metadata —
       // reference it by @id rather than redefining address, hours, or phone.

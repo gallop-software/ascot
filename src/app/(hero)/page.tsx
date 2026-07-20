@@ -31,7 +31,7 @@ function Content() {
 
 const OG_IMAGE = {
   url: '/placeholder.png',
-  alt: 'Stacked metal roofing panels and steel building components manufactured by ForgeSpan Metals',
+  alt: 'Stacked metal roofing panels and steel building components manufactured by Frontier Metals',
 }
 
 const metadata: PageMetadata = {

@@ -64,30 +64,28 @@ function getPostSlugs() {
 }
 
 // Get panel profile slugs. These render via the dynamic /panels/[profile]
-// route (skipped by the filesystem crawl), so read PANEL_ORDER from the panel
-// data source — the same list the sitemap uses.
+// route (skipped by the filesystem crawl), so read the slugs from the catalog
+// PANEL_PROFILES — the same source the sitemap uses. (The panel-viewer geometry
+// ids are internal and no longer match the public route slugs.)
 function getPanelSlugs() {
-  const dataPath = path.resolve(
-    __dirname,
-    '../src/components/panel-viewer/data.ts'
-  )
-  if (!fs.existsSync(dataPath)) {
-    console.warn('Panel data not found: src/components/panel-viewer/data.ts')
+  const catalogPath = path.resolve(__dirname, '../src/catalog.ts')
+  if (!fs.existsSync(catalogPath)) {
+    console.warn('Catalog not found: src/catalog.ts')
     return []
   }
 
-  const content = fs.readFileSync(dataPath, 'utf8')
-  const match = content.match(/export const PANEL_ORDER[^=]*=\s*(\[[\s\S]*?\])/)
-  if (!match) {
-    console.warn('PANEL_ORDER not found in panel-viewer/data.ts')
+  const content = fs.readFileSync(catalogPath, 'utf8')
+  const block = content.match(/export const PANEL_PROFILES[\s\S]*?\n\]/)
+  if (!block) {
+    console.warn('PANEL_PROFILES not found in catalog.ts')
     return []
   }
 
   try {
-    const order = new Function(`return ${match[1]}`)()
-    return order.map((profile) => `panels/${profile}`)
+    const slugs = [...block[0].matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1])
+    return slugs.map((slug) => `panels/${slug}`)
   } catch (error) {
-    console.error('Failed to parse PANEL_ORDER:', error.message)
+    console.error('Failed to parse PANEL_PROFILES slugs:', error.message)
     return []
   }
 }

@@ -36,4 +36,4 @@ export const PANEL_CONTENT: Record<PanelProfileId, PanelContent> = Object.fromEn
   ])
 ) as Record<PanelProfileId, PanelContent>
 
-export const PANEL_ORDER: PanelProfileId[] = ['fs-r36', 'fs-a36', 'fs-u36']
+export const PANEL_ORDER: PanelProfileId[] = ['fm-r36', 'fm-a36', 'fm-u36']

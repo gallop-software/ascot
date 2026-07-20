@@ -30,9 +30,9 @@ export const links: NavLink[] = [
     label: 'Panels',
     dropdown: true,
     children: [
-      { href: '/panels/fs-r36', label: 'FS-R36 Structural Rib' },
-      { href: '/panels/fs-s16', label: 'FS-S16 Standing Seam' },
-      { href: '/panels/fs-i40', label: 'FS-I40 Insulated' },
+      { href: '/panels/pro-rib', label: 'Pro-Rib Panel' },
+      { href: '/panels/standing-seam', label: 'Standing Seam Panel' },
+      { href: '/panels/insulated-wall', label: 'Insulated Wall Panel' },
       { href: '/panels', label: 'Compare All Profiles' },
     ],
   },

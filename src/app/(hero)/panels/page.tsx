@@ -23,7 +23,7 @@ function Content() {
 const metadata: PageMetadata = {
   title: `Panel Profiles — Roofing and Wall | ${company.name}`,
   description:
-    'Compare the three ForgeSpan panel profiles — exposed-fastener structural rib, concealed-fastener standing seam, and insulated wall — with coverage, rib geometry, gauges, and finishes.',
+    'Compare the three Frontier panel profiles — exposed-fastener structural rib, concealed-fastener standing seam, and insulated wall — with coverage, rib geometry, gauges, and finishes.',
   slug: 'panels',
   keywords: [
     'metal panel profiles',

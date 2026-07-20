@@ -18,7 +18,7 @@ interface LogoProps {
 }
 
 /**
- * ForgeSpan Metals logo.
+ * Frontier Metals logo.
  *
  * A placeholder brand mark for the template: a simplified roofline built from
  * two overlapping panel planes. Replace this component with the customer's
@@ -71,7 +71,7 @@ export function Logo({
   if (variant === 'mark') {
     return (
       <span className={clsx('inline-flex', bodyColor, className)}>
-        <span className="sr-only">ForgeSpan Metals</span>
+        <span className="sr-only">Frontier Metals</span>
         {mark}
       </span>
     )
@@ -81,7 +81,7 @@ export function Logo({
     <span
       className={clsx('inline-flex items-center gap-3', bodyColor, className)}
       role="img"
-      aria-label="ForgeSpan Metals"
+      aria-label="Frontier Metals"
     >
       {mark}
       <span
@@ -89,7 +89,7 @@ export function Logo({
         className="font-heading leading-[1.05] font-bold uppercase"
         style={{ fontSize: height * 0.44 }}
       >
-        <span className="block tracking-tight">ForgeSpan</span>
+        <span className="block tracking-tight">Frontier</span>
         <span
           className={clsx(
             'block font-medium tracking-[0.34em]',

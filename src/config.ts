@@ -10,6 +10,12 @@
  * in `src/catalog.ts`.
  */
 
+import factoryIcon from '@iconify/icons-lucide/factory'
+import packageIcon from '@iconify/icons-lucide/package'
+import clockIcon from '@iconify/icons-lucide/clock'
+import timerIcon from '@iconify/icons-lucide/timer'
+import truckIcon from '@iconify/icons-lucide/truck'
+
 export interface CompanyAddress {
   street: string
   city: string
@@ -28,18 +34,20 @@ export interface BusinessHours {
 export interface CompanyStat {
   value: string
   label: string
+  /** Iconify icon data for the stat. */
+  icon?: { body: string; width?: number; height?: number }
 }
 
 export const company = {
-  name: 'ForgeSpan Metals',
-  shortName: 'ForgeSpan',
+  name: 'Frontier Metals',
+  shortName: 'Frontier',
   tagline: 'Built for the Work Ahead.',
   founded: 1998,
   description:
-    'ForgeSpan Metals manufactures dependable metal roofing, wall panels, trim, structural building components, and custom steel packages for agricultural, commercial, industrial, and residential projects.',
+    'Frontier Metals manufactures dependable metal roofing, wall panels, trim, structural building components, and custom steel packages for agricultural, commercial, industrial, and residential projects.',
   /** Shorter variant used in the footer and compact surfaces. */
   footerDescription:
-    'ForgeSpan Metals manufactures metal roofing, wall panels, structural components, trim, accessories, and steel building packages for contractors and property owners across the region.',
+    'Frontier Metals manufactures metal roofing, wall panels, structural components, trim, accessories, and steel building packages for contractors and property owners across the region.',
 } as const
 
 export const address: CompanyAddress = {
@@ -65,8 +73,8 @@ export const contact = {
   /** E.164 for tel: links and schema.org. */
   phoneHref: 'tel:+11234567890',
   phoneSchema: '+1-123-456-7890',
-  email: 'sales@forgespan.com',
-  emailHref: 'mailto:sales@forgespan.com',
+  email: 'sales@frontiermetals.com',
+  emailHref: 'mailto:sales@frontiermetals.com',
   addressLine,
   addressMultiline,
   mapHref,
@@ -120,16 +128,16 @@ export const serviceArea = {
  * Marketing statistics. Believable but fictional — replace per customer.
  */
 export const stats: CompanyStat[] = [
-  { value: '25+', label: 'Years Manufacturing Steel' },
-  { value: '2,500+', label: 'Building Packages Supplied' },
-  { value: '96%', label: 'On-Time Order Completion' },
+  { value: '25+', label: 'Years Manufacturing Steel', icon: factoryIcon },
+  { value: '2,500+', label: 'Building Packages Supplied', icon: packageIcon },
+  { value: '96%', label: 'On-Time Order Completion', icon: clockIcon },
 ]
 
 /** Longer stat list used on the About page. */
 export const extendedStats: CompanyStat[] = [
   ...stats,
-  { value: '48-Hour', label: 'Typical Production Turnaround' },
-  { value: '150-Mile', label: 'Regional Delivery Area' },
+  { value: '48-Hour', label: 'Typical Production Turnaround', icon: timerIcon },
+  { value: '150-Mile', label: 'Regional Delivery Area', icon: truckIcon },
 ]
 
 /**
@@ -154,7 +162,7 @@ export const seo = {
   titleSuffix: company.name,
   defaultTitle: `Metal Roofing, Steel Panels & Buildings | ${company.name}`,
   defaultDescription:
-    'ForgeSpan Metals manufactures metal roofing, wall panels, trim, structural components, and complete steel building packages for agricultural, commercial, industrial, and residential projects.',
+    'Frontier Metals manufactures metal roofing, wall panels, trim, structural components, and complete steel building packages for agricultural, commercial, industrial, and residential projects.',
   category: 'Building Materials',
 } as const
 
@@ -180,7 +188,7 @@ export const values: { title: string; body: string }[] = [
 
 /** Company milestones shown on the About page timeline. */
 export const timeline: { year: string; body: string }[] = [
-  { year: '1998', body: 'ForgeSpan begins manufacturing roofing panels and trim' },
+  { year: '1998', body: 'Frontier begins manufacturing roofing panels and trim' },
   { year: '2005', body: 'Wall-panel and agricultural product lines added' },
   { year: '2012', body: 'Structural building-component division established' },
   { year: '2018', body: 'Regional delivery fleet expanded' },

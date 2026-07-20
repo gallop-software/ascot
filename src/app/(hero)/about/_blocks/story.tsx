@@ -8,7 +8,7 @@ import { List, Li } from '@/components/list'
 import { serviceArea } from '@/config'
 import checkIcon from '@iconify/icons-lucide/check'
 
-/** Company narrative: how ForgeSpan grew from panels and trim into full packages. */
+/** Company narrative: how Frontier grew from panels and trim into full packages. */
 export default function Story() {
   return (
     <Section className="bg-body py-20 md:py-28">
@@ -33,7 +33,7 @@ export default function Story() {
             margin="mb-4"
             className="text-pretty"
           >
-            ForgeSpan Metals began as a regional panel and trim operation serving
+            Frontier Metals began as a regional panel and trim operation serving
             contractors, farms, and ranches. Over more than 25 years, the company
             expanded its manufacturing capabilities to include roofing and wall
             panels, custom trim, structural components, and coordinated steel
@@ -45,7 +45,7 @@ export default function Story() {
             margin="mb-0"
             className="text-pretty"
           >
-            Today, ForgeSpan supports agricultural, commercial, industrial, and
+            Today, Frontier supports agricultural, commercial, industrial, and
             residential construction throughout West Texas and neighboring
             regions. Our team combines practical project knowledge with modern
             production equipment to deliver accurate components, dependable lead
@@ -87,7 +87,7 @@ export default function Story() {
         <Column className="lg:col-span-5">
           <Image
             src="/placeholder.png"
-            alt="ForgeSpan Metals operator forming a custom trim piece on a press brake"
+            alt="Frontier Metals operator forming a custom trim piece on a press brake"
             size="large"
             rounded="rounded-none"
             aspect="aspect-[4/5]"

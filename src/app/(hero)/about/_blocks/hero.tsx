@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-body2">
       <Image
         src="/placeholder.png"
-        alt="Roll-forming line running finished metal roofing panels inside the ForgeSpan Metals plant"
+        alt="Roll-forming line running finished metal roofing panels inside the Frontier Metals plant"
         size="full"
         rounded="rounded-none"
         lazy={false}

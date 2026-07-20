@@ -1,5 +1,5 @@
 /**
- * Structured product and marketing content for the ForgeSpan Metals template.
+ * Structured product and marketing content for the Frontier Metals template.
  *
  * Everything here is fictional mock data sized to look believable while staying
  * obviously replaceable. Pages read from these arrays instead of hardcoding
@@ -55,8 +55,8 @@ export interface PanelProfile {
 
 export const PANEL_PROFILES: PanelProfile[] = [
   {
-    slug: 'fs-r36',
-    name: 'FS-R36 Structural Rib Panel',
+    slug: 'pro-rib',
+    name: 'Pro-Rib Panel',
     category: 'Roofing & Wall',
     shortDescription:
       'Exposed-fastener structural rib panel for commercial, agricultural, and pre-engineered buildings.',
@@ -76,16 +76,16 @@ export const PANEL_PROFILES: PanelProfile[] = [
     ],
     image: {
       src: '/placeholder.png',
-      alt: 'FS-R36 structural rib metal roofing panel with 1-1/4 inch ribs on 12 inch centers',
+      alt: 'Pro-Rib structural rib metal roofing panel with 1-1/4 inch ribs on 12 inch centers',
     },
     featured: true,
-    viewerProfile: 'fs-r36',
+    viewerProfile: 'fm-r36',
     relatedProducts: ['long-life-panel-screws', 'ridge-cap', 'foam-closure-strips'],
     fastenerNote: 'Exposed fastener system. Fastener pattern varies by substrate and span.',
   },
   {
-    slug: 'fs-s16',
-    name: 'FS-S16 Standing Seam Panel',
+    slug: 'standing-seam',
+    name: 'Standing Seam Panel',
     category: 'Roofing',
     shortDescription:
       'Concealed-fastener standing seam roofing for commercial and architectural projects.',
@@ -105,16 +105,16 @@ export const PANEL_PROFILES: PanelProfile[] = [
     ],
     image: {
       src: '/placeholder.png',
-      alt: 'FS-S16 standing seam metal roof panel with concealed fasteners and raised seams',
+      alt: 'Standing seam metal roof panel with concealed fasteners and raised seams',
     },
     featured: true,
-    viewerProfile: 'fs-a36',
+    viewerProfile: 'fm-a36',
     relatedProducts: ['long-life-panel-screws', 'butyl-sealant-tape', 'foam-closure-strips'],
     fastenerNote: 'Concealed clip attachment. No exposed fasteners in the roof plane.',
   },
   {
-    slug: 'fs-i40',
-    name: 'FS-I40 Insulated Wall Panel',
+    slug: 'insulated-wall',
+    name: 'Insulated Wall Panel',
     category: 'Wall',
     shortDescription:
       'Insulated sandwich wall panel combining structure, insulation, and finish in one component.',
@@ -134,10 +134,10 @@ export const PANEL_PROFILES: PanelProfile[] = [
     ],
     image: {
       src: '/placeholder.png',
-      alt: 'FS-I40 insulated metal wall panel showing the insulating core between steel faces',
+      alt: 'Insulated metal wall panel showing the insulating core between steel faces',
     },
     featured: true,
-    viewerProfile: 'fs-u36',
+    viewerProfile: 'fm-u36',
     relatedProducts: ['silicone-sealant', 'corner-trim', 'base-trim'],
     fastenerNote: 'Concealed fastener system. Panel thickness selected per project.',
   },
@@ -532,7 +532,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
       alt: 'Ridge ventilation product installed along a metal roof ridge',
     },
     featured: false,
-    relatedProducts: ['ridge-cap', 'foam-closure-strips', 'fs-a36'],
+    relatedProducts: ['ridge-cap', 'foam-closure-strips', 'fm-a36'],
   },
 ]
 
@@ -727,7 +727,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
     ],
     structuralSystems: ['Clear-span rigid frame', 'Modular frame', 'Crane-ready framing'],
     components: [
-      'FS-R36 roof and wall panels',
+      'FM-R36 roof and wall panels',
       'Interior liner panels',
       'Heavy framed openings',
       'Structural framing and bracing',
@@ -753,7 +753,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       {
         question: 'Are heavier gauges available?',
         answer:
-          'FS-R36 is available in 24 gauge in addition to 26 and 29, which is common where added durability is wanted.',
+          'FM-R36 is available in 24 gauge in addition to 26 and 29, which is common where added durability is wanted.',
       },
     ],
     image: {
@@ -777,7 +777,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
     ],
     structuralSystems: ['Rigid frame', 'Post frame compatible', 'Light-gauge framing'],
     components: [
-      'FS-R36 or FS-A36 panels',
+      'FM-R36 or FS-A36 panels',
       'Overhead and walk-door framed openings',
       'Interior liner panels',
       'Trim and closure package',
@@ -827,7 +827,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
     ],
     structuralSystems: ['Clear-span rigid frame', 'Modular frame', 'Canopy framing'],
     components: [
-      'Standing seam or FS-R36 roofing',
+      'Standing seam or FM-R36 roofing',
       'Insulated wall panels',
       'Loading canopy framing',
       'Dock and overhead door openings',
@@ -848,7 +848,7 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       {
         question: 'Can the envelope be insulated?',
         answer:
-          'FS-I40 insulated wall panels combine structure, insulation, and finish in one component, which suits conditioned or temperature-sensitive storage.',
+          'FM-I40 insulated wall panels combine structure, insulation, and finish in one component, which suits conditioned or temperature-sensitive storage.',
       },
       {
         question: 'How are large orders bundled?',
@@ -1180,7 +1180,7 @@ export const PROJECTS: ProjectSummary[] = [
     summary:
       'An equipment workshop combining machinery storage with year-round working space, built from a coordinated panel, trim, and framing package.',
     products: [
-      'FS-R36 roofing panels',
+      'FM-R36 roofing panels',
       'FS-U36 wall panels',
       'Custom trim package',
       'Structural framing components',
@@ -1262,7 +1262,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      'ForgeSpan had every panel, trim piece, and fastener organized by building elevation. That saved our crew hours during installation.',
+      'Frontier had every panel, trim piece, and fastener organized by building elevation. That saved our crew hours during installation.',
     name: 'Daniel Mercer',
     company: 'Mercer Building Systems',
   },
@@ -1274,7 +1274,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      'We use ForgeSpan because we can call someone who understands the project instead of simply taking an order.',
+      'We use Frontier because we can call someone who understands the project instead of simply taking an order.',
     name: 'Wade Bennett',
     company: 'Bennett Ag Construction',
   },

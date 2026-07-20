@@ -16,7 +16,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-body2">
       <Image
         src="/placeholder.png"
-        alt="Stacked metal roofing panels and steel coil stock on the ForgeSpan Metals manufacturing floor"
+        alt="Stacked metal roofing panels and steel coil stock on the Frontier Metals manufacturing floor"
         size="full"
         rounded="rounded-none"
         lazy={false}
@@ -41,7 +41,7 @@ export default function Hero() {
             margin="mb-8"
             className="text-pretty"
           >
-            ForgeSpan Metals manufactures metal roofing, wall panels, trim,
+            Frontier Metals manufactures metal roofing, wall panels, trim,
             structural components, and complete building packages for
             contractors, agricultural operations, businesses, and property
             owners across the region.

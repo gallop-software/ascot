@@ -17,7 +17,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-body2">
       <Image
         src="/placeholder.png"
-        alt="Entrance to the ForgeSpan Metals manufacturing plant and will-call yard"
+        alt="Entrance to the Frontier Metals manufacturing plant and will-call yard"
         size="full"
         rounded="rounded-none"
         lazy={false}

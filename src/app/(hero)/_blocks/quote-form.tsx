@@ -140,7 +140,7 @@ export default function QuoteForm() {
         <Column>
           <Image
             src="/placeholder.png"
-            alt="Steel roofing panels running through a roll-forming line at the ForgeSpan Metals facility"
+            alt="Steel roofing panels running through a roll-forming line at the Frontier Metals facility"
             className="h-auto w-full"
             rounded="rounded-none"
             size="large"

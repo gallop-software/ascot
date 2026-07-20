@@ -399,7 +399,7 @@ export default function AiChat() {
                                         onKeyDown={handleKeyDown}
                                         onFocus={(e) => e.target.select()}
                                         rows={1}
-                                        placeholder="Ask ForgeSpan A.I."
+                                        placeholder="Ask Frontier A.I."
                                         className="scrollbar-hide box-border block w-full resize-none appearance-none rounded-lg bg-body py-4 pl-4 pr-12 text-base leading-6 text-contrast outline outline-2 -outline-offset-1 outline-accent2/25 placeholder:text-contrast/50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-accent2/80 focus:ring-0"
                                       />
                                       <button
@@ -433,7 +433,7 @@ export default function AiChat() {
                                             metal roofing panels, panel
                                             profiles, steel building supplies,
                                             accessories, and how to spec out
-                                            your project with ForgeSpan Metals.
+                                            your project with Frontier Metals.
                                           </p>
                                           <div className="mt-8 flex flex-col gap-3">
                                             {SAMPLE_QUESTIONS.map((q) => (

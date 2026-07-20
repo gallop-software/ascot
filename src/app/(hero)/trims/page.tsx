@@ -21,7 +21,7 @@ function Content() {
 const metadata: PageMetadata = {
   title: `Metal Trims | ${company.name}`,
   description:
-    'Ridge, rake, eave, valley, corner, and base trim formed from the same coil as ForgeSpan panels, plus custom flashing formed to the condition.',
+    'Ridge, rake, eave, valley, corner, and base trim formed from the same coil as Frontier panels, plus custom flashing formed to the condition.',
   slug: 'trims',
   keywords: [
     'metal roof trim',

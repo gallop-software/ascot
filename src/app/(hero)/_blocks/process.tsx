@@ -29,7 +29,7 @@ export default function Process() {
         <Column className="lg:col-span-2">
           <Image
             src="/placeholder.png"
-            alt="Roll-forming line shaping a steel coil into ribbed roofing panels at the ForgeSpan plant"
+            alt="Roll-forming line shaping a steel coil into ribbed roofing panels at the Frontier plant"
             size="large"
             rounded="rounded-none"
             className="h-auto w-full"

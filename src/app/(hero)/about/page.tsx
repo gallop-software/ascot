@@ -24,18 +24,18 @@ function PageBody() {
 }
 
 const metadata: PageMetadata = {
-  title: `About ForgeSpan Metals | Steel Manufacturing Since ${company.founded}`,
+  title: `About Frontier Metals | Steel Manufacturing Since ${company.founded}`,
   description:
-    'ForgeSpan Metals has manufactured metal roofing, wall panels, trim, and structural components since 1998, supporting construction across West Texas and neighboring regions.',
+    'Frontier Metals has manufactured metal roofing, wall panels, trim, and structural components since 1998, supporting construction across West Texas and neighboring regions.',
   slug: 'about',
-  focusKeyword: 'about ForgeSpan Metals',
+  focusKeyword: 'about Frontier Metals',
   publishDate: '2026-07-15T00:00:00Z',
   modifiedDate: '2026-07-15T00:00:00Z',
   alternates: { canonical: '/about' },
   openGraph: {
     image: {
       url: '/placeholder.png',
-      alt: 'Roll-forming line running finished metal roofing panels inside the ForgeSpan Metals plant',
+      alt: 'Roll-forming line running finished metal roofing panels inside the Frontier Metals plant',
     },
   },
   structuredData: [
@@ -44,7 +44,7 @@ const metadata: PageMetadata = {
       '@type': 'AboutPage',
       name: `About ${company.name}`,
       description:
-        'The history, values, and manufacturing capabilities of ForgeSpan Metals.',
+        'The history, values, and manufacturing capabilities of Frontier Metals.',
       url: `${baseURL}/about`,
       mainEntity: { '@id': businessId },
     },

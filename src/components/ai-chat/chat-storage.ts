@@ -12,8 +12,8 @@ export type StoredChat = {
   updatedAt: number
 }
 
-const CHATS_KEY = 'forgespan-ai-chats'
-const ACTIVE_KEY = 'forgespan-ai-active-chat'
+const CHATS_KEY = 'frontier-ai-chats'
+const ACTIVE_KEY = 'frontier-ai-active-chat'
 
 // Cap on how many conversations are kept in local storage. When exceeded,
 // the oldest chats (by updatedAt) are dropped first.

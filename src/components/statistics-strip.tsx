@@ -4,6 +4,7 @@ import { clsx } from 'clsx'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import type { CompanyStat } from '@/config'
+import { Icon } from '@/components/icon'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
 
@@ -117,23 +118,33 @@ export function StatisticsStrip({
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="flex flex-col gap-y-2"
+          className="flex items-center gap-4"
         >
-          <dd className="order-1">
-            <AnimatedValue
-              value={stat.value}
-              start={inView}
-              dark={dark}
-            />
-          </dd>
-          <dt className="order-2">
-            <Paragraph
-              color={dark ? 'text-accent3' : 'text-contrast-light'}
-              margin="mb-0"
-            >
-              {stat.label}
-            </Paragraph>
-          </dt>
+          {stat.icon && (
+            <span className="flex size-12 flex-none items-center justify-center rounded-full bg-accent text-accent-contrast">
+              <Icon
+                icon={stat.icon}
+                className="h-6 w-6"
+              />
+            </span>
+          )}
+          <div className="flex flex-col">
+            <dd>
+              <AnimatedValue
+                value={stat.value}
+                start={inView}
+                dark={dark}
+              />
+            </dd>
+            <dt>
+              <Paragraph
+                color={dark ? 'text-accent3' : 'text-contrast-light'}
+                margin="mb-0"
+              >
+                {stat.label}
+              </Paragraph>
+            </dt>
+          </div>
         </div>
       ))}
     </dl>
