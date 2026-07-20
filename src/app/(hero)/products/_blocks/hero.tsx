@@ -28,7 +28,7 @@ export default function Hero() {
           items={[{ label: 'Home', href: '/' }, { label: 'Products' }]}
         />
 
-        <div className="max-w-3xl border-l-2 border-accent pl-6 sm:pl-8">
+        <div className="max-w-3xl">
           <Heading
             as="h2"
             margin="mb-4"

@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
 
       <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
-        <div className="max-w-3xl border-l-2 border-accent pl-6 sm:pl-8">
+        <div className="max-w-3xl">
           <Heading
             as="h1"
             color="text-contrast"

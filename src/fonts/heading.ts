@@ -1,7 +1,7 @@
-import { Archivo } from 'next/font/google'
+import { Oswald } from 'next/font/google'
 
-// Compact, architectural grotesque for headings, eyebrows, and spec labels.
-export const headingFont = Archivo({
+// Condensed industrial display face for headings, eyebrows, and spec labels.
+export const headingFont = Oswald({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
