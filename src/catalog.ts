@@ -62,7 +62,8 @@ export const PANEL_PROFILES: PanelProfile[] = [
       'Exposed-fastener structural rib panel for commercial, agricultural, and pre-engineered buildings.',
     description:
       'A durable exposed-fastener panel designed for commercial, agricultural, and pre-engineered metal building applications.',
-    bestFor: 'Best for roof, wall, and liner applications',
+    bestFor:
+      'Best for roof, wall, and liner applications where an exposed-fastener structural rib is the durable, economical choice — it installs quickly over open framing or solid decking and suits agricultural, commercial, and utility builds alike.',
     applications: ['Roof', 'Wall', 'Liner'],
     substrates: ['Open framing', 'Solid decking'],
     gauges: ['24 ga.', '26 ga.', '29 ga.'],
@@ -90,7 +91,8 @@ export const PANEL_PROFILES: PanelProfile[] = [
       'Concealed-fastener standing seam roofing for commercial and architectural projects.',
     description:
       'A concealed-fastener standing seam roof panel for commercial, architectural, and residential projects where a clean roof plane and hidden fasteners are preferred.',
-    bestFor: 'Best for concealed-fastener roofing',
+    bestFor:
+      'Best for concealed-fastener roofing on commercial and architectural projects that call for a clean, uninterrupted roof plane with the fasteners hidden from view and weather.',
     applications: ['Roof'],
     substrates: ['Solid decking', 'Open framing with clips'],
     gauges: ['24 ga.', '26 ga.'],
@@ -106,6 +108,7 @@ export const PANEL_PROFILES: PanelProfile[] = [
       alt: 'FS-S16 standing seam metal roof panel with concealed fasteners and raised seams',
     },
     featured: true,
+    viewerProfile: 'fs-a36',
     relatedProducts: ['long-life-panel-screws', 'butyl-sealant-tape', 'foam-closure-strips'],
     fastenerNote: 'Concealed clip attachment. No exposed fasteners in the roof plane.',
   },
@@ -117,7 +120,8 @@ export const PANEL_PROFILES: PanelProfile[] = [
       'Insulated sandwich wall panel combining structure, insulation, and finish in one component.',
     description:
       'An insulated wall panel that combines an exterior face, insulating core, and interior face in a single component for temperature-sensitive and conditioned buildings.',
-    bestFor: 'Best for conditioned and temperature-sensitive buildings',
+    bestFor:
+      'Best for conditioned and temperature-sensitive buildings, where an insulated panel helps manage energy use and condensation while closing in the structure in a single pass.',
     applications: ['Wall'],
     substrates: ['Structural framing'],
     gauges: ['26 ga. faces'],
@@ -125,14 +129,15 @@ export const PANEL_PROFILES: PanelProfile[] = [
     specs: [
       { label: 'Coverage', value: '40"' },
       { label: 'Panel Thickness', value: '2" – 4"' },
-      { label: 'Attachment', value: 'Concealed fastener' },
-      { label: 'Core', value: 'Insulating foam core' },
+      { label: 'Attachment', value: 'Concealed' },
+      { label: 'Core', value: 'Insulating foam' },
     ],
     image: {
       src: '/placeholder.png',
       alt: 'FS-I40 insulated metal wall panel showing the insulating core between steel faces',
     },
     featured: true,
+    viewerProfile: 'fs-u36',
     relatedProducts: ['silicone-sealant', 'corner-trim', 'base-trim'],
     fastenerNote: 'Concealed fastener system. Panel thickness selected per project.',
   },
@@ -213,7 +218,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     title: 'Complete Building Packages',
     description:
       'Coordinated steel packages for shops, barns, warehouses, garages, and commercial facilities.',
-    href: '/building-systems',
+    href: '/buildings',
     image: {
       src: '/placeholder.png',
       alt: 'Completed commercial metal building with matching roof and wall panels',
@@ -569,7 +574,18 @@ export const PANEL_COLORS: PanelColor[] = [
   { name: 'Copper Brown', hex: '#755243' },
   { name: 'Forest Green', hex: '#304A3B' },
   { name: 'Evergreen', hex: '#263F34' },
+  { name: 'Patina Green', hex: '#5F7A63' },
   { name: 'Colonial Blue', hex: '#3E5765' },
+  { name: 'Slate Blue', hex: '#45586A' },
+  { name: 'Hawaiian Blue', hex: '#4E7A8C' },
+  { name: 'Ivory', hex: '#EDE6D5' },
+  { name: 'Almond', hex: '#DCC9A6' },
+  { name: 'Clay', hex: '#B4A184' },
+  { name: 'Buckskin', hex: '#9C8560' },
+  { name: 'Mocha Tan', hex: '#7B6A54' },
+  { name: 'Cocoa Brown', hex: '#4D3F37' },
+  { name: 'Brite Red', hex: '#9E2B25' },
+  { name: 'Silver Metallic', hex: '#A7ACAF' },
   { name: 'Galvalume', hex: '#B9BEC0' },
 ]
 
@@ -901,7 +917,7 @@ export function getBuildingSystem(slug: string): BuildingSystem | undefined {
   return BUILDING_SYSTEMS.find((b) => b.slug === slug)
 }
 
-/** Building types listed on the homepage building-systems section. */
+/** Building types listed on the homepage buildings section. */
 export const BUILDING_TYPES = [
   'Agricultural Buildings',
   'Equipment Shops',

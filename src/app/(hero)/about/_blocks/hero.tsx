@@ -2,7 +2,6 @@ import { Container } from '@/components/container'
 import { Image } from '@/components/image'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
-import { Span } from '@/components/span'
 import { Buttons } from '@/components/buttons'
 import { Button } from '@/components/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -23,23 +22,19 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
 
-      <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-64 lg:pb-36">
+      <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
         <Breadcrumbs
           className="mb-8"
           items={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         />
 
         <div className="max-w-3xl border-l-2 border-accent pl-6 sm:pl-8">
-          <Span
-            fontFamily="font-heading2"
-            fontSize="text-sm"
-            fontWeight="font-semibold"
-            color="text-accent"
+          <Heading
+            as="h2"
             margin="mb-4"
-            className="uppercase tracking-[0.2em]"
           >
             About {company.shortName}
-          </Span>
+          </Heading>
 
           <Heading
             as="h1"

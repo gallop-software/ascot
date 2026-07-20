@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
-import { SectionHeading } from '@/components/section-heading'
+import { ArrowLink } from '@/components/arrow-link'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
@@ -19,14 +19,20 @@ export default function Trims() {
   return (
     <Section
       id="trims"
-      className="bg-body2 py-20 md:py-28"
+      className="bg-body py-20 md:py-28"
     >
-      <SectionHeading
-        eyebrow="Matching Trim"
-        heading="Trims Formed to the Profile"
-        intro="Ridge, rake, eave, corner, and base conditions formed from the same coil as the panels, plus custom flashing for anything a standard piece does not cover."
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">Matching Trim</Heading>
+        <Heading as="h3">Trims Formed to the Profile</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Ridge, rake, eave, corner, and base conditions formed from the same
+          coil as the panels, plus custom flashing for anything a standard piece
+          does not cover.
+        </Paragraph>
+      </div>
 
       <Grid
         cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -36,7 +42,7 @@ export default function Trims() {
         {TRIM_PRODUCTS.map((trim) => (
           <article
             key={trim.slug}
-            className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-colors duration-200 hover:border-accent4 focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-dark"
+            className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-shadow duration-200 hover:shadow-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark"
           >
             <div className="overflow-hidden border-b border-accent3-dark">
               <Image
@@ -51,12 +57,7 @@ export default function Trims() {
 
             <div className="flex flex-1 flex-col p-6">
               <Heading
-                as="h3"
-                fontSize="text-lg"
-                fontWeight="font-bold"
-                letterSpacing="tracking-tight"
-                lineHeight="leading-tight"
-                color="text-contrast"
+                as="h4"
                 margin="mb-2"
               >
                 <Link
@@ -77,14 +78,14 @@ export default function Trims() {
               </Paragraph>
 
               <Span
-                fontFamily="font-heading2"
                 fontSize="text-sm"
-                fontWeight="font-semibold"
-                color="text-accent-dark"
-                className="uppercase tracking-[0.16em]"
+                color="text-contrast-light"
+                margin="mb-5"
               >
                 {trim.applications.join(' · ')}
               </Span>
+
+              <ArrowLink>{`View ${trim.name}`}</ArrowLink>
             </div>
           </article>
         ))}
@@ -93,6 +94,7 @@ export default function Trims() {
       <Buttons margin="mt-0 mb-0">
         <Button
           href="/trims"
+          variant="outline"
           size="medium"
           className="max-sm:w-full"
         >

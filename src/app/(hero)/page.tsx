@@ -9,7 +9,6 @@ import Products from './_blocks/products'
 import Panels from './_blocks/panels'
 import Buildings from './_blocks/buildings'
 import Process from './_blocks/process'
-import Contractors from './_blocks/contractors'
 import Testimonials from './_blocks/testimonials'
 import Cta from './_blocks/cta'
 import QuoteForm from './_blocks/quote-form'
@@ -23,7 +22,6 @@ function Content() {
       <Panels />
       <Buildings />
       <Process />
-      <Contractors />
       <Testimonials />
       <Cta />
       <QuoteForm />

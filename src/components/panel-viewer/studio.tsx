@@ -12,7 +12,6 @@ import { PANEL_PROFILES, type PanelProfileId } from './profiles'
 
 interface PanelStudioProps {
   profile: PanelProfileId
-  specs: { label: string; value: string }[]
 }
 
 /**
@@ -21,13 +20,13 @@ interface PanelStudioProps {
  * dimension callouts, and the full finish chart. This is where the detailed
  * controls live, keeping the homepage card uncluttered.
  */
-export function PanelStudio({ profile, specs }: PanelStudioProps) {
+export function PanelStudio({ profile }: PanelStudioProps) {
   const snap = useSnapshot(state)
   const spec = PANEL_PROFILES[profile]
   const [wire, setWire] = useState(false)
   const [purlin, setPurlin] = useState(spec.defaultPurlin)
   const [showDimensions, setShowDimensions] = useState(true)
-  const [preset, setPreset] = useState<ViewPreset>('iso')
+  const [preset, setPreset] = useState<ViewPreset>('front')
   // Start at 1 so the default preset is applied on mount, keeping the camera
   // in sync with the selected option (rather than the plain front framing).
   const [presetNonce, setPresetNonce] = useState(1)
@@ -38,7 +37,7 @@ export function PanelStudio({ profile, specs }: PanelStudioProps) {
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_20rem]">
+    <div className="flex flex-col gap-8">
       {/* Stage */}
       <div className="relative h-[42vh] min-h-64 overflow-hidden rounded-xl bg-body2 ring-1 ring-inset ring-body-dark/50 sm:h-[55vh] sm:min-h-80 lg:h-[60vh] lg:min-h-100">
         <PanelStage
@@ -61,77 +60,52 @@ export function PanelStudio({ profile, specs }: PanelStudioProps) {
       </div>
 
       {/* Controls */}
-      <div className="flex flex-col gap-6">
-        <ControlGroup title="View">
-          <Segmented
-            options={[
-              { label: 'Solid', value: 'solid' },
-              { label: 'Wireframe', value: 'wire' },
-            ]}
-            value={wire ? 'wire' : 'solid'}
-            onChange={(v) => setWire(v === 'wire')}
-          />
-          <SwitchRow
-            label="Dimensions"
-            checked={showDimensions}
-            onChange={() => setShowDimensions((v) => !v)}
-          />
-        </ControlGroup>
-
-        <ControlGroup title="Camera">
-          <Segmented
-            options={[
-              { label: 'Front', value: 'front' },
-              { label: 'Iso', value: 'iso' },
-              { label: 'Top', value: 'top' },
-            ]}
-            value={preset}
-            onChange={(v) => applyPreset(v as ViewPreset)}
-          />
-        </ControlGroup>
-
-        {spec.hasVariant && (
-          <ControlGroup title="Profile variant">
+      <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+        <div className="flex flex-col gap-6">
+          <ControlGroup title="View">
             <Segmented
               options={[
-                { label: spec.baseLabel, value: 'base' },
-                { label: spec.purlinLabel, value: 'purlin' },
+                { label: 'Solid', value: 'solid' },
+                { label: 'Wireframe', value: 'wire' },
               ]}
-              value={purlin ? 'purlin' : 'base'}
-              onChange={(v) => setPurlin(v === 'purlin')}
+              value={wire ? 'wire' : 'solid'}
+              onChange={(v) => setWire(v === 'wire')}
+            />
+            <SwitchRow
+              label="Dimensions"
+              checked={showDimensions}
+              onChange={() => setShowDimensions((v) => !v)}
             />
           </ControlGroup>
-        )}
+
+          <ControlGroup title="Camera">
+            <Segmented
+              options={[
+                { label: 'Front', value: 'front' },
+                { label: 'Iso', value: 'iso' },
+                { label: 'Top', value: 'top' },
+              ]}
+              value={preset}
+              onChange={(v) => applyPreset(v as ViewPreset)}
+            />
+          </ControlGroup>
+
+          {spec.hasVariant && (
+            <ControlGroup title="Profile variant">
+              <Segmented
+                options={[
+                  { label: spec.baseLabel, value: 'base' },
+                  { label: spec.purlinLabel, value: 'purlin' },
+                ]}
+                value={purlin ? 'purlin' : 'base'}
+                onChange={(v) => setPurlin(v === 'purlin')}
+              />
+            </ControlGroup>
+          )}
+        </div>
 
         <ControlGroup title="Finish">
           <ColorSwatches />
-        </ControlGroup>
-
-        <ControlGroup title="Specifications">
-          <dl className="grid grid-cols-2 gap-x-4 gap-y-2">
-            {specs.map((s) => (
-              <div key={s.label}>
-                <dt>
-                  <Label
-                    color="text-contrast-light"
-                    fontSize="text-xs"
-                    margin="mb-0.5"
-                  >
-                    {s.label}
-                  </Label>
-                </dt>
-                <dd>
-                  <Span
-                    color="text-contrast"
-                    fontSize="text-sm"
-                    className="font-medium"
-                  >
-                    {s.value}
-                  </Span>
-                </dd>
-              </div>
-            ))}
-          </dl>
         </ControlGroup>
       </div>
     </div>
@@ -194,7 +168,7 @@ function Segmented({
               'flex-1 cursor-pointer rounded-md px-3 py-2 text-sm transition-colors',
               active
                 ? 'bg-body font-semibold text-accent shadow-sm ring-1 ring-inset ring-body-dark/40'
-                : 'font-medium text-contrast-light hover:bg-body/50 hover:text-contrast',
+                : 'font-medium text-contrast-light hover:bg-body/50 hover:text-contrast'
             )}
           >
             {option.label}
@@ -227,7 +201,7 @@ function SwitchRow({
         className={clsx(
           'relative h-6 w-11 rounded-full bg-body-dark transition-colors peer-checked:bg-accent',
           'after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full',
-          'after:bg-body after:shadow-sm after:transition-transform peer-checked:after:translate-x-5',
+          'after:bg-body after:shadow-sm after:transition-transform peer-checked:after:translate-x-5'
         )}
       />
       <Span

@@ -34,7 +34,7 @@ it in sync with `src/config.ts` and `src/catalog.ts`.
 
 ## Buildings
 
-- [Buildings](/building-systems): Complete steel building packages for agricultural, commercial, industrial, shop, warehouse, and storage projects.
+- [Buildings](/buildings): Complete steel building packages for agricultural, commercial, industrial, shop, warehouse, and storage projects.
 
 ## Other
 

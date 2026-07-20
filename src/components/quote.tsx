@@ -34,19 +34,20 @@ export function Quote({
   children,
   ...props
 }: QuoteProps) {
-  // Define font size and font weight presets for variants - larger than paragraph
+  // Size presets only — otherwise the quote matches normal paragraph styling
+  // (body font, upright, normal weight) rather than a stylised pull-quote.
   const variantClasses = {
-    default: 'text-xl/normal font-semibold',
-    large: 'text-2xl/normal font-semibold sm:text-2xl/normal',
-    small: 'text-lg/normal font-medium',
+    default: 'text-xl/normal',
+    large: 'text-2xl/normal sm:text-2xl/normal',
+    small: 'text-lg/normal',
   }
 
   // Use user-defined values if provided, otherwise use defaults
   const finalFontSize = fontSize || variantClasses[variant]
   const finalColor = color || 'text-contrast-light'
-  const finalFontFamily = fontFamily || 'font-heading' // no default font family
-  const finalFontWeight = fontWeight || '' // no default font weight (handled by variant)
-  const finalFontStyle = fontStyle || 'italic' // default to italic for quotes
+  const finalFontFamily = fontFamily || '' // inherit body font, like Paragraph
+  const finalFontWeight = fontWeight || 'font-normal' // match Paragraph weight
+  const finalFontStyle = fontStyle || '' // upright, like Paragraph
   const finalTextAlign = textAlign || '' // no default text alignment
   const finalMargin = margin || 'mb-8'
 

@@ -23,7 +23,7 @@ export function ColorSwatches({ className }: ColorSwatchesProps) {
   return (
     <div
       className={clsx(
-        'grid grid-cols-[repeat(auto-fill,minmax(2.75rem,1fr))] gap-3',
+        'grid grid-cols-[repeat(auto-fill,minmax(3.75rem,1fr))] gap-3',
         className,
       )}
     >

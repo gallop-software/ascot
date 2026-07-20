@@ -11,6 +11,8 @@ import type { TrimContent } from './data'
 
 interface TrimViewerProps {
   trim: TrimContent
+  /** Aspect ratio of the preview frame. */
+  aspect?: string
   className?: string
 }
 
@@ -19,7 +21,11 @@ interface TrimViewerProps {
  * formed cross-section. Trims not yet modelled (`available: false`) show a
  * neutral placeholder so the catalog stays complete.
  */
-export function TrimViewer({ trim, className }: TrimViewerProps) {
+export function TrimViewer({
+  trim,
+  aspect = 'aspect-[5/3]',
+  className,
+}: TrimViewerProps) {
   // No triggerOnce: the WebGL canvas mounts when near the viewport and unmounts
   // when scrolled well away, freeing its GPU context. Browsers cap live WebGL
   // contexts (~16), so with a full trim catalog only the handful on screen stay
@@ -34,12 +40,9 @@ export function TrimViewer({ trim, className }: TrimViewerProps) {
       ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={clsx(
-        'relative overflow-hidden rounded-lg bg-body2 ring-1 ring-inset ring-body-dark/50',
-        className,
-      )}
+      className={clsx('relative overflow-hidden bg-body2/50', className)}
     >
-      <div className="aspect-[5/3] w-full">
+      <div className={clsx('w-full', aspect)}>
         {trim.available ? (
           inView && (
             <TrimStage

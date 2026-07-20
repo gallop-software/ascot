@@ -61,12 +61,12 @@ export const mapHref = `https://maps.google.com/?q=${encodeURIComponent(
 )}`
 
 export const contact = {
-  phone: '(325) 555-0186',
+  phone: '(123) 456-7890',
   /** E.164 for tel: links and schema.org. */
-  phoneHref: 'tel:+13255550186',
-  phoneSchema: '+1-325-555-0186',
-  email: 'sales@forgespanmetals.com',
-  emailHref: 'mailto:sales@forgespanmetals.com',
+  phoneHref: 'tel:+11234567890',
+  phoneSchema: '+1-123-456-7890',
+  email: 'sales@forgespan.com',
+  emailHref: 'mailto:sales@forgespan.com',
   addressLine,
   addressMultiline,
   mapHref,
@@ -98,6 +98,14 @@ export const hoursSummary = 'Mon–Sat 8–5'
 export const serviceArea = {
   summary:
     'West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets.',
+  /** Granular list for check-style display (see the About story block). */
+  areas: [
+    'West Texas',
+    'Texas Panhandle',
+    'Eastern New Mexico',
+    'Western Oklahoma',
+    'Surrounding regional markets',
+  ],
   /** Drives schema.org areaServed. */
   regions: [
     { type: 'State' as const, name: 'Texas' },
@@ -112,8 +120,7 @@ export const serviceArea = {
  * Marketing statistics. Believable but fictional — replace per customer.
  */
 export const stats: CompanyStat[] = [
-  { value: '25+', label: 'Years Manufacturing Steel Products' },
-  { value: '30', label: 'Standard Panel Colors' },
+  { value: '25+', label: 'Years Manufacturing Steel' },
   { value: '2,500+', label: 'Building Packages Supplied' },
   { value: '96%', label: 'On-Time Order Completion' },
 ]
@@ -135,7 +142,7 @@ export const socialLinks: { name: string; href: string }[] = []
 export const cta = {
   quote: { label: 'Request a Quote', href: '/#quote' },
   products: { label: 'Explore Our Products', href: '/products' },
-  buildings: { label: 'Explore Buildings', href: '/building-systems' },
+  buildings: { label: 'Explore Buildings', href: '/buildings' },
   contractor: { label: 'Open a Contractor Account', href: '/#quote' },
   sales: { label: 'Talk With Sales', href: contact.phoneHref },
   call: { label: `Call ${contact.phone}`, href: contact.phoneHref },

@@ -9,6 +9,8 @@ export interface ProcessStepsProps {
   steps: ProcessStep[]
   /** Render for placement on a dark (accent2 / navy) surface. */
   dark?: boolean
+  /** Responsive grid-column classes for the step tiles. */
+  cols?: string
   className?: string
 }
 
@@ -19,6 +21,7 @@ export interface ProcessStepsProps {
 export function ProcessSteps({
   steps,
   dark = false,
+  cols = 'md:grid-cols-2 lg:grid-cols-4',
   className,
 }: ProcessStepsProps) {
   if (steps.length === 0) return null
@@ -31,7 +34,8 @@ export function ProcessSteps({
       margin="mb-0"
       gap="gap-0"
       className={clsx(
-        'grid-cols-1 border-t md:grid-cols-2 lg:grid-cols-4 lg:border-t-0 lg:border-l',
+        'grid-cols-1 border-t',
+        cols,
         dark ? 'border-accent4-dark' : 'border-accent3-dark',
         className
       )}
@@ -40,7 +44,7 @@ export function ProcessSteps({
         <Li
           key={step.step}
           className={clsx(
-            'flex flex-col border-b px-6 py-8 lg:border-r lg:border-b-0',
+            'flex flex-col border-b px-6 py-8',
             dark ? 'border-accent4-dark' : 'border-accent3-dark'
           )}
         >
@@ -57,12 +61,8 @@ export function ProcessSteps({
           </Span>
 
           <Heading
-            as="h3"
-            fontSize="text-lg"
-            fontWeight="font-bold"
-            letterSpacing="tracking-tight"
-            lineHeight="leading-tight"
-            color={dark ? 'text-overlay-text' : 'text-contrast'}
+            as="h4"
+            color={dark ? 'text-overlay-text' : undefined}
             margin="mb-2"
           >
             {step.title}

@@ -1,21 +1,51 @@
-import { CTASection } from '@/components/cta-section'
+import { Section } from '@/components/section'
+import { Heading } from '@/components/heading'
+import { Paragraph } from '@/components/paragraph'
+import { Buttons } from '@/components/buttons'
+import { Button } from '@/components/button'
 import { cta } from '@/config'
 
-/**
- * CTASection renders its own Section (with the dark scrim over the background
- * image) — it must not be wrapped in Section/Container here.
- */
 export default function Cta() {
   return (
-    <CTASection
-      heading="Ready to Price Your Next Steel Project?"
-      body="Send us your material list, measurements, plans, or project details. Our team will help identify the right products and prepare a clear quote."
-      primaryCta={cta.quote}
-      secondaryCta={cta.call}
-      image={{
-        src: '/placeholder.png',
-        alt: 'Steel coil and formed panel bundles staged in the ForgeSpan Metals yard',
-      }}
-    />
+    <Section
+      imageSrc="/placeholder.png"
+      imageAlt=""
+      overlayColor="bg-accent2/88"
+      className="py-20 lg:py-28"
+    >
+      <Heading
+        as="h3"
+        color="text-overlay-text"
+        margin="mb-4"
+      >
+        Ready to Price Your Next Steel Project?
+      </Heading>
+      <Paragraph
+        variant="large"
+        color="text-accent3"
+        margin="mb-8"
+        className="max-w-2xl text-pretty"
+      >
+        Send us your material list, measurements, plans, or project details. Our
+        team will help identify the right products and prepare a clear quote.
+      </Paragraph>
+      <Buttons margin="mt-0 mb-0">
+        <Button
+          href={cta.quote.href}
+          size="medium"
+          dark
+        >
+          {cta.quote.label}
+        </Button>
+        <Button
+          href={cta.call.href}
+          variant="outline"
+          size="medium"
+          dark
+        >
+          {cta.call.label}
+        </Button>
+      </Buttons>
+    </Section>
   )
 }

@@ -1,9 +1,7 @@
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
-import { SectionHeading } from '@/components/section-heading'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
-import { Span } from '@/components/span'
 import { Image } from '@/components/image'
 import { STRUCTURAL_COMPONENTS, ACCESSORY_PRODUCTS, type Product } from '@/catalog'
 
@@ -31,12 +29,7 @@ function ProductCard({ product }: { product: Product }) {
 
       <div className="flex flex-1 flex-col p-6">
         <Heading
-          as="h3"
-          fontSize="text-lg"
-          fontWeight="font-bold"
-          letterSpacing="tracking-tight"
-          lineHeight="leading-tight"
-          color="text-contrast"
+          as="h4"
           margin="mb-2"
         >
           {product.name}
@@ -45,21 +38,10 @@ function ProductCard({ product }: { product: Product }) {
         <Paragraph
           fontSize="text-base"
           color="text-contrast-light"
-          margin="mb-4"
-          className="flex-1"
+          margin="mb-0"
         >
           {product.shortDescription}
         </Paragraph>
-
-        <Span
-          fontFamily="font-heading2"
-          fontSize="text-sm"
-          fontWeight="font-semibold"
-          color="text-accent-dark"
-          className="uppercase tracking-[0.16em]"
-        >
-          {product.applications.join(' · ')}
-        </Span>
       </div>
     </article>
   )
@@ -72,12 +54,17 @@ export default function Products() {
       id="products"
       className="bg-body py-20 md:py-28"
     >
-      <SectionHeading
-        eyebrow="Full Line"
-        heading="Products We Manufacture"
-        intro="Structural framing, fasteners, closures, and accessories — produced to the approved order and bundled with the rest of your package."
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">Full Line</Heading>
+        <Heading as="h3">Products We Manufacture</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Structural framing, fasteners, closures, and accessories — produced to
+          the approved order and bundled with the rest of your package.
+        </Paragraph>
+      </div>
 
       <Grid
         cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"

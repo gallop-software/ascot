@@ -1,6 +1,6 @@
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
-import { SectionHeading } from '@/components/section-heading'
+import { Heading } from '@/components/heading'
 import { TestimonialCard } from '@/components/testimonial-card'
 import { TESTIMONIALS } from '@/catalog'
 
@@ -8,14 +8,17 @@ export default function Testimonials() {
   return (
     <Section
       id="testimonials"
-      className="bg-accent2 py-20 md:py-28"
+      className="bg-body py-20 md:py-28"
     >
-      <SectionHeading
-        eyebrow="What Customers Say"
-        heading="Trusted by the Crews Doing the Work"
-        dark
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">What Customers Say</Heading>
+        <Heading
+          as="h3"
+          margin="mb-0"
+        >
+          Trusted by the Crews Doing the Work
+        </Heading>
+      </div>
 
       <Grid
         cols="grid-cols-1 lg:grid-cols-3"
@@ -25,7 +28,6 @@ export default function Testimonials() {
           <TestimonialCard
             key={testimonial.name}
             testimonial={testimonial}
-            dark
           />
         ))}
       </Grid>

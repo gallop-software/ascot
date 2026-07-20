@@ -24,19 +24,8 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
 
-      <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-64 lg:pb-36">
+      <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
         <div className="max-w-3xl border-l-2 border-accent pl-6 sm:pl-8">
-          <Span
-            fontFamily="font-heading2"
-            fontSize="text-sm"
-            fontWeight="font-semibold"
-            color="text-accent"
-            margin="mb-4"
-            className="uppercase tracking-[0.2em]"
-          >
-            Regional Steel Manufacturing &amp; Building Supply
-          </Span>
-
           <Heading
             as="h1"
             color="text-contrast"
@@ -92,7 +81,7 @@ export default function Hero() {
               >
                 <Span
                   color="text-contrast-light"
-                  fontSize="text-sm"
+                  fontSize="text-base"
                   fontWeight="font-medium"
                 >
                   {point}

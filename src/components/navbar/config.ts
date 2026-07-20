@@ -37,10 +37,17 @@ export const links: NavLink[] = [
     ],
   },
   { href: '/trims', label: 'Trims' },
-  { href: '/building-systems', label: 'Buildings' },
   { href: '/products', label: 'Products' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/buildings', label: 'Buildings' },
+  {
+    href: '/about',
+    label: 'Company',
+    dropdown: true,
+    children: [
+      { href: '/about', label: 'About' },
+      { href: '/contact', label: 'Contact' },
+    ],
+  },
 ]
 
 /**

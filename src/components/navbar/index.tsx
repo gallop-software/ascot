@@ -55,7 +55,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
         </button>
         <Link
           href={quoteLink}
-          className="flex items-center rounded-r-sm bg-accent-dark px-8 font-body text-base font-medium tracking-wide text-accent-contrast transition-colors duration-200 hover:bg-accent"
+          className="flex items-center rounded-r-sm bg-accent-dark px-8 font-body text-base font-medium tracking-wide text-accent-contrast transition-colors duration-200 hover:bg-accent-dark/80"
         >
           {quoteLabel}
         </Link>

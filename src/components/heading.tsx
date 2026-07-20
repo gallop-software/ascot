@@ -67,7 +67,7 @@ export function Heading({
           letterSpacing: 'tracking-tight',
           lineHeight: 'leading-tight',
           textWrap: 'text-balance',
-          textTransform: '',
+          textTransform: 'uppercase',
           fontFamily: 'font-heading',
           color: 'text-contrast',
           margin: 'mb-8',
@@ -76,7 +76,7 @@ export function Heading({
         return {
           fontSize: 'text-base',
           fontWeight: 'font-bold',
-          letterSpacing: 'tracking-wider',
+          letterSpacing: 'tracking-wide',
           lineHeight: 'leading-normal',
           textWrap: '',
           textTransform: 'uppercase',

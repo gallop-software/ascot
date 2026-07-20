@@ -24,11 +24,11 @@ const metadata: PageMetadata = {
   title: `Steel Buildings & Complete Packages | ${company.name}`,
   description:
     'Coordinated steel building packages for agricultural, commercial, industrial, warehouse, shop, and storage projects — panels, trim, structural framing, and accessories supplied together.',
-  slug: 'building-systems',
+  slug: 'buildings',
   focusKeyword: 'steel buildings',
   publishDate: '2026-07-15T00:00:00Z',
   modifiedDate: '2026-07-15T00:00:00Z',
-  alternates: { canonical: '/building-systems' },
+  alternates: { canonical: '/buildings' },
   openGraph: {
     image: {
       url: '/placeholder.png',
@@ -42,7 +42,7 @@ const metadata: PageMetadata = {
       name: 'Steel Buildings',
       description:
         'Complete steel building packages and the components that make them up.',
-      url: `${baseURL}/building-systems`,
+      url: `${baseURL}/buildings`,
       about: { '@id': businessId },
       mainEntity: {
         '@type': 'ItemList',
@@ -50,7 +50,7 @@ const metadata: PageMetadata = {
           '@type': 'ListItem',
           position: index + 1,
           name: system.name,
-          url: `${baseURL}/building-systems#${system.slug}`,
+          url: `${baseURL}/buildings#${system.slug}`,
         })),
       },
     },
@@ -63,7 +63,7 @@ const metadata: PageMetadata = {
           '@type': 'ListItem',
           position: 2,
           name: 'Buildings',
-          item: `${baseURL}/building-systems`,
+          item: `${baseURL}/buildings`,
         },
       ],
     },

@@ -2,7 +2,7 @@ import { Section } from '@/components/section'
 import { List, Li } from '@/components/list'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
-import { SectionHeading } from '@/components/section-heading'
+import { Heading } from '@/components/heading'
 import { timeline } from '@/config'
 
 /**
@@ -15,12 +15,16 @@ import { timeline } from '@/config'
 export default function Timeline() {
   return (
     <Section className="bg-body py-20 md:py-28">
-      <SectionHeading
-        eyebrow="Milestones"
-        heading="How the Operation Grew"
-        intro="Each step added capability that our customers were already asking for."
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">Milestones</Heading>
+        <Heading as="h3">How the Operation Grew</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Each step added capability that our customers were already asking for.
+        </Paragraph>
+      </div>
 
       <List
         variant="unstyled"
@@ -35,7 +39,7 @@ export default function Timeline() {
           >
             <span
               aria-hidden="true"
-              className="absolute top-8 left-0 h-px w-4 bg-accent sm:w-6"
+              className="absolute top-10 left-0 h-px w-4 bg-accent sm:w-6"
             />
 
             <Span

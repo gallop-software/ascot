@@ -1,24 +1,26 @@
 import { Section } from '@/components/section'
-import { SectionHeading } from '@/components/section-heading'
+import { Heading } from '@/components/heading'
+import { Paragraph } from '@/components/paragraph'
 import { StatisticsStrip } from '@/components/statistics-strip'
 import { extendedStats } from '@/config'
 
 /** Key figures for the About page, driven by `extendedStats` in @/config. */
 export default function Stats() {
   return (
-    <Section className="bg-accent2 py-20 md:py-28">
-      <SectionHeading
-        dark
-        eyebrow="By the Numbers"
-        heading="Capability, Measured"
-        intro="Figures reflect typical recent performance and are reviewed as the operation changes."
-        className="mb-12 max-w-3xl"
-      />
+    <Section className="bg-body2 py-20 md:py-28">
+      <div className="mb-12 max-w-3xl">
+        <Heading as="h2">By the Numbers</Heading>
+        <Heading as="h3">Capability, Measured</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Figures reflect typical recent performance and are reviewed as the
+          operation changes.
+        </Paragraph>
+      </div>
 
-      <StatisticsStrip
-        dark
-        stats={extendedStats}
-      />
+      <StatisticsStrip stats={extendedStats} />
     </Section>
   )
 }

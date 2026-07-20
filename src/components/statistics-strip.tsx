@@ -1,67 +1,139 @@
+'use client'
+
 import { clsx } from 'clsx'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import type { CompanyStat } from '@/config'
+import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
 
 export interface StatisticsStripProps {
   stats: CompanyStat[]
+  /** Responsive grid-column classes for the figures. */
+  cols?: string
   /** Render for placement on a dark (accent2 / navy) surface. */
   dark?: boolean
   className?: string
 }
 
 /**
- * Bordered industrial strip of key figures. Data-driven from `stats` /
- * `extendedStats` in `@/config` — never hardcode the numbers at the call site.
- *
- * Uses a shared outer border plus dividers so the strip reads as one machined
- * plate rather than a row of floating cards.
+ * Splits a stat value into a leading prefix, an integer target, and a trailing
+ * suffix so the number can count up while symbols like "+", "%", or "," survive
+ * — e.g. "2,500+" → { prefix: '', target: 2500, suffix: '+' }.
+ */
+function parseStat(value: string): {
+  prefix: string
+  target: number | null
+  suffix: string
+} {
+  const match = value.match(/^(\D*)([\d,]+)(.*)$/)
+  if (!match) return { prefix: '', target: null, suffix: value }
+  const prefix = match[1] ?? ''
+  const digits = match[2] ?? ''
+  const suffix = match[3] ?? ''
+  return { prefix, target: Number(digits.replace(/,/g, '')), suffix }
+}
+
+/** Counts from 0 to target with an ease-out curve once `start` is true. */
+function useCountUp(target: number | null, start: boolean): number {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    if (!start || target === null) return
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setCurrent(target)
+      return
+    }
+
+    const duration = 1400
+    let raf = 0
+    let startTime: number | null = null
+    const tick = (now: number) => {
+      if (startTime === null) startTime = now
+      const progress = Math.min((now - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCurrent(Math.round(target * eased))
+      if (progress < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [target, start])
+
+  return current
+}
+
+function AnimatedValue({
+  value,
+  start,
+  dark,
+}: {
+  value: string
+  start: boolean
+  dark: boolean
+}) {
+  const { prefix, target, suffix } = parseStat(value)
+  const count = useCountUp(target, start)
+  const display =
+    target === null
+      ? value
+      : `${prefix}${count.toLocaleString('en-US')}${suffix}`
+
+  return (
+    <Span
+      fontFamily="font-heading"
+      fontSize="text-4xl"
+      fontWeight="font-bold"
+      color={dark ? 'text-overlay-text' : 'text-contrast'}
+      className="tabular-nums tracking-tight"
+    >
+      {display}
+    </Span>
+  )
+}
+
+/**
+ * Strip of key figures whose numbers count up when the strip scrolls into
+ * view. Data-driven from `stats` / `extendedStats` in `@/config` — never
+ * hardcode the numbers at the call site.
  */
 export function StatisticsStrip({
   stats,
+  cols = 'sm:grid-cols-2 lg:grid-cols-4',
   dark = false,
   className,
 }: StatisticsStripProps) {
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: '-64px' })
+
   if (stats.length === 0) return null
 
   return (
     <dl
-      className={clsx(
-        'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4',
-        'rounded-none border divide-y sm:divide-y-0',
-        '[&>*:not(:first-child)]:sm:border-l',
-        dark
-          ? 'border-accent4-dark divide-accent4-dark [&>*]:sm:border-accent4-dark'
-          : 'border-accent3-dark divide-accent3-dark [&>*]:sm:border-accent3-dark',
-        className
-      )}
+      ref={ref}
+      className={clsx('grid grid-cols-1 gap-x-8 gap-y-10', cols, className)}
     >
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="flex flex-col gap-y-2 px-6 py-8"
+          className="flex flex-col gap-y-2"
         >
+          <dd className="order-1">
+            <AnimatedValue
+              value={stat.value}
+              start={inView}
+              dark={dark}
+            />
+          </dd>
           <dt className="order-2">
-            <Span
-              fontFamily="font-heading2"
-              fontSize="text-sm"
-              fontWeight="font-medium"
+            <Paragraph
               color={dark ? 'text-accent3' : 'text-contrast-light'}
-              className="uppercase tracking-[0.14em]"
+              margin="mb-0"
             >
               {stat.label}
-            </Span>
+            </Paragraph>
           </dt>
-          <dd className="order-1">
-            <Span
-              fontFamily="font-heading"
-              fontSize="text-4xl"
-              fontWeight="font-bold"
-              color={dark ? 'text-overlay-text' : 'text-contrast'}
-              className="tracking-tight"
-            >
-              {stat.value}
-            </Span>
-          </dd>
         </div>
       ))}
     </dl>

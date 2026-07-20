@@ -6,22 +6,22 @@ import { Icon } from '@/components/icon'
 
 // Primary buttons fill with `accent-dark`, not `accent`. White label text on
 // raw Safety Orange is 3.70:1 — below the 4.5:1 WCAG AA floor for normal text.
-// `accent-dark` carries the same industrial orange at 5.90:1, and hovering to
-// `accent` keeps the brighter tone as the interaction state.
+// `accent-dark` carries the same industrial orange at 5.90:1, and hovering
+// softens it to `accent-dark/30` as the interaction state.
 const variants = {
   primary: {
     light: clsx(
       'inline-flex items-center justify-center',
       'rounded-sm border border-transparent bg-accent-dark shadow-md',
       'text-accent-contrast font-semibold',
-      'disabled:bg-accent-dark disabled:opacity-40 hover:bg-accent',
+      'disabled:bg-accent-dark disabled:opacity-40 hover:bg-accent-dark/80',
       'transition-colors duration-200'
     ),
     dark: clsx(
       'inline-flex items-center justify-center',
       'rounded-sm border border-transparent bg-accent-dark shadow-md',
       'text-accent-contrast font-semibold',
-      'disabled:bg-accent-dark disabled:opacity-40 hover:bg-accent',
+      'disabled:bg-accent-dark disabled:opacity-40 hover:bg-accent-dark/80',
       'transition-colors duration-200'
     ),
   },

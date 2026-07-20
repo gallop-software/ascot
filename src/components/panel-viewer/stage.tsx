@@ -174,7 +174,7 @@ function Scene({
   // the panel at roughly two-thirds of the view (generous margins, matching
   // the reference's relaxed framing) rather than edge-to-edge.
   const fit = useMemo(() => {
-    const widthFactor = showDimensions ? 1.8 : 1.65
+    const widthFactor = showDimensions ? 2.05 : 1.9
     const halfWidth = metrics.halfWidth * widthFactor
     const halfHeight = showDimensions
       ? Math.max(metrics.top + 5, 7)

@@ -1,3 +1,5 @@
+import { Icon } from '@/components/icon'
+import chevronDownIcon from '@iconify/icons-lucide/chevron-down'
 import { inputBaseStyles } from './utils'
 
 // ============================================================================
@@ -49,31 +51,37 @@ export function FormSelect({
   const normalized = normalizeOptions(options)
 
   return (
-    <select
-      id={id ?? name}
-      name={name}
-      required={required}
-      defaultValue={defaultValue ?? (placeholder ? '' : undefined)}
-      aria-label={label || undefined}
-      data-label={label}
-      className={`${inputBaseStyles} ${className}`}
-    >
-      {placeholder && (
-        <option
-          value=""
-          disabled
-        >
-          {placeholder}
-        </option>
-      )}
-      {normalized.map((option) => (
-        <option
-          key={option.value}
-          value={option.value}
-        >
-          {option.label}
-        </option>
-      ))}
-    </select>
+    <div className="relative">
+      <select
+        id={id ?? name}
+        name={name}
+        required={required}
+        defaultValue={defaultValue ?? (placeholder ? '' : undefined)}
+        aria-label={label || undefined}
+        data-label={label}
+        className={`${inputBaseStyles} appearance-none pr-12 ${className}`}
+      >
+        {placeholder && (
+          <option
+            value=""
+            disabled
+          >
+            {placeholder}
+          </option>
+        )}
+        {normalized.map((option) => (
+          <option
+            key={option.value}
+            value={option.value}
+          >
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <Icon
+        icon={chevronDownIcon}
+        className="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-contrast/60"
+      />
+    </div>
   )
 }

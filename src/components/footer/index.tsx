@@ -65,9 +65,9 @@ export function Footer() {
   return (
     <footer className="border-t border-body-dark bg-body-light [&_a]:no-underline!">
       <Container className="pt-20 pb-10">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div>
             <Logo
               className="mb-6 text-contrast"
               height={38}
@@ -100,68 +100,69 @@ export function Footer() {
             )}
           </div>
 
-          {/* Primary navigation */}
-          <div>
-            <FooterHeading>Explore</FooterHeading>
-            <LinkColumn items={productLinks} />
-          </div>
+          {/* Nav — 2x2: Explore / Company in one column, Contact / Hours in
+              the next (column-wise fill); stacks to a single column on phones. */}
+          <div className="grid grid-cols-1 gap-12 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-2 sm:gap-16 lg:col-span-2">
+            <div>
+              <FooterHeading>Explore</FooterHeading>
+              <LinkColumn items={productLinks} />
+            </div>
 
-          {/* Secondary navigation */}
-          <div>
-            <FooterHeading>Company</FooterHeading>
-            <LinkColumn items={buildingLinks} />
-          </div>
+            <div>
+              <FooterHeading>Company</FooterHeading>
+              <LinkColumn items={buildingLinks} />
+            </div>
 
-          {/* Contact + hours + service area */}
-          <div>
-            <FooterHeading>Contact</FooterHeading>
-            <List
-              variant="unstyled"
-              margin="mb-8"
-              gap="gap-y-4"
-            >
-              <Li
-                icon={mapMarkerIcon}
-                className="text-contrast-light"
+            <div>
+              <FooterHeading>Contact</FooterHeading>
+              <List
+                variant="unstyled"
+                margin="mb-0"
+                gap="gap-y-4"
               >
-                <a
-                  href={contact.addressHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${linkStyles} whitespace-pre-line`}
+                <Li
+                  icon={mapMarkerIcon}
+                  className="text-contrast-light"
                 >
-                  {contact.address}
-                </a>
-              </Li>
-              <Li
-                icon={phoneIcon}
-                className="text-contrast-light"
-              >
-                <a
-                  href={contact.phoneHref}
-                  className={linkStyles}
+                  <a
+                    href={contact.addressHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${linkStyles} whitespace-pre-line`}
+                  >
+                    {contact.address}
+                  </a>
+                </Li>
+                <Li
+                  icon={phoneIcon}
+                  className="text-contrast-light"
                 >
-                  {contact.phone}
-                </a>
-              </Li>
-              <Li
-                icon={emailOutlineIcon}
-                className="text-contrast-light"
-              >
-                <a
-                  href={contact.emailHref}
-                  className={linkStyles}
+                  <a
+                    href={contact.phoneHref}
+                    className={linkStyles}
+                  >
+                    {contact.phone}
+                  </a>
+                </Li>
+                <Li
+                  icon={emailOutlineIcon}
+                  className="text-contrast-light"
                 >
-                  {contact.email}
-                </a>
-              </Li>
-            </List>
+                  <a
+                    href={contact.emailHref}
+                    className={linkStyles}
+                  >
+                    {contact.email}
+                  </a>
+                </Li>
+              </List>
+            </div>
 
             <div id="hours">
               <FooterHeading>Hours</FooterHeading>
               <List
                 variant="unstyled"
-                margin="mb-8"
+                margin="mb-0"
                 gap="gap-y-2"
               >
                 {hours.map((h) => (

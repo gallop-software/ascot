@@ -23,7 +23,7 @@ export function TestimonialCard({
   return (
     <figure
       className={clsx(
-        'flex h-full flex-col rounded-none border border-t-2 border-t-accent p-6',
+        'flex h-full flex-col rounded-none border p-6',
         dark ? 'border-accent4-dark bg-accent2-dark' : 'border-accent3-dark bg-body-light',
         className
       )}
@@ -31,7 +31,7 @@ export function TestimonialCard({
       <Quote
         variant="small"
         fontStyle="not-italic"
-        color={dark ? 'text-accent3' : 'text-contrast'}
+        color={dark ? 'text-accent3' : 'text-contrast-light'}
         margin="mb-6"
         className="flex-1"
       >
@@ -52,11 +52,8 @@ export function TestimonialCard({
           {testimonial.name}
         </Span>
         <Span
-          fontFamily="font-heading2"
           fontSize="text-sm"
-          fontWeight="font-medium"
           color={dark ? 'text-accent3' : 'text-contrast-light'}
-          className="uppercase tracking-[0.14em]"
         >
           {testimonial.company}
         </Span>

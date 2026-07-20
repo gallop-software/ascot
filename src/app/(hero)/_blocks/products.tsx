@@ -1,6 +1,7 @@
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
-import { SectionHeading } from '@/components/section-heading'
+import { Heading } from '@/components/heading'
+import { Paragraph } from '@/components/paragraph'
 import { ProductCategoryCard } from '@/components/product-category-card'
 import { PRODUCT_CATEGORIES } from '@/catalog'
 
@@ -24,12 +25,18 @@ export default function Products() {
       id="products"
       className="bg-body py-20 md:py-28"
     >
-      <SectionHeading
-        eyebrow="What We Manufacture"
-        heading="Steel Products Built Around Real Projects"
-        intro="From individual roofing panels to complete building packages, ForgeSpan Metals supplies dependable components manufactured to project specifications."
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">What We Manufacture</Heading>
+        <Heading as="h3">Steel Products Built Around Real Projects</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          From individual roofing panels to complete building packages, ForgeSpan
+          Metals supplies dependable components manufactured to project
+          specifications.
+        </Paragraph>
+      </div>
 
       <Grid
         cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"

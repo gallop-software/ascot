@@ -1,21 +1,20 @@
-import { Container } from '@/components/container'
+import { Section } from '@/components/section'
 import { StatisticsStrip } from '@/components/statistics-strip'
 import { stats } from '@/config'
 
 /**
  * Statistics strip directly under the hero — the first proof point after the
- * headline. Dark navy so it reads as a continuation of the hero band rather
- * than the start of the light content flow.
+ * headline. Shares the closing CTA's navy band so the two dark anchors bracket
+ * the light content flow; figures count up as it scrolls into view.
  */
 export default function TrustBar() {
   return (
-    <section className="bg-accent2-dark">
-      <Container className="py-12 md:py-16">
-        <StatisticsStrip
-          stats={stats}
-          dark
-        />
-      </Container>
-    </section>
+    <Section className="bg-accent2 py-14 md:py-20">
+      <StatisticsStrip
+        stats={stats}
+        cols="sm:grid-cols-3"
+        dark
+      />
+    </Section>
   )
 }

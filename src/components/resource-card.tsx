@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { clsx } from 'clsx'
 import { DateTime } from 'luxon'
-import arrowRight from '@iconify/icons-lucide/arrow-right'
 import type { Resource } from '@/catalog'
+import { ArrowLink } from '@/components/arrow-link'
 import { Heading } from '@/components/heading'
-import { Icon } from '@/components/icon'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
 
@@ -29,18 +28,16 @@ export function ResourceCard({ resource, className }: ResourceCardProps) {
       className={clsx(
         'group relative flex h-full flex-col rounded-none',
         'border border-accent3-dark bg-body-light p-6',
-        'transition-colors duration-200 hover:border-accent4',
-        'focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-dark',
+        'transition-shadow duration-200 hover:shadow-lg',
+        'has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark',
         className
       )}
     >
       <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
         <Span
-          fontFamily="font-heading2"
           fontSize="text-sm"
           fontWeight="font-semibold"
           color="text-accent-dark"
-          className="uppercase tracking-[0.16em]"
         >
           {resource.category}
         </Span>
@@ -63,12 +60,7 @@ export function ResourceCard({ resource, className }: ResourceCardProps) {
       </div>
 
       <Heading
-        as="h3"
-        fontSize="text-xl"
-        fontWeight="font-bold"
-        letterSpacing="tracking-tight"
-        lineHeight="leading-tight"
-        color="text-contrast"
+        as="h4"
         margin="mb-3"
       >
         <Link
@@ -88,18 +80,7 @@ export function ResourceCard({ resource, className }: ResourceCardProps) {
         {resource.excerpt}
       </Paragraph>
 
-      <Span
-        fontSize="text-sm"
-        fontWeight="font-semibold"
-        color="text-accent-dark"
-        className="inline-flex items-center gap-x-2"
-      >
-        {`Read ${resource.title}`}
-        <Icon
-          icon={arrowRight}
-          className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-        />
-      </Span>
+      <ArrowLink>{`Read ${resource.title}`}</ArrowLink>
     </article>
   )
 }

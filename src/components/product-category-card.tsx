@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import { clsx } from 'clsx'
-import arrowRight from '@iconify/icons-lucide/arrow-right'
+import { ArrowLink } from '@/components/arrow-link'
 import { Heading } from '@/components/heading'
-import { Icon } from '@/components/icon'
 import { Image } from '@/components/image'
 import { Paragraph } from '@/components/paragraph'
-import { Span } from '@/components/span'
 
 export interface ProductCategoryCardProps {
   title: string
@@ -39,8 +37,8 @@ export function ProductCategoryCard({
       className={clsx(
         'group relative flex flex-col rounded-none',
         'border border-accent3-dark bg-body-light',
-        'transition-colors duration-200 hover:border-accent4',
-        'focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-dark',
+        'transition-shadow duration-200 hover:shadow-lg',
+        'has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark',
         className
       )}
     >
@@ -57,12 +55,7 @@ export function ProductCategoryCard({
 
       <div className="flex flex-1 flex-col p-6">
         <Heading
-          as="h3"
-          fontSize="text-xl"
-          fontWeight="font-bold"
-          letterSpacing="tracking-tight"
-          lineHeight="leading-tight"
-          color="text-contrast"
+          as="h4"
           margin="mb-3"
         >
           <Link
@@ -82,18 +75,7 @@ export function ProductCategoryCard({
           {description}
         </Paragraph>
 
-        <Span
-          fontSize="text-sm"
-          fontWeight="font-semibold"
-          color="text-accent-dark"
-          className="inline-flex items-center gap-x-2"
-        >
-          {linkLabel}
-          <Icon
-            icon={arrowRight}
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-          />
-        </Span>
+        <ArrowLink>{linkLabel}</ArrowLink>
       </div>
     </article>
   )

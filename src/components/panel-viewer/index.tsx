@@ -13,6 +13,8 @@ interface PanelViewerProps {
   profile: PanelProfileId
   /** Accessible name for the rendered profile, e.g. "PBR Panel". */
   label: string
+  /** Aspect ratio of the preview frame. */
+  aspect?: string
   className?: string
 }
 
@@ -21,7 +23,12 @@ interface PanelViewerProps {
  * with a single link out to the full-page studio. Detailed controls (wire,
  * variant, color, zoom) live on that page rather than crowding the card.
  */
-export function PanelViewer({ profile, label, className }: PanelViewerProps) {
+export function PanelViewer({
+  profile,
+  label,
+  aspect = 'aspect-[5/2]',
+  className,
+}: PanelViewerProps) {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true })
   const snap = useSnapshot(state)
   const spec = PANEL_PROFILES[profile]
@@ -32,12 +39,9 @@ export function PanelViewer({ profile, label, className }: PanelViewerProps) {
       ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={clsx(
-        'relative overflow-hidden rounded-lg bg-body2 ring-1 ring-inset ring-body-dark/50',
-        className,
-      )}
+      className={clsx('relative overflow-hidden bg-body2/50', className)}
     >
-      <div className="aspect-[5/2] w-full">
+      <div className={clsx('w-full', aspect)}>
         {inView && (
           <PanelStage
             profile={profile}
@@ -53,7 +57,7 @@ export function PanelViewer({ profile, label, className }: PanelViewerProps) {
         href={`/panels/${profile}`}
         icon={cubeIcon}
         iconPlacement="before"
-        className="absolute bottom-2 right-2 rounded-md bg-body/85 px-2.5 py-1 text-xs font-semibold shadow-sm backdrop-blur"
+        className="absolute bottom-2 right-2 rounded-md bg-body2 px-2.5 py-1 text-xs font-semibold text-contrast shadow-sm backdrop-blur"
       >
         Open 3D view
       </Link>

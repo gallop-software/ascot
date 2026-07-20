@@ -30,76 +30,45 @@ export function SpecificationList({
 
   const labelColor = dark ? 'text-accent3' : 'text-contrast-light'
   const valueColor = dark ? 'text-overlay-text' : 'text-contrast'
-  const ruleColor = dark ? 'border-accent4-dark' : 'border-accent3-dark'
 
   if (variant === 'table') {
     return (
-      <div className={clsx('w-full overflow-x-auto', className)}>
-        <table className="w-full min-w-md border-collapse text-left">
-          <caption className="sr-only">Specifications</caption>
-          <thead>
-            <tr className={clsx('border-b-2', ruleColor)}>
-              <th
-                scope="col"
-                className="px-4 py-3"
+      <dl
+        className={clsx(
+          'grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4',
+          className
+        )}
+      >
+        {specs.map((spec) => (
+          <div
+            key={spec.label}
+            className={clsx(
+              'flex flex-col gap-y-1 border p-6',
+              dark ? 'border-accent4-dark' : 'border-accent3-dark bg-body-light/50'
+            )}
+          >
+            <dd className="order-1">
+              <Span
+                fontFamily="font-heading"
+                fontSize="text-4xl"
+                fontWeight="font-bold"
+                color={valueColor}
+                className="tracking-tight"
               >
-                <Span
-                  fontFamily="font-heading2"
-                  fontSize="text-sm"
-                  fontWeight="font-semibold"
-                  color={labelColor}
-                  className="uppercase tracking-[0.14em]"
-                >
-                  Specification
-                </Span>
-              </th>
-              <th
-                scope="col"
-                className="px-4 py-3"
+                {spec.value}
+              </Span>
+            </dd>
+            <dt className="order-2">
+              <Span
+                fontSize="text-base"
+                color={labelColor}
               >
-                <Span
-                  fontFamily="font-heading2"
-                  fontSize="text-sm"
-                  fontWeight="font-semibold"
-                  color={labelColor}
-                  className="uppercase tracking-[0.14em]"
-                >
-                  Value
-                </Span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {specs.map((spec) => (
-              <tr
-                key={spec.label}
-                className={clsx('border-b', ruleColor)}
-              >
-                <th
-                  scope="row"
-                  className="px-4 py-3 align-top font-normal"
-                >
-                  <Span
-                    fontSize="text-base"
-                    color={labelColor}
-                  >
-                    {spec.label}
-                  </Span>
-                </th>
-                <td className="px-4 py-3 align-top">
-                  <Span
-                    fontSize="text-base"
-                    fontWeight="font-semibold"
-                    color={valueColor}
-                  >
-                    {spec.value}
-                  </Span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+                {spec.label}
+              </Span>
+            </dt>
+          </div>
+        ))}
+      </dl>
     )
   }
 
@@ -109,25 +78,21 @@ export function SpecificationList({
         <div
           key={spec.label}
           className={clsx(
-            'flex flex-col gap-x-4 gap-y-1 border-b py-3',
-            'sm:flex-row sm:items-baseline sm:justify-between',
-            ruleColor
+            'flex flex-col gap-x-4 gap-y-1 py-1.5',
+            'sm:flex-row sm:items-baseline sm:justify-between'
           )}
         >
           <dt>
             <Span
-              fontFamily="font-heading2"
               fontSize="text-sm"
-              fontWeight="font-medium"
               color={labelColor}
-              className="uppercase tracking-[0.14em]"
             >
               {spec.label}
             </Span>
           </dt>
           <dd className="sm:text-right">
             <Span
-              fontSize="text-base"
+              fontSize="text-sm"
               fontWeight="font-semibold"
               color={valueColor}
             >

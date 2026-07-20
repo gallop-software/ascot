@@ -2,7 +2,8 @@ import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Buttons } from '@/components/buttons'
 import { Button } from '@/components/button'
-import { SectionHeading } from '@/components/section-heading'
+import { Heading } from '@/components/heading'
+import { Paragraph } from '@/components/paragraph'
 import { PanelProfileCard } from '@/components/panel-profile-card'
 import { FEATURED_PANELS } from '@/catalog'
 import arrowRightIcon from '@iconify/icons-heroicons/arrow-right-20-solid'
@@ -13,11 +14,20 @@ export default function Panels() {
       id="panels"
       className="bg-body2 py-20 md:py-28"
     >
-      <SectionHeading
-        eyebrow="Panel Systems"
-        heading="Profiles for Roofing, Walls, and Interior Applications"
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">Panel Systems</Heading>
+        <Heading as="h3">
+          Profiles for Roofing, Walls, and Interior Applications
+        </Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Each profile is roll-formed to length in multiple gauges and finishes,
+          and pairs with matching trim, closures, and fasteners so the roof,
+          wall, or liner reads as one coordinated system.
+        </Paragraph>
+      </div>
 
       <Grid
         cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"

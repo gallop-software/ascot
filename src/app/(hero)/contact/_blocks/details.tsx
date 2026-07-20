@@ -8,7 +8,6 @@ import { Heading } from '@/components/heading'
 import { Icon } from '@/components/icon'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
-import { SectionHeading } from '@/components/section-heading'
 import { address, contact } from '@/config'
 
 interface ContactMethod {
@@ -23,18 +22,6 @@ interface ContactMethod {
 }
 
 const METHODS: ContactMethod[] = [
-  {
-    icon: mapPinIcon,
-    label: 'Plant and Will-Call',
-    lines: [
-      address.street,
-      `${address.city}, ${address.region} ${address.postalCode}`,
-    ],
-    linkLabel: 'Open in Google Maps',
-    href: contact.mapHref,
-    newTab: true,
-    note: 'Order pickup and the sales counter are at the same entrance.',
-  },
   {
     icon: phoneIcon,
     label: 'Phone',
@@ -51,65 +38,71 @@ const METHODS: ContactMethod[] = [
     href: contact.emailHref,
     note: 'Send drawings, dimensions, or an existing material list.',
   },
+  {
+    icon: mapPinIcon,
+    label: 'Visit Us',
+    lines: [
+      address.street,
+      `${address.city}, ${address.region} ${address.postalCode}`,
+    ],
+    linkLabel: 'Open in Google Maps',
+    href: contact.mapHref,
+    newTab: true,
+    note: 'Order pickup and the sales counter are at the same entrance.',
+  },
 ]
 
 /**
- * Local card for one contact method. Not exported — per Canon rule 025 a content
- * component that only serves this block stays in the block.
+ * Local row for one contact method. Not exported — per Canon rule 025 a content
+ * component that only serves this block stays in the block. Borderless: a large
+ * accent icon with the details beside it, the whole row linked via the stretched
+ * overlay on the action link.
  */
-function MethodCard({ method }: { method: ContactMethod }) {
+function MethodRow({ method }: { method: ContactMethod }) {
   return (
-    <div className="group relative flex h-full flex-col rounded-none border border-accent3-dark bg-body-light p-6 transition-colors duration-200 hover:border-accent4 focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-dark">
+    <div className="group relative flex gap-x-5 border border-accent3-dark bg-body-light p-6 transition-shadow duration-200 hover:shadow-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark">
       <Icon
         icon={method.icon}
-        className="mb-4 h-6 w-6 text-accent-dark"
+        className="mt-1 h-8 w-8 flex-none text-accent-dark"
       />
 
-      <Heading
-        as="h3"
-        fontSize="text-xl"
-        fontWeight="font-bold"
-        letterSpacing="tracking-tight"
-        color="text-contrast"
-        margin="mb-3"
-      >
-        {method.label}
-      </Heading>
+      <div className="flex flex-col items-start">
+        <Heading
+          as="h4"
+          margin="mb-2"
+        >
+          {method.label}
+        </Heading>
 
-      <div className="mb-4 flex flex-col gap-y-1">
-        {method.lines.map((line) => (
-          <Span
-            key={line}
-            fontSize="text-base"
-            fontWeight="font-medium"
-            color="text-contrast"
-          >
-            {line}
-          </Span>
-        ))}
+        <div className="mb-2 flex flex-col gap-y-0.5">
+          {method.lines.map((line) => (
+            <Span
+              key={line}
+              fontSize="text-base"
+              fontWeight="font-medium"
+              color="text-contrast"
+            >
+              {line}
+            </Span>
+          ))}
+        </div>
+
+        <Paragraph
+          fontSize="text-sm"
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          {method.note}
+        </Paragraph>
       </div>
-
-      <Paragraph
-        fontSize="text-sm"
-        color="text-contrast-light"
-        margin="mb-5"
-        className="flex-1"
-      >
-        {method.note}
-      </Paragraph>
 
       <NextLink
         href={method.href}
         {...(method.newTab && { target: '_blank', rel: 'noopener' })}
-        className="no-underline! before:absolute before:inset-0 focus:outline-none"
+        aria-label={method.linkLabel}
+        className="absolute inset-0 focus:outline-none"
       >
-        <Span
-          fontSize="text-sm"
-          fontWeight="font-semibold"
-          color="text-accent-dark"
-        >
-          {method.linkLabel}
-        </Span>
+        <span className="sr-only">{method.linkLabel}</span>
       </NextLink>
     </div>
   )
@@ -119,19 +112,24 @@ function MethodCard({ method }: { method: ContactMethod }) {
 export default function Details() {
   return (
     <Section className="bg-body py-20 md:py-28">
-      <SectionHeading
-        eyebrow="Reach Us"
-        heading="Three Ways to Get an Answer"
-        intro="Pick whichever suits the question — pricing, a material takeoff, a trim detail, or a delivery date."
-        className="mb-12 max-w-3xl md:mb-16"
-      />
+      <div className="mb-12 max-w-3xl md:mb-16">
+        <Heading as="h2">Reach Us</Heading>
+        <Heading as="h3">Three Ways to Get an Answer</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Pick whichever suits the question — pricing, a material takeoff, a trim
+          detail, or a delivery date.
+        </Paragraph>
+      </div>
 
       <Grid
-        cols="grid-cols-1 md:grid-cols-3"
-        gap="gap-6 lg:gap-8"
+        cols="grid-cols-1 sm:grid-cols-2"
+        gap="gap-4 lg:gap-6"
       >
         {METHODS.map((method) => (
-          <MethodCard
+          <MethodRow
             key={method.label}
             method={method}
           />

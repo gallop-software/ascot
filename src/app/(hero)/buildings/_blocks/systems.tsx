@@ -4,8 +4,6 @@ import { Heading } from '@/components/heading'
 import { Image } from '@/components/image'
 import { Paragraph } from '@/components/paragraph'
 import { Section } from '@/components/section'
-import { SectionHeading } from '@/components/section-heading'
-import { Span } from '@/components/span'
 
 /**
  * Local card for a BuildingSystem. Not exported — per Canon rule 025, content
@@ -30,13 +28,8 @@ function SystemCard({ system }: { system: BuildingSystem }) {
 
       <div className="flex flex-1 flex-col p-6">
         <Heading
-          as="h3"
-          fontSize="text-xl"
-          fontWeight="font-bold"
-          letterSpacing="tracking-tight"
-          lineHeight="leading-tight"
-          color="text-contrast"
-          margin="mb-3"
+          as="h4"
+          margin="mb-2"
         >
           {system.name}
         </Heading>
@@ -44,21 +37,10 @@ function SystemCard({ system }: { system: BuildingSystem }) {
         <Paragraph
           fontSize="text-base"
           color="text-contrast-light"
-          margin="mb-5"
-          className="flex-1"
+          margin="mb-0"
         >
           {system.shortDescription}
         </Paragraph>
-
-        <Span
-          fontFamily="font-heading2"
-          fontSize="text-sm"
-          fontWeight="font-semibold"
-          color="text-accent-dark"
-          className="uppercase tracking-[0.16em]"
-        >
-          {system.applications.slice(0, 3).join(' · ')}
-        </Span>
       </div>
     </article>
   )
@@ -68,12 +50,18 @@ function SystemCard({ system }: { system: BuildingSystem }) {
 export default function Systems() {
   return (
     <Section className="py-20 lg:py-28">
-      <SectionHeading
-        eyebrow="What We Package"
-        heading="Steel Buildings We Supply"
-        intro="Each package draws from the same manufactured panel, trim, and structural lines — what changes is how the pieces are specified for the work the building has to do."
-        className="mb-12 lg:mb-16"
-      />
+      <div className="mb-12 lg:mb-16">
+        <Heading as="h2">What We Package</Heading>
+        <Heading as="h3">Steel Buildings We Supply</Heading>
+        <Paragraph
+          color="text-contrast-light"
+          margin="mb-0"
+        >
+          Each package draws from the same manufactured panel, trim, and
+          structural lines — what changes is how the pieces are specified for the
+          work the building has to do.
+        </Paragraph>
+      </div>
 
       <Grid
         cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"

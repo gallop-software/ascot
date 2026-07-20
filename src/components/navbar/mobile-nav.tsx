@@ -155,9 +155,9 @@ export function MobileNav({ close }: { close: () => void }): ReactElement {
               target: '_blank',
               rel: 'noopener noreferrer',
             })}
-            className="ft-tracking flex items-center gap-3 text-contrast hover:text-accent transition-colors duration-200 focus:outline-none focus:ring-0"
+            className="ft-tracking group flex items-center gap-3 text-contrast transition-colors duration-200 focus:outline-none focus:ring-0"
           >
-            <span className="flex size-10 flex-none items-center justify-center rounded-full bg-accent5 text-accent">
+            <span className="flex size-10 flex-none items-center justify-center rounded-full text-accent ring-1 ring-body-dark transition-colors duration-200 group-hover:bg-accent group-hover:text-accent-contrast group-hover:ring-accent">
               <Icon
                 icon={item.icon}
                 className="h-5 w-5"

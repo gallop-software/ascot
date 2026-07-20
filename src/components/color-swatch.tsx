@@ -23,7 +23,7 @@ export function ColorSwatch({ name, hex, className }: ColorSwatchProps) {
     <figure className={clsx('flex flex-col gap-y-2', className)}>
       <div
         style={fill}
-        className="min-h-11 aspect-[4/3] w-full rounded-none border border-accent4/40"
+        className="min-h-11 aspect-[4/3] w-full rounded-sm border border-accent4/40"
       />
       <figcaption>
         <Span

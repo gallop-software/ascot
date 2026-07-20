@@ -1,26 +1,22 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import fileTextIcon from '@iconify/icons-lucide/file-text'
 import phoneIcon from '@iconify/icons-lucide/phone'
 import { PageWrapper } from '@/components/page-wrapper'
 import { Container } from '@/components/container'
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { SectionHeading } from '@/components/section-heading'
+import { ArrowLink } from '@/components/arrow-link'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
-import { List, Li } from '@/components/list'
 import { Image } from '@/components/image'
-import { Icon } from '@/components/icon'
 import { Buttons } from '@/components/buttons'
 import { Button } from '@/components/button'
 import { SpecificationList } from '@/components/specification-list'
 import { PanelProfileCard } from '@/components/panel-profile-card'
-import { CTASection } from '@/components/cta-section'
 import { PanelStudio } from '@/components/panel-viewer/studio'
-import { PANEL_PROFILES, getProduct, type PanelProfile, type Spec } from '@/catalog'
+import { PANEL_PROFILES, getProduct, type PanelProfile } from '@/catalog'
 import { company, cta } from '@/config'
 import { generatePageMetadata, type PageMetadata } from '@/utils/page-helpers'
 import { baseURL, businessId } from '@/app/metadata'
@@ -39,23 +35,6 @@ export function generateStaticParams() {
 function getPanel(slug: string): PanelProfile | undefined {
   return PANEL_PROFILES.find((panel) => panel.slug === slug)
 }
-
-/**
- * Testing, certification, and warranty terms are template placeholders — a
- * customer fills these in from their own documentation. They are rendered as
- * visibly unset fields rather than plausible-looking values, and they are
- * deliberately kept out of the Product schema so nothing unverified is
- * published as a machine-readable claim.
- */
-const PLACEHOLDER_VALUE = 'Not configured — add your project documentation'
-
-const COMPLIANCE_PLACEHOLDERS: Spec[] = [
-  { label: 'Testing Data', value: PLACEHOLDER_VALUE },
-  { label: 'Certifications', value: PLACEHOLDER_VALUE },
-  { label: 'Code Approvals', value: PLACEHOLDER_VALUE },
-  { label: 'Finish Warranty', value: PLACEHOLDER_VALUE },
-  { label: 'Panel Warranty', value: PLACEHOLDER_VALUE },
-]
 
 /** Product + BreadcrumbList for a panel, rendered as JSON-LD by PageWrapper. */
 function buildStructuredData(panel: PanelProfile): object[] {
@@ -133,44 +112,6 @@ export async function generateMetadata({ params }: PageProps) {
   return generatePageMetadata(metadata)
 }
 
-/** Bulleted attribute list — applications, substrates, gauges, finishes. */
-function AttributeList({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <Heading
-        as="h3"
-        fontFamily="font-heading2"
-        fontSize="text-sm"
-        fontWeight="font-semibold"
-        color="text-accent-dark"
-        margin="mb-3"
-        className="uppercase tracking-[0.16em]"
-      >
-        {title}
-      </Heading>
-      <List
-        variant="unstyled"
-        margin="mb-0"
-        gap="gap-y-2"
-      >
-        {items.map((item) => (
-          <Li
-            key={item}
-            className="border-b border-accent3-dark pb-2"
-          >
-            <Span
-              fontSize="text-base"
-              color="text-contrast"
-            >
-              {item}
-            </Span>
-          </Li>
-        ))}
-      </List>
-    </div>
-  )
-}
-
 export default async function Page({ params }: PageProps) {
   const { profile } = await params
   const panel = getPanel(profile)
@@ -198,7 +139,7 @@ export default async function Page({ params }: PageProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
 
-        <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-64 lg:pb-36">
+        <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
           <Breadcrumbs
             className="mb-8"
             items={[
@@ -210,16 +151,12 @@ export default async function Page({ params }: PageProps) {
           />
 
           <div className="max-w-3xl border-l-2 border-accent pl-6 sm:pl-8">
-            <Span
-              fontFamily="font-heading2"
-              fontSize="text-sm"
-              fontWeight="font-semibold"
-              color="text-accent"
+            <Heading
+              as="h2"
               margin="mb-4"
-              className="uppercase tracking-[0.2em]"
             >
               {panel.category}
-            </Span>
+            </Heading>
 
             <Heading
               as="h1"
@@ -266,10 +203,7 @@ export default async function Page({ params }: PageProps) {
       {/* Visual — interactive model where one exists, photography otherwise */}
       <Section className="bg-body py-16 md:py-20">
         {panel.viewerProfile ? (
-          <PanelStudio
-            profile={panel.viewerProfile}
-            specs={panel.specs}
-          />
+          <PanelStudio profile={panel.viewerProfile} />
         ) : (
           <figure className="m-0">
             <Image
@@ -296,165 +230,42 @@ export default async function Page({ params }: PageProps) {
       {/* Specifications and attributes */}
       <Section
         id="specifications"
-        className="bg-accent3 py-20 md:py-28"
+        className="bg-body2 py-20 md:py-28"
       >
-        <SectionHeading
-          eyebrow="Specifications"
-          heading="Profile Geometry and Material Options"
-          intro={panel.bestFor}
-          className="mb-10 max-w-3xl md:mb-12"
-        />
+        <div className="mb-10 max-w-3xl md:mb-12">
+          <Heading as="h2">Specifications</Heading>
+          <Heading as="h3">Profile Geometry and Material Options</Heading>
+          <Paragraph
+            color="text-contrast-light"
+            margin="mb-0"
+          >
+            {panel.bestFor}
+          </Paragraph>
+        </div>
 
         <SpecificationList
           specs={panel.specs}
           variant="table"
-          className="mb-12 border border-accent3-dark bg-body-light"
         />
-
-        <Grid
-          cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-          gap="gap-8 lg:gap-10"
-          className="mb-12"
-        >
-          <AttributeList
-            title="Applications"
-            items={panel.applications}
-          />
-          <AttributeList
-            title="Recommended Substrates"
-            items={panel.substrates}
-          />
-          <AttributeList
-            title="Available Gauges"
-            items={panel.gauges}
-          />
-          <AttributeList
-            title="Available Finishes"
-            items={panel.finishes}
-          />
-        </Grid>
-
-        <div className="border-l-2 border-accent bg-body-light p-6">
-          <Heading
-            as="h3"
-            fontFamily="font-heading2"
-            fontSize="text-sm"
-            fontWeight="font-semibold"
-            color="text-accent-dark"
-            margin="mb-2"
-            className="uppercase tracking-[0.16em]"
-          >
-            Fasteners
-          </Heading>
-          <Paragraph
-            fontSize="text-base"
-            color="text-contrast"
-            margin="mb-0"
-            className="max-w-3xl"
-          >
-            {panel.fastenerNote}
-          </Paragraph>
-        </div>
-      </Section>
-
-      {/* Compliance placeholders + documents */}
-      <Section
-        id="documentation"
-        className="bg-body py-20 md:py-28"
-      >
-        <Grid
-          cols="grid-cols-1 lg:grid-cols-2"
-          gap="gap-12 lg:gap-16"
-        >
-          <div>
-            <SectionHeading
-              eyebrow="Template Placeholders"
-              heading="Testing, Certification, and Warranty"
-              intro="These fields ship unset. ForgeSpan Metals is a fictional demonstration company, so no testing results, certifications, code approvals, or warranty terms are claimed here. Replace each value with your own documentation before publishing."
-              className="mb-8 max-w-xl"
-            />
-            <SpecificationList
-              specs={COMPLIANCE_PLACEHOLDERS}
-              variant="list"
-            />
-          </div>
-
-          <div>
-            <SectionHeading
-              eyebrow="Downloads"
-              heading="Spec Sheet and Installation Guide"
-              intro="Both links below are placeholders pointing at a sample file. Point them at your real documents when you configure the template."
-              className="mb-8 max-w-xl"
-            />
-
-            <List
-              variant="unstyled"
-              margin="mb-8"
-              gap="gap-y-3"
-            >
-              <Li>
-                <Link
-                  href="/placeholder.pdf"
-                  className="flex items-center gap-x-3 border border-accent3-dark bg-body-light p-4 no-underline! transition-colors duration-200 hover:border-accent4"
-                >
-                  <Icon
-                    icon={fileTextIcon}
-                    className="h-5 w-5 flex-none text-accent-dark"
-                  />
-                  <Span
-                    fontSize="text-base"
-                    fontWeight="font-semibold"
-                    color="text-contrast"
-                  >
-                    {`${panel.name} Spec Sheet (PDF) — placeholder link`}
-                  </Span>
-                </Link>
-              </Li>
-              <Li>
-                <Link
-                  href="/placeholder.pdf"
-                  className="flex items-center gap-x-3 border border-accent3-dark bg-body-light p-4 no-underline! transition-colors duration-200 hover:border-accent4"
-                >
-                  <Icon
-                    icon={fileTextIcon}
-                    className="h-5 w-5 flex-none text-accent-dark"
-                  />
-                  <Span
-                    fontSize="text-base"
-                    fontWeight="font-semibold"
-                    color="text-contrast"
-                  >
-                    {`${panel.name} Installation Guide (PDF) — placeholder link`}
-                  </Span>
-                </Link>
-              </Li>
-            </List>
-
-            <Buttons margin="mt-0 mb-0">
-              <Button
-                href={cta.quote.href}
-                size="medium"
-                className="max-sm:w-full"
-              >
-                {`Request a Quote on ${panel.name}`}
-              </Button>
-            </Buttons>
-          </div>
-        </Grid>
       </Section>
 
       {/* Related accessories */}
       {relatedProducts.length > 0 && (
         <Section
           id="accessories"
-          className="bg-accent3 py-20 md:py-28"
+          className="bg-body py-20 md:py-28"
         >
-          <SectionHeading
-            eyebrow="Goes With This Panel"
-            heading="Related Accessories and Trim"
-            intro="The fasteners, closures, and trim most often ordered alongside this profile."
-            className="mb-10 max-w-3xl md:mb-12"
-          />
+          <div className="mb-10 max-w-3xl md:mb-12">
+            <Heading as="h2">Goes With This Panel</Heading>
+            <Heading as="h3">Related Accessories and Trim</Heading>
+            <Paragraph
+              color="text-contrast-light"
+              margin="mb-0"
+            >
+              The fasteners, closures, and trim most often ordered alongside
+              this profile.
+            </Paragraph>
+          </div>
 
           <Grid
             cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -463,7 +274,7 @@ export default async function Page({ params }: PageProps) {
             {relatedProducts.map((product) => (
               <article
                 key={product.slug}
-                className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-colors duration-200 hover:border-accent4"
+                className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-shadow duration-200 hover:shadow-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark"
               >
                 <div className="overflow-hidden border-b border-accent3-dark">
                   <Image
@@ -477,11 +288,7 @@ export default async function Page({ params }: PageProps) {
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <Heading
-                    as="h3"
-                    fontSize="text-lg"
-                    fontWeight="font-bold"
-                    lineHeight="leading-tight"
-                    color="text-contrast"
+                    as="h4"
                     margin="mb-2"
                   >
                     <Link
@@ -494,10 +301,13 @@ export default async function Page({ params }: PageProps) {
                   <Paragraph
                     fontSize="text-base"
                     color="text-contrast-light"
-                    margin="mb-0"
+                    margin="mb-5"
+                    className="flex-1"
                   >
                     {product.shortDescription}
                   </Paragraph>
+
+                  <ArrowLink>{`View ${product.name}`}</ArrowLink>
                 </div>
               </article>
             ))}
@@ -509,13 +319,15 @@ export default async function Page({ params }: PageProps) {
       {relatedPanels.length > 0 && (
         <Section
           id="related-panels"
-          className="bg-body py-20 md:py-28"
+          className="bg-body2 py-20 md:py-28"
         >
-          <SectionHeading
-            eyebrow="Compare"
-            heading={`Other ${panel.category} Profiles`}
-            className="mb-10 max-w-3xl md:mb-12"
-          />
+          <div className="mb-10 max-w-3xl md:mb-12">
+            <Heading as="h2">Compare</Heading>
+            <Heading
+              as="h3"
+              margin="mb-0"
+            >{`Other ${panel.category} Profiles`}</Heading>
+          </div>
 
           <Grid
             cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -532,13 +344,47 @@ export default async function Page({ params }: PageProps) {
         </Section>
       )}
 
-      <CTASection
-        heading={`Ready to Price ${panel.name}?`}
-        body="Send the dimensions, the substrate, and the color you are considering. We will confirm what the profile needs and put a material list together."
-        primaryCta={cta.quote}
-        secondaryCta={cta.call}
-        image={{ src: panel.image.src, alt: '' }}
-      />
+      <Section
+        imageSrc={panel.image.src}
+        imageAlt=""
+        overlayColor="bg-accent2/88"
+        className="py-20 lg:py-28"
+      >
+        <Heading
+          as="h3"
+          color="text-overlay-text"
+          margin="mb-4"
+        >
+          {`Ready to Price ${panel.name}?`}
+        </Heading>
+        <Paragraph
+          variant="large"
+          color="text-accent3"
+          margin="mb-8"
+          className="max-w-2xl text-pretty"
+        >
+          Send the dimensions, the substrate, and the color you are considering.
+          We will confirm what the profile needs and put a material list
+          together.
+        </Paragraph>
+        <Buttons margin="mt-0 mb-0">
+          <Button
+            href={cta.quote.href}
+            size="medium"
+            dark
+          >
+            {cta.quote.label}
+          </Button>
+          <Button
+            href={cta.call.href}
+            variant="outline"
+            size="medium"
+            dark
+          >
+            {cta.call.label}
+          </Button>
+        </Buttons>
+      </Section>
     </PageWrapper>
   )
 }

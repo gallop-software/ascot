@@ -1,10 +1,12 @@
 import { Section } from '@/components/section'
 import { Columns, Column } from '@/components/columns'
 import { Image } from '@/components/image'
+import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
-import { SectionHeading } from '@/components/section-heading'
+import { List, Li } from '@/components/list'
 import { serviceArea } from '@/config'
+import checkIcon from '@iconify/icons-lucide/check'
 
 /** Company narrative: how ForgeSpan grew from panels and trim into full packages. */
 export default function Story() {
@@ -16,11 +18,15 @@ export default function Story() {
         align="items-start"
       >
         <Column className="lg:col-span-7">
-          <SectionHeading
-            eyebrow="Our Story"
-            heading="From a Regional Panel Shop to Complete Steel Packages"
-            className="mb-6"
-          />
+          <div className="mb-6">
+            <Heading as="h2">Our Story</Heading>
+            <Heading
+              as="h3"
+              margin="mb-0"
+            >
+              From a Regional Panel Shop to Complete Steel Packages
+            </Heading>
+          </div>
 
           <Paragraph
             color="text-contrast-light"
@@ -46,24 +52,35 @@ export default function Story() {
             times, and straightforward service.
           </Paragraph>
 
-          <div className="mt-8 flex flex-col items-start border-l-2 border-accent bg-accent3-light/40 px-6 py-5">
-            <Span
-              fontFamily="font-heading2"
-              fontSize="text-sm"
-              fontWeight="font-semibold"
-              color="text-accent-dark"
-              margin="mb-2"
-              className="uppercase tracking-[0.16em]"
+          <div className="mt-8 flex flex-col items-start">
+            <Heading
+              as="h4"
+              margin="mb-3"
             >
               Where We Work
-            </Span>
-            <Paragraph
-              fontSize="text-base"
-              color="text-contrast"
+            </Heading>
+            <List
+              variant="unstyled"
               margin="mb-0"
+              className="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2"
             >
-              {serviceArea.summary}
-            </Paragraph>
+              {serviceArea.areas.map((area) => (
+                <Li
+                  key={area}
+                  icon={checkIcon}
+                  iconSize="w-5 h-5"
+                  className="text-accent"
+                >
+                  <Span
+                    color="text-contrast-light"
+                    fontSize="text-base"
+                    fontWeight="font-medium"
+                  >
+                    {area}
+                  </Span>
+                </Li>
+              ))}
+            </List>
           </div>
         </Column>
 

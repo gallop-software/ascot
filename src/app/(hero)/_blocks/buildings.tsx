@@ -1,13 +1,13 @@
 import { Section } from '@/components/section'
 import { Columns, Column } from '@/components/columns'
 import { Image } from '@/components/image'
+import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
 import { List, Li } from '@/components/list'
 import { Buttons } from '@/components/buttons'
 import { Button } from '@/components/button'
-import { SectionHeading } from '@/components/section-heading'
-import { BUILDING_TYPES, BUILDING_BENEFITS } from '@/catalog'
+import { BUILDING_TYPES } from '@/catalog'
 import { cta } from '@/config'
 import arrowRightIcon from '@iconify/icons-heroicons/arrow-right-20-solid'
 import checkIcon from '@iconify/icons-lucide/check'
@@ -24,11 +24,15 @@ export default function Buildings() {
         align="items-center"
       >
         <Column>
-          <SectionHeading
-            eyebrow="Complete Building Solutions"
-            heading="From Individual Components to Complete Steel Packages"
-            className="mb-6"
-          />
+          <div className="mb-6">
+            <Heading as="h2">Complete Building Solutions</Heading>
+            <Heading
+              as="h3"
+              margin="mb-0"
+            >
+              From Individual Components to Complete Steel Packages
+            </Heading>
+          </div>
           <Paragraph
             variant="large"
             color="text-contrast-light"
@@ -41,34 +45,28 @@ export default function Buildings() {
             required for an efficient build.
           </Paragraph>
 
-          <div className="mb-8 border-l-2 border-accent pl-6">
-            <Span
-              fontFamily="font-heading2"
-              fontSize="text-sm"
-              fontWeight="font-semibold"
-              color="text-accent"
-              className="mb-3 block uppercase tracking-[0.2em]"
-            >
-              Building Types
-            </Span>
-            <List
-              variant="unstyled"
-              margin="mb-0"
-              className="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2"
-            >
-              {BUILDING_TYPES.map((type) => (
-                <Li key={type}>
-                  <Span
-                    color="text-contrast"
-                    fontSize="text-base"
-                    fontWeight="font-medium"
-                  >
-                    {type}
-                  </Span>
-                </Li>
-              ))}
-            </List>
-          </div>
+          <List
+            variant="unstyled"
+            margin="mb-8"
+            className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2"
+          >
+            {BUILDING_TYPES.map((type) => (
+              <Li
+                key={type}
+                icon={checkIcon}
+                iconSize="w-5 h-5"
+                className="text-accent"
+              >
+                <Span
+                  color="text-contrast-light"
+                  fontSize="text-base"
+                  fontWeight="font-medium"
+                >
+                  {type}
+                </Span>
+              </Li>
+            ))}
+          </List>
 
           <Buttons margin="mt-0 mb-0">
             <Button
@@ -90,41 +88,8 @@ export default function Buildings() {
             size="large"
             rounded="rounded-none"
             aspect="aspect-[4/3]"
-            className="mb-8 w-full object-cover"
+            className="w-full object-cover"
           />
-
-          <div className="border border-accent4-dark bg-accent2-dark p-6 md:p-8">
-            <Span
-              fontFamily="font-heading2"
-              fontSize="text-sm"
-              fontWeight="font-semibold"
-              color="text-accent-light"
-              className="mb-4 block uppercase tracking-[0.2em]"
-            >
-              What Comes With the Package
-            </Span>
-            <List
-              variant="unstyled"
-              margin="mb-0"
-              gap="gap-y-3"
-            >
-              {BUILDING_BENEFITS.map((benefit) => (
-                <Li
-                  key={benefit}
-                  icon={checkIcon}
-                  iconSize="w-5 h-5"
-                  className="text-accent-light"
-                >
-                  <Span
-                    color="text-accent3"
-                    fontSize="text-base"
-                  >
-                    {benefit}
-                  </Span>
-                </Li>
-              ))}
-            </List>
-          </div>
         </Column>
       </Columns>
     </Section>

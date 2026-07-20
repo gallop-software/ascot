@@ -34,14 +34,14 @@ export const productLinks: FooterLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Panels', href: '/panels' },
   { label: 'Trims', href: '/trims' },
-  { label: 'Buildings', href: '/building-systems' },
+  { label: 'Products', href: '/products' },
+  { label: 'Buildings', href: '/buildings' },
 ]
 
 /**
  * Secondary navigation column — mirrors the rest of the main navbar.
  */
 export const buildingLinks: FooterLink[] = [
-  { label: 'Products', href: '/products' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -53,7 +53,7 @@ export const quickLinks: FooterLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Panels', href: '/panels' },
   { label: 'Trims', href: '/trims' },
-  { label: 'Buildings', href: '/building-systems' },
+  { label: 'Buildings', href: '/buildings' },
   { label: 'Products', href: '/products' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
