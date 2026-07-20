@@ -1,10 +1,12 @@
 import OpenAI from 'openai'
 import { company, contact, serviceArea } from '@/config'
 
-// OpenAI API client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+// Instantiate the client per request rather than at module load: the OpenAI
+// constructor throws when no key is present, and `next build` imports this
+// module while collecting page data (when OPENAI_API_KEY may be unset).
+function getClient(): OpenAI {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+}
 
 export const maxDuration = 60
 
@@ -100,6 +102,7 @@ export async function POST(req: Request) {
       }
 
       try {
+        const openai = getClient()
         const runStream = await openai.responses.create({
           model: 'gpt-5.4',
           instructions: INSTRUCTIONS,
