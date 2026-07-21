@@ -77,7 +77,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
           title={company.name}
           className="block outline-none focus:outline-none"
         >
-          <Logo height={40} />
+          <Logo height={48} />
         </Link>
         <div className="flex items-center">
           <button
@@ -122,7 +122,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
                 title={company.name}
                 className="relative z-20 -mr-10 flex items-center pt-6 pr-32 pb-9 [clip-path:polygon(0_0,100%_0,82%_100%,0_100%)]"
               >
-                <Logo height={52} />
+                <Logo height={64} />
               </Link>
 
               {/* Contact strip */}

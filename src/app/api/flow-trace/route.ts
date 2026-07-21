@@ -212,7 +212,7 @@ function renderEmailHtml(args: {
 
   // studioUrl returns an absolute CDN URL for processed images and a
   // root-relative path otherwise; only prepend the origin in the latter case.
-  const logoPath = studioUrl('/placeholder.png', 'medium')
+  const logoPath = studioUrl('/logo.png', 'medium')
   const logoSrc = /^https?:\/\//.test(logoPath)
     ? logoPath
     : `${baseUrl}${logoPath}`

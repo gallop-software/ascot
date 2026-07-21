@@ -12,7 +12,7 @@ import {
 export const baseURL =
   process.env.NEXT_PUBLIC_PRODUCTION_URL || 'http://localhost:3000'
 
-const logoImageData = getStudioImage('/placeholder.png', 'large')
+const logoImageData = getStudioImage('/logo.png', 'large')
 
 const businessImageData = getStudioImage('/placeholder.png', 'large')
 

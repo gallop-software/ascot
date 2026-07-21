@@ -69,8 +69,8 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Logo
-              className="mb-6 text-contrast"
-              height={38}
+              className="mb-6"
+              width={180}
             />
             <Paragraph
               color="text-contrast-light"
