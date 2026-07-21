@@ -80,7 +80,7 @@ export const PANEL_PROFILES: PanelProfile[] = [
     },
     featured: true,
     viewerProfile: 'fm-r36',
-    relatedProducts: ['long-life-panel-screws', 'ridge-cap', 'foam-closure-strips'],
+    relatedProducts: ['long-life-panel-screws', 'stitch-screws', 'foam-closure-strips'],
     fastenerNote: 'Exposed fastener system. Fastener pattern varies by substrate and span.',
   },
   {
@@ -138,7 +138,7 @@ export const PANEL_PROFILES: PanelProfile[] = [
     },
     featured: true,
     viewerProfile: 'fm-u36',
-    relatedProducts: ['silicone-sealant', 'corner-trim', 'base-trim'],
+    relatedProducts: ['silicone-sealant', 'butyl-sealant-tape', 'stitch-screws'],
     fastenerNote: 'Concealed fastener system. Panel thickness selected per project.',
   },
 ]
@@ -461,7 +461,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
       alt: 'Coated metal roofing screws with bonded sealing washers',
     },
     featured: true,
-    relatedProducts: ['stitch-screws', 'foam-closure-strips', 'stitch-screws'],
+    relatedProducts: ['stitch-screws', 'foam-closure-strips', 'butyl-sealant-tape'],
   },
   {
     slug: 'stitch-screws',
@@ -532,7 +532,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
       alt: 'Ridge ventilation product installed along a metal roof ridge',
     },
     featured: false,
-    relatedProducts: ['ridge-cap', 'foam-closure-strips', 'fm-a36'],
+    relatedProducts: ['ridge-cap', 'foam-closure-strips', 'butyl-sealant-tape'],
   },
 ]
 

@@ -37,9 +37,6 @@ export default function Panels() {
           <PanelProfileCard
             key={panel.slug}
             panel={panel}
-            // The card defaults to /products/panels/<slug>; the real route is
-            // /panels/[profile].
-            href={`/panels/${panel.slug}`}
           />
         ))}
       </Grid>

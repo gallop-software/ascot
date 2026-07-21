@@ -292,7 +292,11 @@ export default async function Page({ params }: PageProps) {
                     margin="mb-2"
                   >
                     <Link
-                      href={`/products/${product.category}#${product.slug}`}
+                      href={`${
+                        product.category === 'trim-and-flashing'
+                          ? '/trims'
+                          : '/products'
+                      }#${product.slug}`}
                       className="no-underline! before:absolute before:inset-0 focus:outline-none"
                     >
                       {product.name}

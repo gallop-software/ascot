@@ -15,7 +15,10 @@ const PRODUCTS: Product[] = [...STRUCTURAL_COMPONENTS, ...ACCESSORY_PRODUCTS]
 /** Catalog card for a single product. Not exported — Canon rule 025. */
 function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="flex flex-col rounded-none border border-accent3-dark bg-body-light">
+    <article
+      id={product.slug}
+      className="flex flex-col scroll-mt-32 rounded-none border border-accent3-dark bg-body-light"
+    >
       <div className="overflow-hidden border-b border-accent3-dark">
         <Image
           src={product.image.src}

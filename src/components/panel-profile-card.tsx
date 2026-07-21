@@ -10,7 +10,7 @@ import { SpecificationList } from '@/components/specification-list'
 
 export interface PanelProfileCardProps {
   panel: PanelProfile
-  /** Where the card links. Defaults to /products/panels/<slug>. */
+  /** Where the card links. Defaults to /panels/<slug>. */
   href?: string
   /** How many specs to show before the link. Defaults to 3. */
   specLimit?: number
@@ -28,7 +28,7 @@ export function PanelProfileCard({
   specLimit = 3,
   className,
 }: PanelProfileCardProps) {
-  const target = href ?? `/products/panels/${panel.slug}`
+  const target = href ?? `/panels/${panel.slug}`
 
   return (
     <article
