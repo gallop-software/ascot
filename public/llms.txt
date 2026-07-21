@@ -12,9 +12,9 @@ it in sync with `src/config.ts` and `src/catalog.ts`.
 - Tagline: Built for the Work Ahead.
 - Founded: 1998
 - Address: 4820 Industrial Parkway, Redstone, TX 79541
-- Phone: (325) 555-0186
+- Phone: (123) 456-7890
 - Email: sales@frontiermetals.com
-- Hours: Mon–Fri 7:30 AM–5:30 PM; Sat 8:00 AM–12:00 PM; Sun closed
+- Hours: Mon–Sat 8:00 AM–5:00 PM; Sun closed
 - Service area: West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets
 
 ## Panels
@@ -26,11 +26,13 @@ it in sync with `src/config.ts` and `src/catalog.ts`.
 
 ## Trims
 
-- [Trims](/trims): Ridge, rake, eave, valley, corner, and base trim plus custom flashing.
+- [Trims](/trims): Ridge, rake, eave, valley, corner, and base trim plus custom flashing. Individual trims are anchored on this page, e.g. /trims#ridge-cap.
 
 ## Products
 
-- [Products](/products): Structural framing, fasteners, closures, and accessories we manufacture.
+- [Products](/products): Structural framing, fasteners, closures, and accessories we manufacture. Individual products are anchored on this page, e.g. /products#roof-purlins.
+- Structural components: primary rigid frames, endwall frames, roof purlins, wall girts, eave struts, base angles.
+- Fasteners and accessories: long-life panel screws, stitch screws, butyl sealant tape, silicone sealant, foam closure strips, ridge ventilation.
 
 ## Buildings
 
