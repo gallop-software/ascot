@@ -350,7 +350,7 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/placeholder.png',
+      src: '/image-22.jpg',
       alt: 'Steel eave strut at the roof and wall transition of a metal building',
     },
     featured: false,
@@ -368,7 +368,7 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/placeholder.png',
+      src: '/image-23.jpg',
       alt: 'Galvanized base angle fastened along a concrete slab edge',
     },
     featured: false,
@@ -463,7 +463,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel attachment'],
     specs: [{ label: 'Washer', value: 'Bonded sealing washer' }],
     image: {
-      src: '/placeholder.png',
+      src: '/image-24.jpg',
       alt: 'Coated metal roofing screws with bonded sealing washers',
     },
     featured: true,
@@ -482,7 +482,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel sidelaps', 'Trim laps'],
     specs: [{ label: 'Use', value: 'Panel-to-panel' }],
     image: {
-      src: '/placeholder.png',
+      src: '/image-25.jpg',
       alt: 'Stitch screws used to fasten metal panel sidelaps together',
     },
     featured: false,
@@ -497,7 +497,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel laps', 'Trim joints'],
     specs: [{ label: 'Type', value: 'Non-hardening butyl' }],
     image: {
-      src: '/placeholder.png',
+      src: '/image-26.jpg',
       alt: 'Roll of butyl sealant tape used at metal panel laps',
     },
     featured: true,
@@ -512,7 +512,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Penetrations', 'Trim details'],
     specs: [{ label: 'Type', value: 'Gun-grade silicone' }],
     image: {
-      src: '/placeholder.png',
+      src: '/image-27.jpg',
       alt: 'Tubes of silicone sealant for metal building trim details',
     },
     featured: false,
@@ -531,7 +531,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Eave', 'Ridge', 'Base'],
     specs: [{ label: 'Fit', value: 'Matched to panel profile' }],
     image: {
-      src: '/placeholder.png',
+      src: '/image-28.jpg',
       alt: 'Foam closure strips shaped to match metal panel ribs',
     },
     featured: true,
@@ -546,7 +546,7 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Roof ventilation'],
     specs: [{ label: 'Location', value: 'Roof ridge' }],
     image: {
-      src: '/placeholder.png',
+      src: '/image-29.jpg',
       alt: 'Ridge ventilation product installed along a metal roof ridge',
     },
     featured: false,
