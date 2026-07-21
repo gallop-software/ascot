@@ -4,8 +4,8 @@
  * Profiles are described as data and expanded into a 2D polyline by
  * {@link buildProfilePoints}. The numeric dimensions (rib heights, slope
  * lengths, valley widths) are derived from real panel geometry; everything
- * else here — the single parametric builder, the variant handling, the
- * dimension generator — is original to this template.
+ * else here (the single parametric builder, the variant handling, the
+ * dimension generator) is original to this template.
  *
  * Units are nominal "profile units"; the 36" coverage maps to the centered
  * span produced by {@link profileMetrics}.
@@ -47,7 +47,7 @@ interface RibProfileSpec extends ProfileMeta {
   /**
    * Optional two-tier major rib (AG Panel). When set, the slope climbs to a
    * lower ridge shelf, runs flat for `ridgeHalfTop`, then steps vertically up
-   * to the full `majorHeight` peak — the notched rib top seen on Ag-Panel.
+   * to the full `majorHeight` peak, giving the notched rib top seen on Ag-Panel.
    */
   ridgeHeight?: number
   ridgeHalfTop?: number
@@ -78,7 +78,7 @@ export const COVERAGE_INCHES = 36
 export const PANEL_DEPTH = 20
 
 export const PANEL_PROFILES: Record<PanelProfileId, PanelProfileSpec> = {
-  // PBR Panel — 1¼" major rib on 12" centers across 36" coverage.
+  // PBR Panel: 1¼" major rib on 12" centers across 36" coverage.
   'fm-r36': {
     kind: 'rib',
     majorHeight: 1.25,
@@ -99,7 +99,7 @@ export const PANEL_PROFILES: Record<PanelProfileId, PanelProfileSpec> = {
     centersLabel: '12"',
     centersInches: 12,
   },
-  // AG Panel — ¾" rib on 9" centers across 36" coverage. No variant.
+  // AG Panel: ¾" rib on 9" centers across 36" coverage. No variant.
   // Ag-Panel cross-section geometry.
   'fm-a36': {
     kind: 'rib',
@@ -123,7 +123,7 @@ export const PANEL_PROFILES: Record<PanelProfileId, PanelProfileSpec> = {
     centersLabel: '9"',
     centersInches: 9,
   },
-  // PBU Panel — ¾" rib on 6" centers (6 ribs × 6" = 36" coverage), wide flats.
+  // PBU Panel: ¾" rib on 6" centers (6 ribs × 6" = 36" coverage), wide flats.
   // Rib pitch = 2·ribHalfTop + 2·ribSlope + valley = 6 units (1 unit = 1 inch).
   'fm-u36': {
     kind: 'u',
@@ -163,7 +163,7 @@ function accumulate(steps: Point[]): Point[] {
  */
 export function buildProfilePoints(
   spec: PanelProfileSpec,
-  purlinLeg: boolean,
+  purlinLeg: boolean
 ): Point[] {
   const steps: Point[] =
     spec.kind === 'rib' ? ribSteps(spec, purlinLeg) : uSteps(spec, purlinLeg)
@@ -179,7 +179,8 @@ export function buildProfilePoints(
 
 function ribSteps(spec: RibProfileSpec, purlinLeg: boolean): Point[] {
   const start = spec.majorSlope * spec.startFactor
-  const startHeight = spec.majorHeight - (spec.majorHeight * start) / spec.majorSlope
+  const startHeight =
+    spec.majorHeight - (spec.majorHeight * start) / spec.majorSlope
 
   // Two-tier major rib (AG Panel): the slope climbs only to a lower shelf, runs
   // flat across the ridge, then steps vertically up to the full peak. Without
@@ -243,10 +244,7 @@ function ribSteps(spec: RibProfileSpec, purlinLeg: boolean): Point[] {
   ]
 
   const end: Point[] = purlinLeg
-    ? [
-        ...downFromPeak,
-        { x: start, y: 0 },
-      ]
+    ? [...downFromPeak, { x: start, y: 0 }]
     : hasRidge
       ? [
           { x: spec.majorHalfTop, y: spec.majorHeight },
@@ -315,7 +313,7 @@ export interface ProfileMetrics {
 /** Derive the framing metrics used to lay out the mesh and its dimensions. */
 export function profileMetrics(
   spec: PanelProfileSpec,
-  purlinLeg: boolean,
+  purlinLeg: boolean
 ): ProfileMetrics {
   const points = buildProfilePoints(spec, purlinLeg)
   const xs = points.map((p) => p.x)
@@ -347,14 +345,14 @@ export interface LabelSpec {
 export function buildAnnotations(
   spec: PanelProfileSpec,
   purlinLeg: boolean,
-  metrics: ProfileMetrics,
+  metrics: ProfileMetrics
 ): { dimensions: DimensionSpec[]; label: LabelSpec | null } {
   const { halfWidth: w, top, bottom, frontZ: z } = metrics
   const coverageY = top + 2.4
   const centersY = top + 0.9
   // 1 profile-unit = 1 inch, so dimensions are drawn at true inch coordinates:
   // coverage spans the nominal 36" (drawn just inside the end half-ribs), and
-  // the rib-pitch line spans exactly `centersInches` — matching the geometry.
+  // the rib-pitch line spans exactly `centersInches`, matching the geometry.
   const halfCoverage = COVERAGE_INCHES / 2
 
   const dimensions: DimensionSpec[] = [

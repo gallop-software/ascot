@@ -21,7 +21,7 @@ export interface PageMetadata {
   referrer?: string
   /**
    * Per-page indexing override. Omit to inherit the site default (indexed).
-   * Set `{ index: false }` on pages that must not reach search results —
+   * Set `{ index: false }` on pages that must not reach search results.
    * e.g. unwritten legal placeholders.
    */
   robots?: { index?: boolean; follow?: boolean }

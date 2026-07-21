@@ -192,7 +192,7 @@ const recordPageView = (maxPath: number) => {
   writePath(arr, maxPath)
 }
 
-// — helpers —
+// helpers
 function safeHostname(url?: string | null): string | null {
   try {
     return url ? new URL(url).hostname : null

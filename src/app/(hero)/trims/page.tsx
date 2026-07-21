@@ -38,8 +38,8 @@ const metadata: PageMetadata = {
   },
   openGraph: {
     image: {
-      url: '/placeholder.png',
-      alt: 'Formed metal trim pieces bundled for delivery',
+      url: '/logo.png',
+      alt: `${company.name} logo`,
     },
   },
   structuredData: [

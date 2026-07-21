@@ -33,7 +33,7 @@ const rowClass =
   'py-3.5 font-body text-base font-medium tracking-wide transition-colors duration-200 focus:outline-none focus:ring-0'
 
 /**
- * A collapsible group in the mobile menu — the parent label toggles a list of
+ * A collapsible group in the mobile menu, where the parent label toggles a list of
  * indented child links (no left rail).
  */
 function MobileGroup({
@@ -97,7 +97,7 @@ function MobileGroup({
 }
 
 /**
- * Mobile navigation contents — stacked links and expandable groups, a red
+ * Mobile navigation contents: stacked links and expandable groups, a red
  * quote CTA and the business contact details. Rendered inside the slide-in
  * dialog panel.
  */

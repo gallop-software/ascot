@@ -19,8 +19,8 @@ export interface StatisticsStripProps {
 
 /**
  * Splits a stat value into a leading prefix, an integer target, and a trailing
- * suffix so the number can count up while symbols like "+", "%", or "," survive
- * — e.g. "2,500+" → { prefix: '', target: 2500, suffix: '+' }.
+ * suffix so the number can count up while symbols like "+", "%", or "," survive.
+ * For example, "2,500+" → { prefix: '', target: 2500, suffix: '+' }.
  */
 function parseStat(value: string): {
   prefix: string
@@ -97,7 +97,7 @@ function AnimatedValue({
 
 /**
  * Strip of key figures whose numbers count up when the strip scrolls into
- * view. Data-driven from `stats` / `extendedStats` in `@/config` — never
+ * view. Data-driven from `stats` / `extendedStats` in `@/config`; never
  * hardcode the numbers at the call site.
  */
 export function StatisticsStrip({

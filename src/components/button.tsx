@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 import { Icon } from '@/components/icon'
 
 // Primary buttons fill with `accent-dark`, not `accent`. White label text on
-// raw Safety Orange is 3.70:1 — below the 4.5:1 WCAG AA floor for normal text.
+// raw Safety Orange is 3.70:1, below the 4.5:1 WCAG AA floor for normal text.
 // `accent-dark` carries the same industrial orange at 5.90:1, and hovering
 // softens it to `accent-dark/30` as the interaction state.
 const variants = {

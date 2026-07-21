@@ -1,7 +1,7 @@
 import { baseURL, businessId } from '@/app/metadata'
 import { serviceArea } from '@/config'
 
-/** Default areaServed for landing pages — derived from the configured service area. */
+/** Default areaServed for landing pages, derived from the configured service area. */
 const defaultAreaServed = [
   ...serviceArea.cities.map((city) => `${city}, TX`),
   ...serviceArea.regions.map((region) => region.name),

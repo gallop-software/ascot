@@ -122,7 +122,7 @@ export default function QuoteForm() {
               />
               <FormTextArea
                 name="message"
-                placeholder="Tell us what you need — products, measurements, timeline, anything else."
+                placeholder="Tell us what you need: products, measurements, timeline, anything else."
                 rows={4}
                 label="Project description"
                 required
@@ -139,8 +139,8 @@ export default function QuoteForm() {
 
         <Column>
           <Image
-            src="/placeholder.png"
-            alt="Steel roofing panels running through a roll-forming line at the Frontier Metals facility"
+            src="/image-14.jpg"
+            alt="Frontier Metals operator forming a custom trim piece on a press brake"
             className="h-auto w-full"
             rounded="rounded-none"
             size="large"

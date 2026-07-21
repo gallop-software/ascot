@@ -348,7 +348,7 @@ export async function POST(req: Request) {
       ''
     )
 
-    const subject = `[FlowTrace] ${productionUrlClean || 'Site'} — ${timeNow}`
+    const subject = `[FlowTrace] ${productionUrlClean || 'Site'}: ${timeNow}`
 
     const mailBody: Record<string, any> = {
       from: `${process.env.MAILGUN_FROM_NAME} <contact@${process.env.MAILGUN_DOMAIN_NAME}>`,

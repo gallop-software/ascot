@@ -1,4 +1,6 @@
 import { clsx } from 'clsx'
+import quoteIcon from '@iconify/icons-lucide/quote'
+import { Icon } from '@/components/icon'
 import type { Testimonial } from '@/catalog'
 import { Quote } from '@/components/quote'
 import { Span } from '@/components/span'
@@ -23,11 +25,19 @@ export function TestimonialCard({
   return (
     <figure
       className={clsx(
-        'flex h-full flex-col rounded-none border p-6',
-        dark ? 'border-accent4-dark bg-accent2-dark' : 'border-accent3-dark bg-body-light',
+        'relative flex h-full flex-col rounded-none border p-6 pt-8 transition-shadow hover:shadow-lg',
+        'before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-accent',
+        dark
+          ? 'border-accent4-dark bg-accent2-dark'
+          : 'border-accent3-dark bg-body-light',
         className
       )}
     >
+      <Icon
+        icon={quoteIcon}
+        className="mb-4 h-8 w-8 text-accent"
+      />
+
       <Quote
         variant="small"
         fontStyle="not-italic"

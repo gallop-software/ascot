@@ -8,7 +8,7 @@ import { cta } from '@/config'
 export default function Cta() {
   return (
     <Section
-      imageSrc="/placeholder.png"
+      imageSrc="/panels-1.jpg"
       imageAlt=""
       overlayColor="bg-accent2/88"
       className="py-20 lg:py-28"

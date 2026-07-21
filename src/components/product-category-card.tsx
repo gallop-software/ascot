@@ -11,7 +11,7 @@ export interface ProductCategoryCardProps {
   href: string
   image: { src: string; alt: string }
   /**
-   * Descriptive link text — must name the destination, e.g.
+   * Descriptive link text that must name the destination, e.g.
    * "View Roofing Panels". Never "Learn More": a screen-reader user pulling up
    * a list of links needs each one to stand on its own.
    */

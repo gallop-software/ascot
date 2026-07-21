@@ -3,7 +3,11 @@ import { Grid } from '@/components/grid'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Image } from '@/components/image'
-import { STRUCTURAL_COMPONENTS, ACCESSORY_PRODUCTS, type Product } from '@/catalog'
+import {
+  STRUCTURAL_COMPONENTS,
+  ACCESSORY_PRODUCTS,
+  type Product,
+} from '@/catalog'
 
 /**
  * The products page lists the manufactured line item by item. Panels have their
@@ -12,23 +16,25 @@ import { STRUCTURAL_COMPONENTS, ACCESSORY_PRODUCTS, type Product } from '@/catal
  */
 const PRODUCTS: Product[] = [...STRUCTURAL_COMPONENTS, ...ACCESSORY_PRODUCTS]
 
-/** Catalog card for a single product. Not exported — Canon rule 025. */
+/** Catalog card for a single product. Not exported, per Canon rule 025. */
 function ProductCard({ product }: { product: Product }) {
   return (
     <article
       id={product.slug}
       className="flex flex-col scroll-mt-32 rounded-none border border-accent3-dark bg-body-light"
     >
-      <div className="overflow-hidden border-b border-accent3-dark">
-        <Image
-          src={product.image.src}
-          alt={product.image.alt}
-          size="medium"
-          rounded="rounded-none"
-          aspect="aspect-[3/2]"
-          className="w-full object-cover"
-        />
-      </div>
+      {product.image && (
+        <div className="overflow-hidden border-b border-accent3-dark">
+          <Image
+            src={product.image.src}
+            alt={product.image.alt}
+            size="medium"
+            rounded="rounded-none"
+            aspect="aspect-[3/2]"
+            className="w-full object-cover"
+          />
+        </div>
+      )}
 
       <div className="flex flex-1 flex-col p-6">
         <Heading
@@ -64,8 +70,8 @@ export default function Products() {
           color="text-contrast-light"
           margin="mb-0"
         >
-          Structural framing, fasteners, closures, and accessories — produced to
-          the approved order and bundled with the rest of your package.
+          Structural framing, fasteners, closures, and accessories, all produced
+          to the approved order and bundled with the rest of your package.
         </Paragraph>
       </div>
 

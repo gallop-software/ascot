@@ -20,7 +20,7 @@ import {
   type PanelProfileId,
 } from './profiles'
 
-/** Underside finish — held constant so the formed sheet reads correctly. */
+/** Underside finish, held constant so the formed sheet reads correctly. */
 const UNDERSIDE_COLOR = '#eceae3'
 /** Wireframe line color. */
 const WIRE_COLOR = '#3f4448'
@@ -132,11 +132,14 @@ function Scene({
   const spec = PANEL_PROFILES[profile]
 
   const points = useMemo(() => buildProfilePoints(spec, purlin), [spec, purlin])
-  const geometry = useMemo(() => buildRibbonGeometry(points, PANEL_DEPTH), [points])
+  const geometry = useMemo(
+    () => buildRibbonGeometry(points, PANEL_DEPTH),
+    [points]
+  )
   // Built only when the wire view is actually used (never on the cards).
   const wireGeometry = useMemo(
     () => (wire ? buildWireframe(points, PANEL_DEPTH) : null),
-    [points, wire],
+    [points, wire]
   )
 
   const materials = useMemo(() => {
@@ -158,7 +161,7 @@ function Scene({
   }, [color])
 
   // Dispose GPU resources when they're replaced (color/profile/variant change)
-  // or on unmount — R3F doesn't free imperatively-created objects on its own.
+  // or on unmount, since R3F doesn't free imperatively-created objects on its own.
   useEffect(() => () => geometry.dispose(), [geometry])
   useEffect(() => () => wireGeometry?.dispose(), [wireGeometry])
   useEffect(() => () => materials.forEach((m) => m.dispose()), [materials])
@@ -166,11 +169,11 @@ function Scene({
   const metrics = useMemo(() => profileMetrics(spec, purlin), [spec, purlin])
   const { dimensions, label } = useMemo(
     () => buildAnnotations(spec, purlin, metrics),
-    [spec, purlin, metrics],
+    [spec, purlin, metrics]
   )
 
   // Frame the panel by its width so it never overflows on narrow/tall
-  // canvases — the camera distance adapts to aspect. The width factor keeps
+  // canvases, so the camera distance adapts to aspect. The width factor keeps
   // the panel at roughly two-thirds of the view (generous margins, matching
   // the reference's relaxed framing) rather than edge-to-edge.
   const fit = useMemo(() => {
@@ -182,19 +185,19 @@ function Scene({
     return { halfWidth, halfHeight }
   }, [metrics, showDimensions])
 
-  // The distance that frames `fit` for the current aspect — shared by the
+  // The distance that frames `fit` for the current aspect, shared by the
   // camera placement and the zoom limits so clamping scales with the canvas.
   const camera = useThree((s) => s.camera)
   const size = useThree((s) => s.size)
   const fitDistance = useMemo(() => {
     const persp = camera as THREE.PerspectiveCamera
     const aspect = size.width / size.height
-    const tanV = Math.tan(((persp.fov * Math.PI) / 180) / 2)
+    const tanV = Math.tan((persp.fov * Math.PI) / 180 / 2)
     return Math.max(fit.halfHeight / tanV, fit.halfWidth / (tanV * aspect))
   }, [camera, size, fit])
 
   // Small viewports already frame from a larger distance, so the full zoom-out
-  // factor lets the panel shrink too far — tighten it on narrow screens.
+  // factor lets the panel shrink too far, so tighten it on narrow screens.
   const maxZoomFactor = size.width < 640 ? 1.5 : MAX_ZOOM_FACTOR
 
   const shadowY = -(metrics.top + PANEL_DEPTH * 0.18 + 0.6)
@@ -224,7 +227,7 @@ function Scene({
         intensity={0.6}
       />
 
-      {/* Lightformer-built studio environment for metallic reflections — no
+      {/* Lightformer-built studio environment for metallic reflections, with no
           network HDRI required, so it works offline and in headless builds. */}
       <Environment resolution={256}>
         <Lightformer
@@ -295,7 +298,7 @@ function Scene({
 
 /**
  * Reframe to the given distance when it changes (aspect resize, profile or
- * dimension toggle) while preserving the camera's current direction — so a
+ * dimension toggle) while preserving the camera's current direction, so a
  * chosen preset or user orbit survives a re-fit instead of snapping to front.
  */
 function FitView({ dist }: { dist: number }) {
@@ -327,9 +330,10 @@ function PresetView({
   dist: number
 }) {
   const camera = useThree((s) => s.camera)
-  const controls = useThree((s) => s.controls) as
-    | { target: THREE.Vector3; update: () => void }
-    | null
+  const controls = useThree((s) => s.controls) as {
+    target: THREE.Vector3
+    update: () => void
+  } | null
 
   const distRef = useRef(dist)
   distRef.current = dist

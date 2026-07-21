@@ -1,5 +1,5 @@
 /**
- * Central company configuration — the single source of truth for company
+ * Central company configuration: the single source of truth for company
  * identity across the template.
  *
  * SaaS customers replace a site's identity by editing THIS file plus the color
@@ -15,6 +15,7 @@ import packageIcon from '@iconify/icons-lucide/package'
 import clockIcon from '@iconify/icons-lucide/clock'
 import timerIcon from '@iconify/icons-lucide/timer'
 import truckIcon from '@iconify/icons-lucide/truck'
+import paletteIcon from '@iconify/icons-lucide/palette'
 
 export interface CompanyAddress {
   street: string
@@ -125,7 +126,7 @@ export const serviceArea = {
 }
 
 /**
- * Marketing statistics. Believable but fictional — replace per customer.
+ * Marketing statistics. Believable but fictional, so replace per customer.
  */
 export const stats: CompanyStat[] = [
   { value: '25+', label: 'Years Manufacturing Steel', icon: factoryIcon },
@@ -138,10 +139,15 @@ export const extendedStats: CompanyStat[] = [
   ...stats,
   { value: '48-Hour', label: 'Typical Production Turnaround', icon: timerIcon },
   { value: '150-Mile', label: 'Regional Delivery Area', icon: truckIcon },
+  {
+    value: '30+',
+    label: 'Panel Colors and Finishes Stocked',
+    icon: paletteIcon,
+  },
 ]
 
 /**
- * Social profiles. Empty by default — a template should not imply
+ * Social profiles. Empty by default, because a template should not imply
  * relationships that do not exist. Add real URLs per customer.
  */
 export const socialLinks: { name: string; href: string }[] = []
@@ -188,10 +194,19 @@ export const values: { title: string; body: string }[] = [
 
 /** Company milestones shown on the About page timeline. */
 export const timeline: { year: string; body: string }[] = [
-  { year: '1998', body: 'Frontier begins manufacturing roofing panels and trim' },
+  {
+    year: '1998',
+    body: 'Frontier begins manufacturing roofing panels and trim',
+  },
   { year: '2005', body: 'Wall-panel and agricultural product lines added' },
   { year: '2012', body: 'Structural building-component division established' },
   { year: '2018', body: 'Regional delivery fleet expanded' },
-  { year: '2022', body: 'New automated roll-forming and trim equipment installed' },
-  { year: '2025', body: 'Building-package and contractor support programs expanded' },
+  {
+    year: '2022',
+    body: 'New automated roll-forming and trim equipment installed',
+  },
+  {
+    year: '2025',
+    body: 'Building-package and contractor support programs expanded',
+  },
 ]

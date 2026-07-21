@@ -1,3 +1,4 @@
+import { clsx } from 'clsx'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import phoneIcon from '@iconify/icons-lucide/phone'
@@ -50,7 +51,7 @@ function buildStructuredData(panel: PanelProfile): object[] {
       url,
       image: `${baseURL}${panel.image.src}`,
       brand: { '@type': 'Brand', name: company.name },
-      // Only measured geometry from the catalog — never the compliance
+      // Only measured geometry from the catalog, never the compliance
       // placeholders above.
       additionalProperty: panel.specs.map((spec) => ({
         '@type': 'PropertyValue',
@@ -93,13 +94,15 @@ export async function generateMetadata({ params }: PageProps) {
   if (!panel) return {}
 
   const metadata: PageMetadata = {
-    title: `${panel.name} — Specs and Applications | ${company.name}`,
+    title: `${panel.name}: Specs and Applications | ${company.name}`,
     description: panel.shortDescription,
     slug: `panels/${profile}`,
     keywords: [
       panel.name,
       `${panel.category.toLowerCase()} panel`,
-      ...panel.applications.map((application) => `${application.toLowerCase()} panel`),
+      ...panel.applications.map(
+        (application) => `${application.toLowerCase()} panel`
+      ),
     ],
     focusKeyword: panel.name,
     publishDate: '2026-07-15T00:00:00Z',
@@ -135,9 +138,12 @@ export default async function Page({ params }: PageProps) {
           size="full"
           rounded="rounded-none"
           lazy={false}
-          className="absolute inset-0 h-full w-full object-cover"
+          className={clsx(
+            'absolute inset-0 h-full w-full object-cover',
+            panel.slug === 'standing-seam' && '-scale-x-100'
+          )}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-body2/95 via-body2/80 to-body2/45" />
 
         <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
           <Breadcrumbs
@@ -200,7 +206,7 @@ export default async function Page({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* Visual — interactive model where one exists, photography otherwise */}
+      {/* Visual: interactive model where one exists, photography otherwise */}
       <Section className="bg-body py-16 md:py-20">
         {panel.viewerProfile ? (
           <PanelStudio profile={panel.viewerProfile} />
@@ -220,7 +226,7 @@ export default async function Page({ params }: PageProps) {
                 fontSize="text-sm"
                 color="text-contrast-light"
               >
-                {`${panel.name} — ${panel.bestFor.toLowerCase()}.`}
+                {`${panel.name}: ${panel.bestFor.toLowerCase()}.`}
               </Span>
             </figcaption>
           </figure>
@@ -276,16 +282,18 @@ export default async function Page({ params }: PageProps) {
                 key={product.slug}
                 className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-shadow duration-200 hover:shadow-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark"
               >
-                <div className="overflow-hidden border-b border-accent3-dark">
-                  <Image
-                    src={product.image.src}
-                    alt={product.image.alt}
-                    size="medium"
-                    rounded="rounded-none"
-                    aspect="aspect-[3/2]"
-                    className="w-full object-cover"
-                  />
-                </div>
+                {product.image && (
+                  <div className="overflow-hidden border-b border-accent3-dark">
+                    <Image
+                      src={product.image.src}
+                      alt={product.image.alt}
+                      size="medium"
+                      rounded="rounded-none"
+                      aspect="aspect-[3/2]"
+                      className="w-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="flex flex-1 flex-col p-6">
                   <Heading
                     as="h4"
@@ -349,7 +357,7 @@ export default async function Page({ params }: PageProps) {
       )}
 
       <Section
-        imageSrc={panel.image.src}
+        imageSrc="/panels-1.jpg"
         imageAlt=""
         overlayColor="bg-accent2/88"
         className="py-20 lg:py-28"

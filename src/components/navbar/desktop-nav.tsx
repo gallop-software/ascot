@@ -18,7 +18,7 @@ function routeOf(href: string): string {
 
 /**
  * True when the given href points at the currently viewed page. Hash-only
- * links (e.g. '/#projects') never count as active — they're page sections.
+ * links (e.g. '/#projects') never count as active because they're page sections.
  */
 function isHrefActive(
   href: string | undefined,
@@ -109,7 +109,7 @@ function NavDropdown({
         </span>
       )}
 
-      {/* Panel — toggled by the group's hover state. */}
+      {/* Panel, toggled by the group's hover state. */}
       <div
         className={clsx(
           'absolute left-0 top-full z-50 min-w-[264px] transition-all duration-200',
@@ -141,7 +141,7 @@ function NavDropdown({
 }
 
 /**
- * Desktop navigation — horizontal links on the dark bar. The active item is
+ * Desktop navigation: horizontal links on the dark bar. The active item is
  * highlighted in red (ConstX-style); items with children expand on hover.
  */
 export function DesktopNav({

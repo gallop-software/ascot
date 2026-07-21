@@ -25,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // The panel detail routes are dynamic, so the filesystem scan can't discover
-  // them — enumerate their statically-generated params from the catalog, the
+  // them, so enumerate their statically-generated params from the catalog, the
   // same source `generateStaticParams` reads, so the sitemap can't drift.
   const panelProfiles = PANEL_PROFILES.map((panel) => ({
     url: `${baseURL}/panels/${panel.slug}`,

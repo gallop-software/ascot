@@ -100,7 +100,7 @@ export function Footer() {
             )}
           </div>
 
-          {/* Nav — 2x2: Explore / Company in one column, Contact / Hours in
+          {/* Nav, 2x2: Explore / Company in one column, Contact / Hours in
               the next (column-wise fill); stacks to a single column on phones. */}
           <div className="grid grid-cols-1 gap-12 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-2 sm:gap-16 lg:col-span-2">
             <div>

@@ -3,7 +3,7 @@ import { StatisticsStrip } from '@/components/statistics-strip'
 import { stats } from '@/config'
 
 /**
- * Statistics strip directly under the hero — the first proof point after the
+ * Statistics strip directly under the hero, the first proof point after the
  * headline. Shares the closing CTA's navy band so the two dark anchors bracket
  * the light content flow; figures count up as it scrolls into view.
  */

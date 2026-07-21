@@ -34,7 +34,7 @@ export function Quote({
   children,
   ...props
 }: QuoteProps) {
-  // Size presets only — otherwise the quote matches normal paragraph styling
+  // Size presets only, so otherwise the quote matches normal paragraph styling
   // (body font, upright, normal weight) rather than a stylised pull-quote.
   const variantClasses = {
     default: 'text-xl/normal',

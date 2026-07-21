@@ -5,14 +5,29 @@ import { ArrowLink } from '@/components/arrow-link'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Span } from '@/components/span'
-import { Image } from '@/components/image'
 import { Buttons } from '@/components/buttons'
 import { Button } from '@/components/button'
-import { TRIM_PRODUCTS } from '@/catalog'
+import { TrimViewer } from '@/components/trim-viewer'
+import { getTrimModel } from '@/components/trim-viewer/data'
+import { TRIM_PRODUCTS, type Product } from '@/catalog'
+
+/** Card visual: the formed 3D cross-section for the trim. */
+function TrimCardVisual({ trim }: { trim: Product }) {
+  const model = getTrimModel(trim.slug)
+  if (!model) return null
+
+  return (
+    <TrimViewer
+      trim={model}
+      aspect="aspect-[3/2]"
+      className="relative z-10 border-b border-accent3-dark"
+    />
+  )
+}
 
 /**
  * Matching trim for the panel profiles above, driven by the catalog rather than
- * the retired 3D trim dataset — the trim library is a product list, not a
+ * the retired 3D trim dataset, because the trim library is a product list, not a
  * viewer, so a card grid links straight through to the category page.
  */
 export default function Trims() {
@@ -35,7 +50,7 @@ export default function Trims() {
       </div>
 
       <Grid
-        cols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        cols="grid-cols-1 sm:grid-cols-2"
         gap="gap-6 lg:gap-8"
         className="mb-12"
       >
@@ -44,16 +59,7 @@ export default function Trims() {
             key={trim.slug}
             className="group relative flex flex-col rounded-none border border-accent3-dark bg-body-light transition-shadow duration-200 hover:shadow-lg has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent-dark"
           >
-            <div className="overflow-hidden border-b border-accent3-dark">
-              <Image
-                src={trim.image.src}
-                alt={trim.image.alt}
-                size="medium"
-                rounded="rounded-none"
-                aspect="aspect-[3/2]"
-                className="w-full object-cover"
-              />
-            </div>
+            <TrimCardVisual trim={trim} />
 
             <div className="flex flex-1 flex-col p-6">
               <Heading

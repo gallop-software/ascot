@@ -29,7 +29,7 @@ export function TrimViewer({
   // No triggerOnce: the WebGL canvas mounts when near the viewport and unmounts
   // when scrolled well away, freeing its GPU context. Browsers cap live WebGL
   // contexts (~16), so with a full trim catalog only the handful on screen stay
-  // alive — keeping the page fast. The rootMargin preloads just before entry so
+  // alive, keeping the page fast. The rootMargin preloads just before entry so
   // there's no blank flash as you scroll.
   const { ref, inView } = useInView({ threshold: 0, rootMargin: '300px 0px' })
   const snap = useSnapshot(state)

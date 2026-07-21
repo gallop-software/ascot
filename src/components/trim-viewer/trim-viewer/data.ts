@@ -55,11 +55,11 @@ export interface TrimContent {
   extraDimensions?: DimSpec[]
 }
 
-const Z = 10 // panelDepth / 2 — front face where annotations sit
+const Z = 10 // panelDepth / 2, front face where annotations sit
 
 export const TRIM_CONTENT: TrimContent[] = [
   // ── Commercial ──────────────────────────────────────────────────────────
-  // First four are not modelled yet — rendered as blank placeholders.
+  // First four are not modelled yet, so rendered as blank placeholders.
   {
     id: 'rat-guard',
     number: 4,
@@ -77,7 +77,7 @@ export const TRIM_CONTENT: TrimContent[] = [
       { x: 0.45, y: -5.76 }, // 2½" diagonal kicking back down-left
       { x: 1.61, y: -6.72 }, // ½" hem turned down-right off the tip
       { x: 1.61, y: -6.9 }, // ½" hem turned down-right off the tip
-      { x: 0.9, y: -6.4 }, // hook folds back up — real hem like base trim
+      { x: 0.9, y: -6.4 }, // hook folds back up, a real hem like base trim
     ],
     labels: [
       { text: '2"', outside: true },

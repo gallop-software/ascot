@@ -55,11 +55,11 @@ export interface TrimContent {
   extraDimensions?: DimSpec[]
 }
 
-const Z = 10 // panelDepth / 2 — front face where annotations sit
+const Z = 10 // panelDepth / 2, front face where annotations sit
 
 export const TRIM_CONTENT: TrimContent[] = [
   // ── Commercial ──────────────────────────────────────────────────────────
-  // First four are not modelled yet — rendered as blank placeholders.
+  // First four are not modelled yet, so rendered as blank placeholders.
   {
     id: 'rat-guard',
     number: 4,
@@ -77,7 +77,7 @@ export const TRIM_CONTENT: TrimContent[] = [
       { x: 0.45, y: -5.76 }, // 2½" diagonal kicking back down-left
       { x: 1.61, y: -6.72 }, // ½" hem turned down-right off the tip
       { x: 1.61, y: -6.9 }, // ½" hem turned down-right off the tip
-      { x: 0.9, y: -6.4 }, // hook folds back up — real hem like base trim
+      { x: 0.9, y: -6.4 }, // hook folds back up, a real hem like base trim
     ],
     labels: [
       { text: '2"', outside: true },
@@ -742,3 +742,23 @@ export const TRIM_CONTENT: TrimContent[] = [
 ]
 
 export const TRIM_ORDER = TRIM_CONTENT.map((t) => t.id)
+
+/**
+ * Maps each catalog trim slug to its formed cross-section here, so cards can
+ * show the 3D model of the piece instead of a photo. Shared by the trims page
+ * and the trim grid on the panels page.
+ */
+export const TRIM_MODELS: Record<string, string> = {
+  'ridge-cap': 'sculptured-ridge',
+  'rake-trim': 'sculptured-rake',
+  'eave-trim': 'long-eave-trim',
+  'valley-trim': 'valley',
+  'corner-trim': 'outside-corner',
+  'base-trim': 'base-trim',
+}
+
+/** The viewer cross-section for a catalog trim slug, if one exists. */
+export function getTrimModel(slug: string) {
+  const id = TRIM_MODELS[slug]
+  return id ? TRIM_CONTENT.find((content) => content.id === id) : undefined
+}

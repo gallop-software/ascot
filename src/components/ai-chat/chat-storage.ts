@@ -41,7 +41,7 @@ export function persistChats(chats: StoredChat[]) {
   try {
     window.localStorage.setItem(CHATS_KEY, JSON.stringify(chats))
   } catch {
-    // localStorage can throw (private mode / quota) — fail silently.
+    // localStorage can throw (private mode / quota), so fail silently.
   }
 }
 
@@ -65,7 +65,10 @@ export function persistActiveChatId(id: string | null) {
 }
 
 export function newChatId(): string {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+  if (
+    typeof crypto !== 'undefined' &&
+    typeof crypto.randomUUID === 'function'
+  ) {
     return crypto.randomUUID()
   }
   return `chat-${Date.now()}-${Math.round(Math.random() * 1e9)}`

@@ -13,7 +13,7 @@ export interface ArrowLinkProps {
 
 /**
  * The standard "label + arrow" call-to-action affordance used inside cards.
- * Presentational only — the enclosing card usually supplies the real link via
+ * Presentational only. The enclosing card usually supplies the real link via
  * a stretched overlay, so this renders inline text rather than an anchor.
  */
 export function ArrowLink({

@@ -73,11 +73,7 @@ function getThumbnailPath(originalPath: string, size: ImageSize): string {
   // Studio CLI preserves the source extension on disk/CDN; mirror that here.
   // .png stays .png, .jpeg stays .jpeg, everything else collapses to .jpg.
   const outputExt =
-    lowerExt === '.png'
-      ? '.png'
-      : lowerExt === '.jpeg'
-        ? '.jpeg'
-        : '.jpg'
+    lowerExt === '.png' ? '.png' : lowerExt === '.jpeg' ? '.jpeg' : '.jpg'
   const suffix = SIZE_MAP[size].suffix
   return `/images${base}${suffix}${outputExt}`
 }
@@ -121,7 +117,7 @@ export function getStudioImage(
     // Get CDN URL if available
     const cdnUrl = entry.c !== undefined ? cdnUrls[entry.c] : undefined
 
-    // SVGs are vectors — never read from /images thumbnail paths;
+    // SVGs are vectors, so never read from /images thumbnail paths;
     // always serve the original file under its bare key
     if (lookupKey.toLowerCase().endsWith('.svg')) {
       const dims = entry.o || entry.f
@@ -249,7 +245,7 @@ export function studioUrl(src: string, size: ImageSize = 'large'): string {
   // Get CDN URL if available
   const cdnUrl = entry.c !== undefined ? cdnUrls[entry.c] : undefined
 
-  // SVGs are vectors — never read from /images thumbnail paths;
+  // SVGs are vectors, so never read from /images thumbnail paths;
   // always serve the original file under its bare key
   if (lookupKey.toLowerCase().endsWith('.svg')) {
     return cdnUrl ? `${cdnUrl}${lookupKey}` : src

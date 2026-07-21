@@ -18,7 +18,7 @@ export type FormSelectProps = {
   required?: boolean
   /**
    * Prompt shown as a disabled first option. Because it carries an empty
-   * value, a `required` select rejects it — the user must make a real choice.
+   * value, a `required` select rejects it, so the user must make a real choice.
    */
   placeholder?: string
   defaultValue?: string

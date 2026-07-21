@@ -17,13 +17,13 @@ const nextId = () => `msg-${++counter}`
 
 /**
  * Minimal chat hook backed by the OpenAI Responses API SSE stream from
- * /api/assistant — no external dependency, just fetch + a stream reader.
+ * /api/assistant, with no external dependency, just fetch + a stream reader.
  */
 export function useChat({ api }: { api: string }) {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [status, setStatus] = useState<ChatStatus>('awaiting_message')
-  // Server-side conversation pointer — sent back on each turn for context.
+  // Server-side conversation pointer, sent back on each turn for context.
   const previousResponseId = useRef<string | null>(null)
   // Tracks the in-flight request so switching conversations can cancel it and
   // stop its streamed tokens from landing in a different chat.
@@ -168,7 +168,7 @@ export function useChat({ api }: { api: string }) {
         }
       } catch (err) {
         // The request was cancelled because the user switched/started another
-        // chat — leave state alone so we don't touch the now-active chat.
+        // chat, so leave state alone so we don't touch the now-active chat.
         if ((err as Error)?.name === 'AbortError') return
         appendDelta('\n\nSorry, something went wrong. Please try again.')
       } finally {

@@ -118,7 +118,7 @@ export default function AiChat() {
   }
 
   // The textarea value is controlled, so a programmatic clear won't fire
-  // onChange — collapse it back to one row here once the input empties.
+  // onChange, so collapse it back to one row here once the input empties.
   useEffect(() => {
     if (input === '' && searchRef.current) {
       searchRef.current.style.height = 'auto'

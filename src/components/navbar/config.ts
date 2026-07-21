@@ -20,7 +20,7 @@ export const quoteLabel = cta.quote.label
  * Main navigation links.
  *
  * Dropdown groups render as a mega menu on desktop and collapsible sections on
- * mobile. Keep children one level deep — the mobile navigation only expands a
+ * mobile. Keep children one level deep, since the mobile navigation only expands a
  * single level.
  */
 export const links: NavLink[] = [
@@ -77,7 +77,7 @@ export const contactItems: ContactItem[] = [
 ]
 
 /**
- * Social media links. Empty until real profiles exist for the customer —
- * a template should not imply relationships that do not exist.
+ * Social media links. Empty until real profiles exist for the customer,
+ * since a template should not imply relationships that do not exist.
  */
 export const socialLinks: SocialLink[] = []

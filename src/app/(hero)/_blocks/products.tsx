@@ -8,7 +8,7 @@ import { PRODUCT_CATEGORIES } from '@/catalog'
 /**
  * Descriptive per-category link labels. Keyed by catalog slug so the copy stays
  * specific ("View Roofing Panels") instead of a generic "Learn More" repeated
- * six times — which would leave screen-reader users with six identical links.
+ * six times, which would leave screen-reader users with six identical links.
  */
 const LINK_LABELS: Record<string, string> = {
   'roofing-panels': 'View Roofing Panels',

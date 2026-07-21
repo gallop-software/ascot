@@ -8,7 +8,7 @@ import { PANEL_PROFILES, PANEL_COLORS, COLOR_DISCLAIMER } from '@/catalog'
 
 /**
  * Every panel profile in the catalog, including the three without an
- * interactive 3D model — the card treatment is identical, so the grid does not
+ * interactive 3D model. The card treatment is identical, so the grid does not
  * need to know which profiles the viewer supports.
  */
 export default function Panels() {

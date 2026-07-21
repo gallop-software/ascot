@@ -2,53 +2,25 @@ import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
-import { Image } from '@/components/image'
 import { TrimViewer } from '@/components/trim-viewer'
-import { TRIM_CONTENT } from '@/components/trim-viewer/data'
+import { getTrimModel } from '@/components/trim-viewer/data'
 import { TRIM_PRODUCTS, type Product } from '@/catalog'
 
-/**
- * Maps each catalog trim slug to its formed cross-section in the trim viewer,
- * so the card shows a 3D model of the piece instead of a photo.
- */
-const TRIM_MODELS: Record<string, string> = {
-  'ridge-cap': 'sculptured-ridge',
-  'rake-trim': 'sculptured-rake',
-  'eave-trim': 'long-eave-trim',
-  'valley-trim': 'valley',
-  'corner-trim': 'outside-corner',
-  'base-trim': 'base-trim',
-}
-
-/** Catalog card for a single trim piece. Not exported — Canon rule 025. */
+/** Catalog card for a single trim piece. Not exported, per Canon rule 025. */
 function TrimCard({ trim }: { trim: Product }) {
-  const modelId = TRIM_MODELS[trim.slug]
-  const model = modelId
-    ? TRIM_CONTENT.find((content) => content.id === modelId)
-    : undefined
+  const model = getTrimModel(trim.slug)
 
   return (
     <article
       id={trim.slug}
       className="flex flex-col rounded-none border border-accent3-dark bg-body-light scroll-mt-28"
     >
-      {model ? (
+      {model && (
         <TrimViewer
           trim={model}
           aspect="aspect-[3/2]"
           className="border-b border-accent3-dark"
         />
-      ) : (
-        <div className="overflow-hidden border-b border-accent3-dark">
-          <Image
-            src={trim.image.src}
-            alt={trim.image.alt}
-            size="medium"
-            rounded="rounded-none"
-            aspect="aspect-[3/2]"
-            className="w-full object-cover"
-          />
-        </div>
       )}
 
       <div className="flex flex-1 flex-col p-6">

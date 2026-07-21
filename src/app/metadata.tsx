@@ -14,7 +14,7 @@ export const baseURL =
 
 const logoImageData = getStudioImage('/logo.png', 'large')
 
-const businessImageData = getStudioImage('/placeholder.png', 'large')
+const businessImageData = getStudioImage('/image-15.jpg', 'large')
 
 export const defaultOGImage = {
   url: logoImageData?.url || '',
@@ -69,7 +69,7 @@ const openingHoursSpecification = hours
   }))
 
 // Site-wide structured data, emitted on every page as the base of the JSON-LD
-// @graph. No reviews or ratings are included — add those only from verified,
+// @graph. No reviews or ratings are included. Add those only from verified,
 // on-site review data.
 //
 // `sameAs` consolidates the entity across authoritative external profiles.

@@ -3,7 +3,7 @@
 > Frontier Metals manufactures metal roofing, wall panels, trim, structural building components, and complete steel building packages for agricultural, commercial, industrial, and residential projects. Serving West Texas, the Texas Panhandle, eastern New Mexico, western Oklahoma, and surrounding regional markets, with pickup and regional jobsite delivery.
 
 TEMPLATE NOTE: This file is a static, hand-maintained summary for AI crawlers.
-Nothing generates it — update every fact and URL below when rebranding, and keep
+Nothing generates it, so update every fact and URL below when rebranding, and keep
 it in sync with `src/config.ts` and `src/catalog.ts`.
 
 ## Company
@@ -46,5 +46,5 @@ it in sync with `src/config.ts` and `src/catalog.ts`.
 
 ## Notes
 
-- Pricing, stock, availability, and lead times are not published on the site — contact sales.
+- Pricing, stock, availability, and lead times are not published on the site; contact sales.
 - Certification, warranty, and testing details are configurable placeholders in this template, not published claims.

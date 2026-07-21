@@ -38,7 +38,7 @@ const SmoothScroll = () => {
       history.pushState(null, '', hash)
     }
 
-    // One delegated, capture-phase listener handles every in-page anchor —
+    // One delegated, capture-phase listener handles every in-page anchor,
     // navbar, footer, and in-content links alike, including Next <Link> hash
     // links that sit outside <main>/<header>. Capture runs before Next's own
     // click handler, so preventDefault stops its (offset-less) scroll.

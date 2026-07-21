@@ -13,14 +13,14 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/placeholder.png"
+        src="/building-1.jpg"
         alt="Erected steel building frame with roof and wall panels being installed"
         size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-body2/95 via-body2/80 to-body2/45" />
 
       <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
         <Breadcrumbs
@@ -55,7 +55,7 @@ export default function Hero() {
             className="max-w-2xl text-pretty"
           >
             Panels, trim, structural framing, fasteners, and accessories
-            coordinated into one package — sized to the building you are
+            coordinated into one package, sized to the building you are
             actually putting up, with a takeoff you can hand to a crew.
           </Paragraph>
 

@@ -35,7 +35,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
     initialInView: true,
   })
 
-  // Dark charcoal nav bar contents — reused by the in-flow/overlay bar and (in
+  // Dark charcoal nav bar contents, reused by the in-flow/overlay bar and (in
   // hero layout) by the fixed bar that slides in on scroll.
   const barInner = (
     <div className="flex items-stretch rounded-sm bg-accent2 shadow-xl">
@@ -102,7 +102,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
           hero ? 'absolute inset-x-0 top-0' : 'relative'
         )}
       >
-        {/* Top row — red angled logo panel + white contact strip */}
+        {/* Top row: red angled logo panel + white contact strip */}
         <header
           id="navbar"
           className={clsx(
@@ -158,7 +158,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
           </div>
         </header>
 
-        {/* Hero layout: the blue bar overlays the header — being absolute it
+        {/* Hero layout: the blue bar overlays the header, and being absolute it
             adds no flow, so the hero image bleeds to the very top. A sentinel
             just beneath drives the fixed bar once the header scrolls away. */}
         {hero && (
@@ -174,7 +174,7 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
         )}
       </div>
 
-      {/* Non-hero: the bar is a page-level sticky sibling — its parent is the
+      {/* Non-hero: the bar is a page-level sticky sibling, so its parent is the
           page, so it stays stuck for the full scroll. */}
       {!hero && (
         <div className="sticky top-0 z-40 -mt-3 hidden px-3 lg:block">

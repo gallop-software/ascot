@@ -83,7 +83,7 @@ export default function Buildings() {
 
         <Column>
           <Image
-            src="/placeholder.png"
+            src="/building-1.jpg"
             alt="Erected steel building frame with roof purlins and wall panels partially installed"
             size="large"
             rounded="rounded-none"

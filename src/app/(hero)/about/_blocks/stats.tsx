@@ -20,7 +20,10 @@ export default function Stats() {
         </Paragraph>
       </div>
 
-      <StatisticsStrip stats={extendedStats} />
+      <StatisticsStrip
+        stats={extendedStats}
+        cols="sm:grid-cols-2 lg:grid-cols-3"
+      />
     </Section>
   )
 }

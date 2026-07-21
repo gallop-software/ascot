@@ -19,9 +19,9 @@ function Content() {
 }
 
 const metadata: PageMetadata = {
-  title: `Steel Products — Panels, Trim, Components | ${company.name}`,
+  title: `Steel Products: Panels, Trim, Components | ${company.name}`,
   description:
-    'Metal roofing and wall panels, structural components, trim, fasteners and accessories, and complete steel building packages — manufactured to order by Frontier Metals.',
+    'Metal roofing and wall panels, structural components, trim, fasteners and accessories, and complete steel building packages, all manufactured to order by Frontier Metals.',
   slug: 'products',
   keywords: [
     'metal roofing panels',
@@ -39,8 +39,8 @@ const metadata: PageMetadata = {
   },
   openGraph: {
     image: {
-      url: '/placeholder.png',
-      alt: 'Structural steel frame of a metal building against an open sky',
+      url: '/logo.png',
+      alt: `${company.name} logo`,
     },
   },
   structuredData: [

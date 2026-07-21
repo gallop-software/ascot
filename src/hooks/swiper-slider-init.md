@@ -67,7 +67,7 @@ The component is used in `src/components/swiper.tsx` to initialize slider functi
 
 Autoplay is initialized as `false` and only enabled when the swiper enters the viewport. This is intentional and should not be changed.
 
-**Problem:** When autoplay runs on a swiper that is not in view, the slide transitions can cause height changes (especially with `autoHeight: true`). These height changes trigger browser scroll events, which the `useOffsetTop` hook interprets as user scrolling. This caused the sticky navbar to appear unexpectedly—even when the user wasn't scrolling.
+**Problem:** When autoplay runs on a swiper that is not in view, the slide transitions can cause height changes (especially with `autoHeight: true`). These height changes trigger browser scroll events, which the `useOffsetTop` hook interprets as user scrolling. This caused the sticky navbar to appear unexpectedly, even when the user wasn't scrolling.
 
 **Solution:** By disabling autoplay until the swiper is actually visible:
 

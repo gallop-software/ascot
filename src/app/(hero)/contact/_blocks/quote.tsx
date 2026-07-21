@@ -6,14 +6,14 @@ import { Button } from '@/components/button'
 import { cta } from '@/config'
 
 /**
- * Closing call to action — points at the single quote form on /#quote so there
+ * Closing call to action. Points at the single quote form on /#quote so there
  * is exactly one quote form on the site. Matches the dark CTA band used to
  * close every other page.
  */
 export default function Quote() {
   return (
     <Section
-      imageSrc="/placeholder.png"
+      imageSrc="/panels-1.jpg"
       imageAlt=""
       overlayColor="bg-accent2/88"
       className="py-20 lg:py-28"

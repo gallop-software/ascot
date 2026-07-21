@@ -5,8 +5,8 @@ import { Span } from '@/components/span'
 export interface SpecificationListProps {
   specs: Spec[]
   /**
-   * 'list'  — stacked label/value rows. Safe at any width; the default.
-   * 'table' — a real <table> for dense spec sheets, wrapped in an
+   * 'list':  stacked label/value rows. Safe at any width; the default.
+   * 'table': a real <table> for dense spec sheets, wrapped in an
    *           overflow-x-auto container so it scrolls itself instead of
    *           forcing the page sideways on mobile.
    */
@@ -17,7 +17,7 @@ export interface SpecificationListProps {
 }
 
 /**
- * Technical specification rows — the spec-table treatment used across panel,
+ * Technical specification rows, the spec-table treatment used across panel,
  * product, and structural component pages.
  */
 export function SpecificationList({
@@ -44,7 +44,9 @@ export function SpecificationList({
             key={spec.label}
             className={clsx(
               'flex flex-col gap-y-1 border p-6',
-              dark ? 'border-accent4-dark' : 'border-accent3-dark bg-body-light/50'
+              dark
+                ? 'border-accent4-dark'
+                : 'border-accent3-dark bg-body-light/50'
             )}
           >
             <dd className="order-1">

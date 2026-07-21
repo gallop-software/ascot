@@ -13,14 +13,14 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/placeholder.png"
-        alt="Structural steel frame of a metal building against an open sky"
+        src="/image-17.jpg"
+        alt="Metal roofing screws, closures, and sealant products arranged on a bench"
         size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-body2 via-body2/92 to-body2/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-body2/95 via-body2/80 to-body2/45" />
 
       <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
         <Breadcrumbs
@@ -52,7 +52,7 @@ export default function Hero() {
             className="text-pretty"
           >
             Roofing and wall panels, structural components, trim, fasteners, and
-            complete building packages — roll-formed to order and coordinated so
+            complete building packages, roll-formed to order and coordinated so
             a job arrives as one package instead of five partial deliveries.
           </Paragraph>
 

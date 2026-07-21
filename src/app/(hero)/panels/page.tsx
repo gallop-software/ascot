@@ -21,9 +21,9 @@ function Content() {
 }
 
 const metadata: PageMetadata = {
-  title: `Panel Profiles — Roofing and Wall | ${company.name}`,
+  title: `Panel Profiles: Roofing and Wall | ${company.name}`,
   description:
-    'Compare the three Frontier panel profiles — exposed-fastener structural rib, concealed-fastener standing seam, and insulated wall — with coverage, rib geometry, gauges, and finishes.',
+    'Compare the three Frontier panel profiles (exposed-fastener structural rib, concealed-fastener standing seam, and insulated wall) with coverage, rib geometry, gauges, and finishes.',
   slug: 'panels',
   keywords: [
     'metal panel profiles',
@@ -40,8 +40,8 @@ const metadata: PageMetadata = {
   },
   openGraph: {
     image: {
-      url: '/placeholder.png',
-      alt: 'Stacked metal roofing panels in multiple colors on a manufacturing floor',
+      url: '/logo.png',
+      alt: `${company.name} logo`,
     },
   },
   structuredData: [

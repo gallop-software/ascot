@@ -14,7 +14,7 @@ import {
 import { Dimension, DimensionTrim, CalloutLabel } from './dimension'
 import type { TrimContent } from './data'
 
-/** Unpainted (underside) finish — matches the panel viewer's underside. */
+/** Unpainted (underside) finish, matching the panel viewer's underside. */
 const UNDERSIDE_COLOR = '#eceae3'
 
 const MIN_ZOOM_FACTOR = 0.35
@@ -61,7 +61,12 @@ function Scene({
   showDimensions,
   interactive,
   sway,
-}: Required<Pick<TrimStageProps, 'trim' | 'color' | 'showDimensions' | 'interactive' | 'sway'>>) {
+}: Required<
+  Pick<
+    TrimStageProps,
+    'trim' | 'color' | 'showDimensions' | 'interactive' | 'sway'
+  >
+>) {
   const depth = trim.depth ?? TRIM_DEPTH
   const t = trim.translate ?? { x: 0, y: 0, z: 0 }
 
@@ -71,7 +76,10 @@ function Scene({
     if (trim.geometry === 'peak-sheet') {
       geo = buildPeakSheetGeometry(connectPoints(coords), depth, 25)
     } else {
-      geo = buildRibbonGeometry(smoothPoints(coords, trim.smoothRadius ?? 0.3), depth)
+      geo = buildRibbonGeometry(
+        smoothPoints(coords, trim.smoothRadius ?? 0.3),
+        depth
+      )
     }
     geo.translate(t.x, t.y, t.z)
     return geo
@@ -103,7 +111,10 @@ function Scene({
   }, [color, trim.paintedBack])
 
   useEffect(() => () => geometry.dispose(), [geometry])
-  useEffect(() => () => Object.values(materials).forEach((m) => m.dispose()), [materials])
+  useEffect(
+    () => () => Object.values(materials).forEach((m) => m.dispose()),
+    [materials]
+  )
 
   // Frame by the XY extent of the cross-section AND its callouts (dimension
   // lines + "Painted Side"/"Specify Pitch" leaders), ignoring the extrusion
@@ -163,14 +174,14 @@ function Scene({
   const fitDistance = useMemo(() => {
     const persp = camera as THREE.PerspectiveCamera
     const aspect = size.width / size.height
-    const tanV = Math.tan(((persp.fov * Math.PI) / 180) / 2)
+    const tanV = Math.tan((persp.fov * Math.PI) / 180 / 2)
     // Margin is proportional to the part's size (plus a small constant for the
-    // screen-space callout text), so every trim — large or small — fills a
+    // screen-space callout text), so every trim, large or small, fills a
     // similar share of its card instead of small parts looking shrunken.
     const PAD = 1.18
     const margin = Math.max(bounds.halfWidth, bounds.halfHeight) * 0.16 + 1
     // The part is tilted (TILT_X) and sways (SWAY_Y), which projects the
-    // extrusion depth onto the screen and grows the silhouette — account for it.
+    // extrusion depth onto the screen and grows the silhouette, so account for it.
     const halfDepth = depth / 2
     const projY = Math.sin(TILT_X) * halfDepth
     const projX = Math.sin(SWAY_Y) * halfDepth
@@ -313,7 +324,7 @@ function Trim({
   const group = useRef<THREE.Group>(null)
 
   // Gentle idle sway about the part's center, mirroring the panel cards. The
-  // peak sheet passes tilt=0 and sway=false so it renders flat — its pitch is
+  // peak sheet passes tilt=0 and sway=false so it renders flat, because its pitch is
   // already baked into the geometry, so the shared upward tilt would skew it
   // and drop one edge.
   useFrame(({ clock }) => {

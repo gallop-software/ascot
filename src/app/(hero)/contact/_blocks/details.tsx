@@ -16,7 +16,7 @@ interface ContactMethod {
   lines: string[]
   linkLabel: string
   href: string
-  /** Opens in a new tab — only the off-site map link does. */
+  /** Opens in a new tab. Only the off-site map link does. */
   newTab?: boolean
   note: string
 }
@@ -53,7 +53,7 @@ const METHODS: ContactMethod[] = [
 ]
 
 /**
- * Local row for one contact method. Not exported — per Canon rule 025 a content
+ * Local row for one contact method. Not exported, because per Canon rule 025 a content
  * component that only serves this block stays in the block. Borderless: a large
  * accent icon with the details beside it, the whole row linked via the stretched
  * overlay on the action link.
@@ -119,7 +119,7 @@ export default function Details() {
           color="text-contrast-light"
           margin="mb-0"
         >
-          Pick whichever suits the question — pricing, a material takeoff, a trim
+          Pick whichever suits the question: pricing, a material takeoff, a trim
           detail, or a delivery date.
         </Paragraph>
       </div>

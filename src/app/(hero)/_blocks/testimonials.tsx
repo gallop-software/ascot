@@ -1,6 +1,7 @@
 import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Heading } from '@/components/heading'
+import { Paragraph } from '@/components/paragraph'
 import { TestimonialCard } from '@/components/testimonial-card'
 import { TESTIMONIALS } from '@/catalog'
 
@@ -12,12 +13,14 @@ export default function Testimonials() {
     >
       <div className="mb-12 max-w-3xl md:mb-16">
         <Heading as="h2">What Customers Say</Heading>
-        <Heading
-          as="h3"
+        <Heading as="h3">Trusted by the Crews Doing the Work</Heading>
+        <Paragraph
+          color="text-contrast-light"
           margin="mb-0"
         >
-          Trusted by the Crews Doing the Work
-        </Heading>
+          Contractors, roofers, and builders who order from us week in and week
+          out.
+        </Paragraph>
       </div>
 
       <Grid

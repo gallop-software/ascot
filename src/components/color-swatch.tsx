@@ -11,7 +11,7 @@ export interface ColorSwatchProps extends PanelColor {
  * A single panel color chip with its name.
  *
  * The fill is real product finish data, not a theme color, so it comes from the
- * `hex` field via an inline style — Canon rule 008 permits inline styles in
+ * `hex` field via an inline style. Canon rule 008 permits inline styles in
  * components for dynamic values (never in blocks). The name is always rendered
  * as visible text so the color is never the only carrier of meaning, and the
  * chip clears a 44px tap target on mobile.
@@ -44,7 +44,7 @@ export interface ColorSwatchGridProps {
 }
 
 /**
- * Responsive grid of ColorSwatch chips — the standard color-chart layout.
+ * Responsive grid of ColorSwatch chips, the standard color-chart layout.
  * Pair with COLOR_DISCLAIMER from `@/catalog` at the call site: screen
  * rendering of finishes is approximate.
  */

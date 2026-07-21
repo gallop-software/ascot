@@ -34,8 +34,8 @@ const metadata: PageMetadata = {
   alternates: { canonical: '/about' },
   openGraph: {
     image: {
-      url: '/placeholder.png',
-      alt: 'Roll-forming line running finished metal roofing panels inside the Frontier Metals plant',
+      url: '/logo.png',
+      alt: `${company.name} logo`,
     },
   },
   structuredData: [

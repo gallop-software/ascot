@@ -30,8 +30,8 @@ function Content() {
 }
 
 const OG_IMAGE = {
-  url: '/placeholder.png',
-  alt: 'Stacked metal roofing panels and steel building components manufactured by Frontier Metals',
+  url: '/logo.png',
+  alt: `${company.name} logo`,
 }
 
 const metadata: PageMetadata = {
@@ -70,7 +70,7 @@ const metadata: PageMetadata = {
   category: seo.category,
   applicationName: company.name,
   // Organization / WebSite / LocalBusiness schema is emitted site-wide from
-  // src/app/metadata.tsx — only the page-level breadcrumb belongs here.
+  // src/app/metadata.tsx. Only the page-level breadcrumb belongs here.
   structuredData: [
     {
       '@context': 'https://schema.org',

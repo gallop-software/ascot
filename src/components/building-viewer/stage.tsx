@@ -2,11 +2,17 @@
 
 import { useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment, Lightformer, Html, Line } from '@react-three/drei'
+import {
+  OrbitControls,
+  Environment,
+  Lightformer,
+  Html,
+  Line,
+} from '@react-three/drei'
 import * as THREE from 'three'
 
 /**
- * Annotated 3D model of a pre-engineered metal building — gable roof, red wall
+ * Annotated 3D model of a pre-engineered metal building: gable roof, red wall
  * panels, an open framed opening, and leader-line callouts for the key
  * components (ridge cap, eave/base closures, trims, soffit, structure). Drag to
  * orbit; idles with a slow auto-rotate when not hovered.
@@ -33,7 +39,7 @@ function gableTopY(z: number): number {
 const DOOR_Z0 = -3.5
 const DOOR_Z1 = 3.5
 const DOOR_H = 7
-// Small walk door in the +Z side wall — placed toward the +X gable (the main
+// Small walk door in the +Z side wall, placed toward the +X gable (the main
 // entrance with the big opening) so the two are on the same end.
 const WALK_X0 = 9.5
 const WALK_X1 = 12
@@ -52,7 +58,10 @@ const LEADER_COLOR = '#1c1d1f'
 export type BuildingView = 'anatomy' | 'frame' | 'frame60' | 'frame100'
 
 // Per-view camera framing (the frame models have a longer footprint).
-const CAMERAS: Record<BuildingView, { position: [number, number, number]; fov: number }> = {
+const CAMERAS: Record<
+  BuildingView,
+  { position: [number, number, number]; fov: number }
+> = {
   anatomy: { position: [40, 15, 36], fov: 38 },
   frame: { position: [54, 30, 46], fov: 34 },
   frame60: { position: [60, 38, 54], fov: 34 },
@@ -64,7 +73,10 @@ export interface BuildingStageProps {
   view?: BuildingView
 }
 
-export function BuildingStage({ autoRotate = false, view = 'anatomy' }: BuildingStageProps) {
+export function BuildingStage({
+  autoRotate = false,
+  view = 'anatomy',
+}: BuildingStageProps) {
   const cam = CAMERAS[view]
   // Scroll-zoom clamps, derived from the view's default framing distance.
   const dist = Math.hypot(...cam.position)
@@ -116,7 +128,7 @@ function Lights() {
         position={[-24, 8, 10]}
         intensity={0.6}
       />
-      {/* Lightformer-built studio environment for metallic reflections — no
+      {/* Lightformer-built studio environment for metallic reflections, with no
           network HDRI required, so it works offline and in headless builds. */}
       <Environment resolution={256}>
         <Lightformer
@@ -158,8 +170,9 @@ function Scene({
   const sideWallDoor = useMemo(() => buildSideWall(true), [])
 
   useEffect(
-    () => () => [gable, gableDoor, sideWall, sideWallDoor].forEach((g) => g.dispose()),
-    [gable, gableDoor, sideWall, sideWallDoor],
+    () => () =>
+      [gable, gableDoor, sideWall, sideWallDoor].forEach((g) => g.dispose()),
+    [gable, gableDoor, sideWall, sideWallDoor]
   )
 
   const wallMat = useMemo(
@@ -171,7 +184,7 @@ function Scene({
         envMapIntensity: 0.3,
         side: THREE.DoubleSide,
       }),
-    [],
+    []
   )
   const roofMat = useMemo(
     () =>
@@ -181,11 +194,16 @@ function Scene({
         roughness: 0.5,
         envMapIntensity: 0.35,
       }),
-    [],
+    []
   )
   const trimMat = useMemo(
-    () => new THREE.MeshStandardMaterial({ color: TRIM_COLOR, metalness: 0.5, roughness: 0.5 }),
-    [],
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: TRIM_COLOR,
+        metalness: 0.5,
+        roughness: 0.5,
+      }),
+    []
   )
   // Trim that overlaps the sloped roof (ridge cap, eave closures): polygon
   // offset pulls it toward the camera so it always wins the depth test and
@@ -200,7 +218,7 @@ function Scene({
         polygonOffsetFactor: -2,
         polygonOffsetUnits: -2,
       }),
-    [],
+    []
   )
   const soffitMat = useMemo(
     () =>
@@ -210,12 +228,15 @@ function Scene({
         roughness: 0.8,
         side: THREE.DoubleSide,
       }),
-    [],
+    []
   )
 
   useEffect(
-    () => () => [wallMat, roofMat, trimMat, roofTrimMat, soffitMat].forEach((m) => m.dispose()),
-    [wallMat, roofMat, trimMat, roofTrimMat, soffitMat],
+    () => () =>
+      [wallMat, roofMat, trimMat, roofTrimMat, soffitMat].forEach((m) =>
+        m.dispose()
+      ),
+    [wallMat, roofMat, trimMat, roofTrimMat, soffitMat]
   )
 
   // Roof slope geometry shared by both panels. Each panel runs from the ridge
@@ -246,7 +267,7 @@ function Scene({
       <Lights />
 
       <group position={[0, -EY / 2 + 4, 0]}>
-        {/* Concrete floor — sits on top of the base plinth to avoid z-fighting */}
+        {/* Concrete floor, sitting on top of the base plinth to avoid z-fighting */}
         <mesh position={[0, 0.65, 0]}>
           <boxGeometry args={[2 * HX - 0.4, 0.1, 2 * HZ - 0.4]} />
           <meshStandardMaterial
@@ -306,7 +327,7 @@ function Scene({
           <boxGeometry args={[2 * HX + 2 * RAKE, 0.3, 0.7]} />
         </mesh>
 
-        {/* Eave trim / closures along both side walls — run the full roof
+        {/* Eave trim / closures along both side walls, running the full roof
             length and sit flush under the eave edge (incl. rake overhang) */}
         <mesh
           material={roofTrimMat}
@@ -323,7 +344,7 @@ function Scene({
           <boxGeometry args={[2 * HX + 2 * RAKE, 0.18, 0.3]} />
         </mesh>
 
-        {/* Base trim — a solid filled plinth across the whole footprint so it
+        {/* Base trim, a solid filled plinth across the whole footprint so it
             doubles as a real foundation base (not just a perimeter band) */}
         <mesh position={[0, 0.3, 0]}>
           <boxGeometry args={[2 * HX + 0.52, 0.6, 2 * HZ + 0.52]} />
@@ -334,10 +355,10 @@ function Scene({
           />
         </mesh>
 
-        {/* Vertical corner trim — one at each wall corner, base top to eave */}
+        {/* Vertical corner trim, one at each wall corner, base top to eave */}
         <CornerTrims material={trimMat} />
 
-        {/* Full wrap trim — frame around the big opening (+X gable) */}
+        {/* Full wrap trim, framing around the big opening (+X gable) */}
         <DoorFrame
           material={trimMat}
           x={HX + 0.08}
@@ -360,7 +381,9 @@ function Scene({
         <InteriorColumns />
 
         {/* Walk door (+Z wall) */}
-        <mesh position={[(WALK_X0 + WALK_X1) / 2, (0.6 + WALK_H) / 2, HZ + 0.04]}>
+        <mesh
+          position={[(WALK_X0 + WALK_X1) / 2, (0.6 + WALK_H) / 2, HZ + 0.04]}
+        >
           <boxGeometry args={[WALK_X1 - WALK_X0, WALK_H - 0.6, 0.1]} />
           <meshStandardMaterial
             color={SOFFIT_COLOR}
@@ -493,7 +516,7 @@ function InteriorColumns() {
           metalness={0.6}
           roughness={0.5}
         />
-      </mesh>,
+      </mesh>
     )
   }
   return <group>{cols}</group>
@@ -507,7 +530,7 @@ function WallRibs({ material }: { material: THREE.Material }) {
   const push = (
     key: string,
     position: [number, number, number],
-    size: [number, number, number],
+    size: [number, number, number]
   ) =>
     ribs.push(
       <mesh
@@ -516,7 +539,7 @@ function WallRibs({ material }: { material: THREE.Material }) {
         position={position}
       >
         <boxGeometry args={size} />
-      </mesh>,
+      </mesh>
     )
 
   // Side walls (±Z): ribs run full eave height, stepping along X. The +Z wall
@@ -527,10 +550,22 @@ function WallRibs({ material }: { material: THREE.Material }) {
     const pzY = inWalk ? (WALK_H + EY) / 2 : EY / 2
     // +Z wall: exterior rib stands out, interior rib stands in off the inner face.
     push(`pz${x.toFixed(1)}`, [x, pzY, HZ + RIB_OUT / 2], [RIB_W, pzH, RIB_OUT])
-    push(`pzi${x.toFixed(1)}`, [x, pzY, HZ - WALL_T - RIB_OUT / 2], [RIB_W, pzH, RIB_OUT])
+    push(
+      `pzi${x.toFixed(1)}`,
+      [x, pzY, HZ - WALL_T - RIB_OUT / 2],
+      [RIB_W, pzH, RIB_OUT]
+    )
     // -Z wall (no opening): full-height ribs on both faces.
-    push(`nz${x.toFixed(1)}`, [x, EY / 2, -HZ - RIB_OUT / 2], [RIB_W, EY, RIB_OUT])
-    push(`nzi${x.toFixed(1)}`, [x, EY / 2, -HZ + WALL_T + RIB_OUT / 2], [RIB_W, EY, RIB_OUT])
+    push(
+      `nz${x.toFixed(1)}`,
+      [x, EY / 2, -HZ - RIB_OUT / 2],
+      [RIB_W, EY, RIB_OUT]
+    )
+    push(
+      `nzi${x.toFixed(1)}`,
+      [x, EY / 2, -HZ + WALL_T + RIB_OUT / 2],
+      [RIB_W, EY, RIB_OUT]
+    )
   }
 
   // Gable walls (±X): rib height follows the roofline, stepping along Z.
@@ -541,10 +576,22 @@ function WallRibs({ material }: { material: THREE.Material }) {
     const pxY = inDoor ? (DOOR_H + h) / 2 : h / 2
     // +X gable (main entrance): exterior + interior ribs.
     push(`px${z.toFixed(1)}`, [HX + RIB_OUT / 2, pxY, z], [RIB_OUT, pxH, RIB_W])
-    push(`pxi${z.toFixed(1)}`, [HX - WALL_T - RIB_OUT / 2, pxY, z], [RIB_OUT, pxH, RIB_W])
+    push(
+      `pxi${z.toFixed(1)}`,
+      [HX - WALL_T - RIB_OUT / 2, pxY, z],
+      [RIB_OUT, pxH, RIB_W]
+    )
     // -X gable (no opening): full-height ribs on both faces.
-    push(`mx${z.toFixed(1)}`, [-HX - RIB_OUT / 2, h / 2, z], [RIB_OUT, h, RIB_W])
-    push(`mxi${z.toFixed(1)}`, [-HX + WALL_T + RIB_OUT / 2, h / 2, z], [RIB_OUT, h, RIB_W])
+    push(
+      `mx${z.toFixed(1)}`,
+      [-HX - RIB_OUT / 2, h / 2, z],
+      [RIB_OUT, h, RIB_W]
+    )
+    push(
+      `mxi${z.toFixed(1)}`,
+      [-HX + WALL_T + RIB_OUT / 2, h / 2, z],
+      [RIB_OUT, h, RIB_W]
+    )
   }
 
   return <group>{ribs}</group>
@@ -579,7 +626,7 @@ function RoofPanel({
         position={[x, -0.105, 0]}
       >
         <boxGeometry args={[RIB_W, 0.03, length]} />
-      </mesh>,
+      </mesh>
     )
   }
   return (
@@ -612,7 +659,7 @@ function Shutter({ material }: { material: THREE.Material }) {
         position={[HX - 0.18, y, (DOOR_Z0 + DOOR_Z1) / 2]}
       >
         <boxGeometry args={[0.16, slatH, width]} />
-      </mesh>,
+      </mesh>
     )
   }
   return <group>{slats}</group>
@@ -719,11 +766,11 @@ const FRAME_80x140: FrameCfg = {
   nBays: 7,
   wall: 'girts',
   purlins: 13,
-  endPosts: 0, // open gable ends — no endwall post/girt mesh
+  endPosts: 0, // open gable ends, no endwall post/girt mesh
   girtRows: 3,
   endGirtRows: 0,
   ratio: 1.75, // 140 length : 80 span
-  interiorCols: [0], // center support line — a two-span frame, not clear-span
+  interiorCols: [0], // center support line, a two-span frame, not clear-span
   spanFt: 80,
   lengthFt: 140,
 }
@@ -762,7 +809,22 @@ function frameGeom(cfg: FrameCfg) {
   const bentXs = Array.from({ length: nBays + 1 }, (_, i) => -hx + i * step)
   const topY = (z: number) => ey + rr * (1 - Math.abs(z) / hz)
   const interiorZ = (cfg.interiorCols ?? []).map((f) => f * hz)
-  return { hz, ey, rr, ridgeY, step, hx, slope, rafFull, rafCz, rafCy, bentXs, topY, nBays, interiorZ }
+  return {
+    hz,
+    ey,
+    rr,
+    ridgeY,
+    step,
+    hx,
+    slope,
+    rafFull,
+    rafCz,
+    rafCy,
+    bentXs,
+    topY,
+    nBays,
+    interiorZ,
+  }
 }
 
 type Geom = ReturnType<typeof frameGeom>
@@ -786,11 +848,11 @@ function SteelFrame({
         roughness: 0.5,
         envMapIntensity: 0.3,
       }),
-    [],
+    []
   )
   useEffect(() => () => frameMat.dispose(), [frameMat])
 
-  // Rigid frames — solid box columns + peaked rafters.
+  // Rigid frames: solid box columns + peaked rafters.
   const bents: React.ReactElement[] = []
   g.bentXs.forEach((x, i) => {
     bents.push(
@@ -823,7 +885,7 @@ function SteelFrame({
         rotation={[g.slope, 0, 0]}
       >
         <boxGeometry args={[MEM, MEM, g.rafFull]} />
-      </mesh>,
+      </mesh>
     )
     // Interior support columns, base to roofline.
     g.interiorZ.forEach((z, j) => {
@@ -835,7 +897,7 @@ function SteelFrame({
           position={[x, h / 2, z]}
         >
           <boxGeometry args={[MEM * 0.55, h, MEM * 0.55]} />
-        </mesh>,
+        </mesh>
       )
     })
   })
@@ -914,7 +976,7 @@ function FrameEndPosts({ g, count }: { g: Geom; count: number }) {
           ]}
           color={FRAME_COLOR}
           lineWidth={1.5}
-        />,
+        />
       )
     }
   })
@@ -931,7 +993,7 @@ const _dimWorld = new THREE.Vector3()
  * A filled triangle arrowhead whose tip sits at `tip`, pointing outward along
  * `dir`, with its base spread along `perp` (both in the horizontal plane). Its
  * scale is refreshed each frame so the arrow keeps a constant on-screen size
- * regardless of how far the frame is framed — same trick as the trim viewer.
+ * regardless of how far the frame is framed, the same trick as the trim viewer.
  */
 function DimArrowhead({
   tip,
@@ -953,12 +1015,18 @@ function DimArrowhead({
       'position',
       new THREE.Float32BufferAttribute(
         [
-          0, 0, 0,
-          bx + perp[0] * w, by + perp[1] * w, bz + perp[2] * w,
-          bx - perp[0] * w, by - perp[1] * w, bz - perp[2] * w,
+          0,
+          0,
+          0,
+          bx + perp[0] * w,
+          by + perp[1] * w,
+          bz + perp[2] * w,
+          bx - perp[0] * w,
+          by - perp[1] * w,
+          bz - perp[2] * w,
         ],
-        3,
-      ),
+        3
+      )
     )
     return g
   }, [dir, perp])
@@ -1076,32 +1144,34 @@ function FramePurlins({ g, count }: { g: Geom; count: number }) {
       ]}
       color={FRAME_COLOR}
       lineWidth={1.5}
-    />,
+    />
   )
-  Array.from({ length: count }, (_, i) => (i + 1) / count).forEach((frac, i) => {
-    const z = frac * g.hz
-    const y = g.topY(z)
-    lines.push(
-      <Line
-        key={`pn${i}`}
-        points={[
-          [-g.hx, y, -z],
-          [g.hx, y, -z],
-        ]}
-        color={FRAME_COLOR}
-        lineWidth={1.5}
-      />,
-      <Line
-        key={`pp${i}`}
-        points={[
-          [-g.hx, y, z],
-          [g.hx, y, z],
-        ]}
-        color={FRAME_COLOR}
-        lineWidth={1.5}
-      />,
-    )
-  })
+  Array.from({ length: count }, (_, i) => (i + 1) / count).forEach(
+    (frac, i) => {
+      const z = frac * g.hz
+      const y = g.topY(z)
+      lines.push(
+        <Line
+          key={`pn${i}`}
+          points={[
+            [-g.hx, y, -z],
+            [g.hx, y, -z],
+          ]}
+          color={FRAME_COLOR}
+          lineWidth={1.5}
+        />,
+        <Line
+          key={`pp${i}`}
+          points={[
+            [-g.hx, y, z],
+            [g.hx, y, z],
+          ]}
+          color={FRAME_COLOR}
+          lineWidth={1.5}
+        />
+      )
+    }
+  )
   return <group>{lines}</group>
 }
 
@@ -1130,7 +1200,7 @@ function FrameXBraces({ g }: { g: Geom }) {
           ]}
           color={FRAME_COLOR}
           lineWidth={1.5}
-        />,
+        />
       )
     }
   })
@@ -1153,7 +1223,7 @@ function FrameEndGirts({ g, rows }: { g: Geom; rows: number }) {
           ]}
           color={FRAME_COLOR}
           lineWidth={1.5}
-        />,
+        />
       )
     })
   })
@@ -1179,7 +1249,7 @@ function FrameGirts({ g, rows }: { g: Geom; rows: number }) {
           ]}
           color={FRAME_COLOR}
           lineWidth={1.5}
-        />,
+        />
       )
     })
   })
@@ -1206,7 +1276,10 @@ function buildGable(door: boolean): THREE.BufferGeometry {
     shape.holes.push(hole)
   }
 
-  const geo = new THREE.ExtrudeGeometry(shape, { depth: WALL_T, bevelEnabled: false })
+  const geo = new THREE.ExtrudeGeometry(shape, {
+    depth: WALL_T,
+    bevelEnabled: false,
+  })
   geo.computeVertexNormals()
   return geo
 }
@@ -1230,7 +1303,10 @@ function buildSideWall(door: boolean): THREE.BufferGeometry {
     shape.holes.push(hole)
   }
 
-  const geo = new THREE.ExtrudeGeometry(shape, { depth: WALL_T, bevelEnabled: false })
+  const geo = new THREE.ExtrudeGeometry(shape, {
+    depth: WALL_T,
+    bevelEnabled: false,
+  })
   geo.computeVertexNormals()
   return geo
 }

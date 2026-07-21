@@ -22,7 +22,7 @@ function PageBody() {
 const metadata: PageMetadata = {
   title: 'Contact Frontier Metals | Plant Location, Hours & Phone',
   description:
-    'Reach Frontier Metals in Redstone, Texas — plant address, phone, email, business hours, and the regions we deliver to. Send us your project and we will price the material.',
+    'Reach Frontier Metals in Redstone, Texas: plant address, phone, email, business hours, and the regions we deliver to. Send us your project and we will price the material.',
   slug: 'contact',
   focusKeyword: 'contact Frontier Metals',
   publishDate: '2026-07-15T00:00:00Z',
@@ -30,8 +30,8 @@ const metadata: PageMetadata = {
   alternates: { canonical: '/contact' },
   openGraph: {
     image: {
-      url: '/placeholder.png',
-      alt: 'Entrance to the Frontier Metals manufacturing plant and will-call yard',
+      url: '/logo.png',
+      alt: `${company.name} logo`,
     },
   },
   structuredData: [
@@ -42,7 +42,7 @@ const metadata: PageMetadata = {
       description:
         'Plant location, phone, email, business hours, and service area for Frontier Metals.',
       url: `${baseURL}/contact`,
-      // The business entity itself is emitted site-wide in @/app/metadata —
+      // The business entity itself is emitted site-wide in @/app/metadata,
       // reference it by @id rather than redefining address, hours, or phone.
       mainEntity: { '@id': businessId },
     },

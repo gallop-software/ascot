@@ -6,7 +6,7 @@ import { Paragraph } from '@/components/paragraph'
 import { Section } from '@/components/section'
 
 /**
- * Local card for a BuildingSystem. Not exported — per Canon rule 025, content
+ * Local card for a BuildingSystem. Not exported, per Canon rule 025, because content
  * components that only serve this block stay in the block.
  */
 function SystemCard({ system }: { system: BuildingSystem }) {
@@ -58,7 +58,7 @@ export default function Systems() {
           margin="mb-0"
         >
           Each package draws from the same manufactured panel, trim, and
-          structural lines — what changes is how the pieces are specified for the
+          structural lines. What changes is how the pieces are specified for the
           work the building has to do.
         </Paragraph>
       </div>

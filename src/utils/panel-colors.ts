@@ -3,13 +3,13 @@ import { PANEL_COLORS, type PanelColor } from '@/catalog'
 /**
  * Panel finish colors for the interactive viewer.
  *
- * `src/catalog.ts` is the single source of truth for finish data — this module
+ * `src/catalog.ts` is the single source of truth for finish data. This module
  * is a thin, non-client re-export so the interactive client `ColorSwatches` and
  * the server-rendered `ColorChart` can share one import without the catalog
  * becoming a client-reference proxy.
  *
  * Hex values are display approximations. Confirm exact matches against physical
- * samples — see `COLOR_DISCLAIMER` in the catalog.
+ * samples. See `COLOR_DISCLAIMER` in the catalog.
  */
 export type { PanelColor }
 

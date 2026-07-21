@@ -7,7 +7,7 @@ import type { ChatMessage, ChatStatus } from '@/hooks/use-chat'
 // `marked` puts a single newline between block-level tags (e.g. between
 // </li> and <li>). The thread is rendered inside a `whitespace-pre-wrap`
 // container, which would turn each of those newlines into a visible blank
-// line — the "weird spacing" around lists. Collapse single newlines (keeping
+// line, the "weird spacing" around lists. Collapse single newlines (keeping
 // intentional double newlines as one) so only the CSS margins create spacing.
 function compressContent(content: string): string {
   return content
@@ -32,7 +32,7 @@ export function cleanCitation(text: string) {
 }
 
 // While streaming, a trailing markdown link or HTML <a> anchor that hasn't
-// closed yet would render its raw source and then collapse once it closes — a
+// closed yet would render its raw source and then collapse once it closes, causing a
 // visible flicker. Hide the still-forming tail until it closes. Only applied to
 // the in-progress message, so a completed answer keeps any literal "[text]" it
 // may end with.
@@ -55,9 +55,7 @@ function hideFormingLink(text: string): string {
   // Forming HTML anchor: the last "<a…" with no "</a>" yet, or a bare trailing
   // "<" that might begin one.
   const aMatches = [...text.matchAll(/<a\b/gi)]
-  const a = aMatches.length
-    ? (aMatches[aMatches.length - 1]?.index ?? -1)
-    : -1
+  const a = aMatches.length ? (aMatches[aMatches.length - 1]?.index ?? -1) : -1
   if (a !== -1 && !/<\/a>/i.test(text.slice(a))) {
     cut = Math.min(cut, a)
   } else if (text.endsWith('<')) {
@@ -107,7 +105,9 @@ export function ChatThread({
             key={turn.user.id}
             className="flex flex-col gap-2"
           >
-            <p className="text-xl font-medium text-accent">{turn.user.content}</p>
+            <p className="text-xl font-medium text-accent">
+              {turn.user.content}
+            </p>
             {waiting ? (
               <p className="thinking-dots h-[30px] text-contrast" />
             ) : (

@@ -11,7 +11,7 @@
 
   --radius-4xl: 2rem;
 
-  /* Main content max-width — exposes `max-w-content` */
+  /* Main content max-width, exposes `max-w-content` */
   --container-content: 1345px;
 
   --text-xs: 0.9rem;
@@ -38,7 +38,7 @@
   /* ══════════════════════════════════════════════════════════════════
      Frontier Metals brand palette.
 
-     Swap the hex values below to rebrand the entire site — every component
+     Swap the hex values below to rebrand the entire site. Every component
      reads these semantic tokens, never raw colors (enforced by ESLint rules
      gallop/no-raw-colors + gallop/no-arbitrary-colors).
 
@@ -52,21 +52,21 @@
      ══════════════════════════════════════════════════════════════════ */
 
   /* ── Surface / Background ── (warm white page + light steel) */
-  --color-body: #f5f4f0; /* Warm White — main page background */
-  --color-body-light: #ffffff; /* Pure White — raised cards on warm white */
-  --color-body-dark: #d9dfe3; /* Light Steel — borders, dividers, rules */
+  --color-body: #f5f4f0; /* Warm White: main page background */
+  --color-body-light: #ffffff; /* Pure White: raised cards on warm white */
+  --color-body-dark: #d9dfe3; /* Light Steel: borders, dividers, rules */
   --color-body2: #e9edef; /* Alternating section background */
 
   /* ── Text / Foreground ── */
-  --color-contrast: #142331; /* Forge Navy — headings + primary text (16.0:1 on body) */
-  --color-contrast-light: #5a666f; /* Deepened Steel Gray — supporting text (5.4:1 on body) */
-  --color-contrast-dark: #0d1720; /* Deepest navy — strongest anchors */
+  --color-contrast: #142331; /* Forge Navy: headings + primary text (16.0:1 on body) */
+  --color-contrast-light: #5a666f; /* Deepened Steel Gray: supporting text (5.4:1 on body) */
+  --color-contrast-dark: #0d1720; /* Deepest navy: strongest anchors */
 
-  /* ── Overlay (fixed context — image/video scrims) ── */
+  /* ── Overlay (fixed context: image/video scrims) ── */
   --color-overlay: #000000;
   --color-overlay-text: #ffffff;
 
-  /* ── Accent 1 — Safety Orange (primary CTA, active states, accents) ──
+  /* ── Accent 1: Safety Orange (primary CTA, active states, accents) ──
      Used as an industrial accent, never a dominant surface.
      `accent` is for icons/borders/large text; `accent-dark` backs buttons so
      white label text clears AA (5.9:1 vs 3.7:1 on pure Safety Orange). */
@@ -75,31 +75,31 @@
   --color-accent-dark: #a8461b;
   --color-accent-contrast: #ffffff;
 
-  /* ── Accent 2 — Forge Navy (navigation, footer, dark sections) ── */
+  /* ── Accent 2: Forge Navy (navigation, footer, dark sections) ── */
   --color-accent2: #142331; /* 16.0:1 with white */
-  --color-accent2-light: #1f4e66; /* Industrial Blue — hover/raised on navy */
+  --color-accent2-light: #1f4e66; /* Industrial Blue: hover/raised on navy */
   --color-accent2-dark: #0d1720;
   --color-accent2-contrast: #ffffff;
 
-  /* ── Accent 3 — Light Steel (cards, dividers, specification tables) ── */
+  /* ── Accent 3: Light Steel (cards, dividers, specification tables) ── */
   --color-accent3: #d9dfe3;
   --color-accent3-light: #e9edef;
   --color-accent3-dark: #c3cbd1;
   --color-accent3-contrast: #142331; /* 12.4:1 */
 
-  /* ── Accent 4 — Steel Gray (borders, technical detail, secondary UI) ── */
+  /* ── Accent 4: Steel Gray (borders, technical detail, secondary UI) ── */
   --color-accent4: #66737d; /* 4.9:1 with white */
   --color-accent4-light: #8a959d;
   --color-accent4-dark: #4a555d;
   --color-accent4-contrast: #ffffff;
 
-  /* ── Accent 5 — Industrial Blue (secondary surfaces, links, info) ── */
+  /* ── Accent 5: Industrial Blue (secondary surfaces, links, info) ── */
   --color-accent5: #1f4e66; /* 9.0:1 with white */
   --color-accent5-light: #2c6a8a;
   --color-accent5-dark: #163a4c;
   --color-accent5-contrast: #ffffff;
 
-  /* ── Accent 6 — Charcoal ── */
+  /* ── Accent 6: Charcoal ── */
   --color-accent6: #20272d;
   --color-accent6-light: #333b42;
   --color-accent6-dark: #14191d;

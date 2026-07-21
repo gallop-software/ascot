@@ -27,7 +27,7 @@ export const socialLinks: SocialLink[] = []
 export const hasSocials = companySocials.length > 0
 
 /**
- * Primary navigation column — mirrors the first half of the main navbar.
+ * Primary navigation column that mirrors the first half of the main navbar.
  * Footer links intentionally match the navbar (whole-page links, no anchors).
  */
 export const productLinks: FooterLink[] = [
@@ -39,7 +39,7 @@ export const productLinks: FooterLink[] = [
 ]
 
 /**
- * Secondary navigation column — mirrors the rest of the main navbar.
+ * Secondary navigation column that mirrors the rest of the main navbar.
  */
 export const buildingLinks: FooterLink[] = [
   { label: 'About', href: '/about' },
@@ -65,7 +65,7 @@ export const quickLinks: FooterLink[] = [
 export const legalLinks: FooterLink[] = []
 
 /**
- * Business contact details — sourced from `src/config.ts`.
+ * Business contact details, sourced from `src/config.ts`.
  */
 export const contact = {
   address: companyContact.addressMultiline,
@@ -79,10 +79,12 @@ export const contact = {
 /**
  * Business hours
  */
-export const hours: { days: string; time: string }[] = companyHours.map((h) => ({
-  days: h.days,
-  time: h.time,
-}))
+export const hours: { days: string; time: string }[] = companyHours.map(
+  (h) => ({
+    days: h.days,
+    time: h.time,
+  })
+)
 
 /**
  * Service area summary

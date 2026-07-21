@@ -14,8 +14,8 @@ export default function Anatomy() {
           color="text-contrast-light"
           margin="mb-0"
         >
-          Rotate a typical primary-frame layout — rigid frames, purlins, girts,
-          and eave struts — to see how a pre-engineered package goes together
+          Rotate a typical primary-frame layout, with rigid frames, purlins, girts,
+          and eave struts, to see how a pre-engineered package goes together
           before the panels go on.
         </Paragraph>
       </div>

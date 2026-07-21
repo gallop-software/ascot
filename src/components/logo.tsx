@@ -22,7 +22,7 @@ interface LogoProps {
  * Company logo.
  *
  * Renders `public/logo.png` through the studio Image pipeline. Every call site
- * renders through this component — swap the asset to rebrand.
+ * renders through this component, so swap the asset to rebrand.
  *
  * The asset carries the wordmark, so there is no separate text rendering and no
  * color variants: the mark must read on both light and dark surfaces on its own.
