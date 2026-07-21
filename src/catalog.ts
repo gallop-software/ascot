@@ -1017,6 +1017,12 @@ export interface Testimonial {
   quote: string
   name: string
   company: string
+  /**
+   * Star rating out of 5, shown on the card. Fictional demo data like the rest
+   * of this file. Never emit these as schema.org review markup unless they come
+   * from verified, on-site reviews.
+   */
+  rating?: number
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -1025,17 +1031,41 @@ export const TESTIMONIALS: Testimonial[] = [
       'Frontier had every panel, trim piece, and fastener organized by building elevation. That saved our crew hours during installation.',
     name: 'Daniel Mercer',
     company: 'Mercer Building Systems',
+    rating: 5,
   },
   {
     quote:
       'Their team reviewed our measurements, identified two missing trim conditions, and helped us correct the order before production.',
     name: 'Alicia Ramirez',
     company: 'Ramirez Commercial Roofing',
+    rating: 5,
   },
   {
     quote:
       'We use Frontier because we can call someone who understands the project instead of simply taking an order.',
     name: 'Wade Bennett',
     company: 'Bennett Ag Construction',
+    rating: 5,
+  },
+  {
+    quote:
+      'We ordered a full package for a 60x120 shop and everything showed up labeled by elevation. The crew was closing in walls the same afternoon it landed.',
+    name: 'Curtis Vance',
+    company: 'Vance Contracting',
+    rating: 5,
+  },
+  {
+    quote:
+      'Their trim shop matched a profile off a twenty-year-old building from a photo and a few measurements. Nobody else we called would even quote it.',
+    name: 'Renee Alvarado',
+    company: 'Alvarado Roofing and Sheet Metal',
+    rating: 5,
+  },
+  {
+    quote:
+      'Straight answers on lead times, and when a delivery date moved they called us before we had to ask. That is most of what we need from a supplier.',
+    name: 'Terry Boone',
+    company: 'Boone Farm and Ranch Supply',
+    rating: 5,
   },
 ]

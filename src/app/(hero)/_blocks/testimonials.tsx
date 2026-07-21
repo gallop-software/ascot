@@ -1,5 +1,5 @@
 import { Section } from '@/components/section'
-import { Grid } from '@/components/grid'
+import { Swiper } from '@/components/swiper'
 import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { TestimonialCard } from '@/components/testimonial-card'
@@ -23,17 +23,19 @@ export default function Testimonials() {
         </Paragraph>
       </div>
 
-      <Grid
-        cols="grid-cols-1 lg:grid-cols-3"
-        gap="gap-6 lg:gap-8"
+      <Swiper
+        layout="carousel"
+        columns={3}
+        nextButtonText="More Reviews"
       >
         {TESTIMONIALS.map((testimonial) => (
           <TestimonialCard
             key={testimonial.name}
             testimonial={testimonial}
+            className="h-full"
           />
         ))}
-      </Grid>
+      </Swiper>
     </Section>
   )
 }

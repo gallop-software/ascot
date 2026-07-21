@@ -1,5 +1,6 @@
 import { clsx } from 'clsx'
 import quoteIcon from '@iconify/icons-lucide/quote'
+import starIcon from '@iconify/icons-heroicons/star-20-solid'
 import { Icon } from '@/components/icon'
 import type { Testimonial } from '@/catalog'
 import { Quote } from '@/components/quote'
@@ -50,14 +51,15 @@ export function TestimonialCard({
 
       <figcaption
         className={clsx(
-          'flex flex-col gap-y-1 border-t pt-4',
+          'flex flex-col gap-y-0.5 border-t pt-4',
           dark ? 'border-accent4-dark' : 'border-accent3-dark'
         )}
       >
         <Span
-          fontSize="text-base"
-          fontWeight="font-semibold"
+          fontSize="text-sm"
+          fontWeight="font-bold"
           color={dark ? 'text-overlay-text' : 'text-contrast'}
+          className="font-heading tracking-wide uppercase"
         >
           {testimonial.name}
         </Span>
@@ -67,6 +69,29 @@ export function TestimonialCard({
         >
           {testimonial.company}
         </Span>
+
+        {testimonial.rating ? (
+          <div
+            className="mt-2 flex items-center gap-x-0.5"
+            aria-label={`${testimonial.rating} out of 5 stars`}
+          >
+            {Array.from({ length: 5 }, (_, index) => (
+              <Icon
+                key={index}
+                icon={starIcon}
+                aria-hidden
+                className={clsx(
+                  'h-4 w-4',
+                  index < testimonial.rating!
+                    ? 'text-accent'
+                    : dark
+                      ? 'text-accent4-dark'
+                      : 'text-accent3-dark'
+                )}
+              />
+            ))}
+          </div>
+        ) : null}
       </figcaption>
     </figure>
   )
