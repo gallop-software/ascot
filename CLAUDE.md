@@ -1,8 +1,8 @@
-# ForgeSpan Metals: Steel Manufacturer Template (Gallop Canon)
+# Frontier Metals: Steel Manufacturer Template (Gallop Canon)
 
 A Next.js template for a regional steel manufacturer / metal building supplier, built on the Gallop Canon architecture system. Canon provides ESLint rules (`@gallop.software/canon/eslint`) and an audit CLI (`gallop audit`) that enforce the patterns below. The `CLAUDE.md` file is the canonical AI reference, and there is no auto-generation pipeline.
 
-"ForgeSpan Metals" is fictional demo content. See **Rebranding** below.
+"Frontier Metals" is fictional demo content. See **Rebranding** below.
 
 ## Rebranding: where company content lives
 
