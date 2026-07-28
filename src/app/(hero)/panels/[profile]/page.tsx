@@ -26,12 +26,10 @@ interface PageProps {
   params: Promise<{ profile: string }>
 }
 
-// Pre-render every catalog profile at build time; reject unknown slugs.
-export const dynamicParams = false
-
-export function generateStaticParams() {
-  return PANEL_PROFILES.map((panel) => ({ profile: panel.slug }))
-}
+// Rendered on demand. Prerendered dynamic params land in the OpenNext
+// incremental cache, which has no backing store on Cloudflare Workers, so
+// `generateStaticParams` + `dynamicParams = false` makes every profile 404
+// there. Unknown slugs are still rejected by the notFound() in Page below.
 
 function getPanel(slug: string): PanelProfile | undefined {
   return PANEL_PROFILES.find((panel) => panel.slug === slug)

@@ -99,8 +99,7 @@ src/app/
   - `page.tsx`: route + `const metadata: PageMetadata = {...}` (including `date`, `categories`, `featuredImage`) + `PageWrapper` wrapping `<Content />` imported from `./content`, with JSON-LD from `buildProjectStructuredData()`
   - `content.tsx`: owns the project body (`TITLE`, `Details`, exported `Content` wrapped in `<ProjectCaseStudy>`, exported `BlogContent` for the sidebar/index card)
 - Routes: archive `/projects`, one static route per project at `/projects/<slug>`, category archive `/projects/category/[slug]` (all under `src/app/(hero)/projects/`)
-- **Do not** reintroduce a `/projects/[slug]` dynamic route that resolves content with a template-literal `import()`. On Cloudflare Workers that chunk fails to load intermittently and the `catch` turns it into a spurious 404. Static route folders with a direct `import { Content } from './content'` are the only shape that is reliable on Workers.
-- Dynamic routes (e.g. `category/[slug]`) must render on demand: no `generateStaticParams`, no `dynamicParams = false`. Prerendered dynamic params land in the OpenNext incremental cache, which has no backing store on Workers, so they 404.
+- **Do not** reintroduce a `/projects/[slug]` dynamic route that resolves content with a template-literal `import()` — see **Cloudflare Workers Constraints** below.
 - The blog grid (`src/components/blog/blog-client.tsx`) dynamic-imports `../../app/(hero)/projects/<slug>/content.tsx` for the in-sidebar preview
 - `npm run blog` extracts each project's metadata block into `_data/_blog.json`; runtime code imports it via `@/data/_blog.json`
 
@@ -133,6 +132,18 @@ src/app/
 - Import from `_scripts/` in runtime code (Node-only deps: `fs`, `jsdom`, etc.)
 - Read `_data/*.json` from disk at runtime (`fs.readFileSync` + `process.cwd()`) — there is no filesystem on edge/Workers runtimes, so it silently returns empty; import via `@/data/*` instead
 - Manually edit files in `_data/` (generated only)
+
+## Cloudflare Workers Constraints
+
+The site deploys to both Vercel and Cloudflare Workers (via OpenNext, `npm run cf:deploy`). Workers has no filesystem and no incremental-cache backing store unless one is configured in `open-next.config.ts`. Code that works on Vercel can 404 or 500 on Workers. These three rules are not optional:
+
+**1. No `generateStaticParams` + `dynamicParams = false` on dynamic routes.** That combination prerenders params into the OpenNext incremental cache, which has no backing store on Workers, so every such URL 404s. Let dynamic routes render on demand and reject unknown slugs with `notFound()` in the page body instead. This broke `projects/category/[slug]` and `panels/[profile]`.
+
+**2. No template-literal `await import()` to resolve page content.** On Workers that resolves to a lazily-loaded chunk which intermittently fails to load; a surrounding `catch` then turns the module error into a spurious 404, so the same URL returns 200 and 404 on alternating requests. Use static route folders with a direct `import { Content } from './content'`. This broke every project case study.
+
+**3. No `fs` at runtime.** `readdirSync`/`statSync` against `process.cwd()` throw on Workers. Enumerate content from generated `_data/*.json` via the `@/data/*` alias instead. **Known open issue:** `src/tools/get-page-slugs.tsx` still scans `src/app` with `readdirSync`, so `/sitemap.xml` returns 500 on Workers (200 on Vercel). Both `dynamic = 'force-static'` and `revalidate` are set on `src/app/sitemap.ts`, which makes it ISR and therefore re-render at runtime.
+
+After any routing or content-loading change, verify on the Workers deploy — not just `npm run dev` or Vercel. Request each affected URL more than once; this class of bug is often intermittent.
 
 ## Enforced Patterns (ESLint)
 

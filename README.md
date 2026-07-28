@@ -618,6 +618,12 @@ ascot/
 │   │   │   │   ├── page.tsx
 │   │   │   │   ├── _blocks/
 │   │   │   │   └── [profile]/ # Per-profile detail pages
+│   │   │   ├── projects/      # Project case studies
+│   │   │   │   ├── page.tsx   # Project archive
+│   │   │   │   ├── <slug>/    # One folder per project
+│   │   │   │   │   ├── page.tsx    # Route + metadata + JSON-LD
+│   │   │   │   │   └── content.tsx # TITLE, Content, BlogContent
+│   │   │   │   └── category/[slug]/ # Category archive
 │   │   │   ├── products/      # Product catalog
 │   │   │   ├── trims/         # Trim and accessories
 │   │   │   ├── buildings/     # Steel building systems
