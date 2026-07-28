@@ -62,13 +62,13 @@
   {
     "url": "/buildings#from-individual-components-to-complete-steel-packages",
     "title": "From Individual Components to Complete Steel Packages",
-    "content": "Panels, trim, structural framing, fasteners, and accessories coordinated into one package — sized to the building you are actually putting up, with a takeoff you can hand to a crew. Request a QuoteCall (123) 456-7890",
+    "content": "Panels, trim, structural framing, fasteners, and accessories coordinated into one package, sized to the building you are actually putting up, with a takeoff you can hand to a crew. Request a QuoteCall (123) 456-7890",
     "pageTitle": "From Individual Components to Complete Steel Packages"
   },
   {
     "url": "/buildings#steel-buildings-we-supply",
     "title": "Steel Buildings We Supply",
-    "content": "Each package draws from the same manufactured panel, trim, and structural lines — what changes is how the pieces are specified for the work the building has to do.",
+    "content": "Each package draws from the same manufactured panel, trim, and structural lines. What changes is how the pieces are specified for the work the building has to do.",
     "pageTitle": "From Individual Components to Complete Steel Packages"
   },
   {
@@ -110,7 +110,7 @@
   {
     "url": "/buildings#an-80-140-building-frame",
     "title": "An 80 × 140 Building Frame",
-    "content": "Rotate a typical primary-frame layout — rigid frames, purlins, girts, and eave struts — to see how a pre-engineered package goes together before the panels go on.",
+    "content": "Rotate a typical primary-frame layout, with rigid frames, purlins, girts, and eave struts, to see how a pre-engineered package goes together before the panels go on.",
     "pageTitle": "From Individual Components to Complete Steel Packages"
   },
   {
@@ -146,7 +146,7 @@
   {
     "url": "/buildings#tell-us-what-you-are-building",
     "title": "Tell Us What You Are Building",
-    "content": "Send dimensions, a sketch, or construction drawings and we will work through the package with you — panels, trim, framing, and the accessories that get missed. Request a QuoteCall (123) 456-7890",
+    "content": "Send dimensions, a sketch, or construction drawings and we will work through the package with you: panels, trim, framing, and the accessories that get missed. Request a QuoteCall (123) 456-7890",
     "pageTitle": "From Individual Components to Complete Steel Packages"
   },
   {
@@ -164,7 +164,7 @@
   {
     "url": "/contact#three-ways-to-get-an-answer",
     "title": "Three Ways to Get an Answer",
-    "content": "Pick whichever suits the question — pricing, a material takeoff, a trim detail, or a delivery date.",
+    "content": "Pick whichever suits the question: pricing, a material takeoff, a trim detail, or a delivery date.",
     "pageTitle": "Talk With Someone Who Knows the Product"
   },
   {
@@ -288,6 +288,12 @@
     "pageTitle": "Steel Components Manufactured for the Way You Build"
   },
   {
+    "url": "/#trusted-by-the-crews-doing-the-work",
+    "title": "Trusted by the Crews Doing the Work",
+    "content": "Contractors, roofers, and builders who order from us week in and week out.",
+    "pageTitle": "Steel Components Manufactured for the Way You Build"
+  },
+  {
     "url": "/#ready-to-price-your-next-steel-project",
     "title": "Ready to Price Your Next Steel Project?",
     "content": "Send us your material list, measurements, plans, or project details. Our team will help identify the right products and prepare a clear quote. Request a QuoteCall (123) 456-7890",
@@ -392,13 +398,13 @@
   {
     "url": "/products#steel-products-built-around-real-projects",
     "title": "Steel Products Built Around Real Projects",
-    "content": "Roofing and wall panels, structural components, trim, fasteners, and complete building packages — roll-formed to order and coordinated so a job arrives as one package instead of five partial deliveries. Request a QuoteCall (123) 456-7890",
+    "content": "Roofing and wall panels, structural components, trim, fasteners, and complete building packages, roll-formed to order and coordinated so a job arrives as one package instead of five partial deliveries. Request a QuoteCall (123) 456-7890",
     "pageTitle": "Steel Products Built Around Real Projects"
   },
   {
     "url": "/products#products-we-manufacture",
     "title": "Products We Manufacture",
-    "content": "Structural framing, fasteners, closures, and accessories — produced to the approved order and bundled with the rest of your package.",
+    "content": "Structural framing, fasteners, closures, and accessories, all produced to the approved order and bundled with the rest of your package.",
     "pageTitle": "Steel Products Built Around Real Projects"
   },
   {
@@ -542,7 +548,7 @@
   {
     "url": "/panels/pro-rib#profile-geometry-and-material-options",
     "title": "Profile Geometry and Material Options",
-    "content": "Best for roof, wall, and liner applications where an exposed-fastener structural rib is the durable, economical choice — it installs quickly over open framing or solid decking and suits agricultural, commercial, and utility builds alike.",
+    "content": "Best for roof, wall, and liner applications where an exposed-fastener structural rib is the durable, economical choice. It installs quickly over open framing or solid decking and suits agricultural, commercial, and utility builds alike.",
     "pageTitle": "Pro-Rib Panel"
   },
   {
@@ -559,8 +565,8 @@
   },
   {
     "url": "/panels/pro-rib#heading",
-    "title": "Ridge Cap",
-    "content": "Closes and weatherproofs the ridge where two roof planes meet. View Ridge Cap",
+    "title": "Stitch Screws",
+    "content": "Short fasteners that join adjacent panel sidelaps and trim overlaps. View Stitch Screws",
     "pageTitle": "Pro-Rib Panel"
   },
   {
@@ -643,14 +649,14 @@
   },
   {
     "url": "/panels/insulated-wall#heading",
-    "title": "Corner Trim",
-    "content": "Finishes outside and inside wall corners with a clean, weather-tight edge. View Corner Trim",
+    "title": "Butyl Sealant Tape",
+    "content": "Non-hardening tape sealant for panel laps, ridges, and trim joints. View Butyl Sealant Tape",
     "pageTitle": "Insulated Wall Panel"
   },
   {
     "url": "/panels/insulated-wall#heading",
-    "title": "Base Trim",
-    "content": "Finishes the bottom of wall panels and closes the wall-to-slab joint. View Base Trim",
+    "title": "Stitch Screws",
+    "content": "Short fasteners that join adjacent panel sidelaps and trim overlaps. View Stitch Screws",
     "pageTitle": "Insulated Wall Panel"
   },
   {

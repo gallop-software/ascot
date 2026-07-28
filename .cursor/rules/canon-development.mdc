@@ -90,10 +90,10 @@ cd ~/Sites/canon
 npm publish --workspace=canon --access public
 ```
 
-## 6. Update Speedwell
+## 6. Update Ascot
 
 ```bash
-cd ~/Sites/speedwell
+cd ~/Sites/ascot
 npm install @gallop.software/canon@X.X.X
 ```
 
@@ -117,9 +117,9 @@ cd ~/Sites/canon
 git add -A && git commit -m "feat: description" && git push
 ```
 
-Speedwell:
+Ascot:
 ```bash
-cd ~/Sites/speedwell
+cd ~/Sites/ascot
 git add -A && git commit -m "chore: update canon" && git push
 ```
 

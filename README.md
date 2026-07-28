@@ -1,12 +1,12 @@
-# Frontier Metals
+# Ascot
 
-[![Frontier Metals Theme](public/images/building-1.jpg)](https://frontier.gallop.software)
+[![Ascot Theme](public/images/building-1.jpg)](https://ascot.gallop.software)
 
 A modern, AI-built website template for steel manufacturers, metal roofing suppliers, and metal building dealers. Ship a fast Next.js front end with a full product catalog, panel and trim profile pages, 3D building visualizers, and an AI sales assistant that answers customer questions and captures quote requests, all without a CMS.
 
-**🌐 Demo:** [frontier.gallop.software](https://frontier.gallop.software)  
+**🌐 Demo:** [ascot.gallop.software](https://ascot.gallop.software)  
 **🎨 Template:** [gallop.software/templates](https://gallop.software/templates)  
-**📦 Repository:** [github.com/gallop-software/frontier-pro](https://github.com/gallop-software/frontier-pro)  
+**📦 Repository:** [github.com/gallop-software/ascot](https://github.com/gallop-software/ascot)  
 **🏷️ Category:** Steel Manufacturer & Metal Building Template
 
 ---
@@ -86,7 +86,7 @@ Available for Mac and Windows.
 **From the built-in template marketplace:**
 
 1. Click the **Templates** tab in the sidebar
-2. Find **Frontier Metals** and click **Clone**
+2. Find **Ascot** and click **Clone**
 3. Choose a folder on your computer (like your Desktop)
 4. The editor will download and set up the project for you
 
@@ -221,7 +221,7 @@ If you're comfortable with Git:
 
 #### Step 1: Create Your Repository
 
-[![Frontier Pro](https://img.shields.io/badge/Frontier_Pro-6366F1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gallop-software/frontier-pro/generate)
+[![Ascot](https://img.shields.io/badge/Ascot-6366F1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gallop-software/ascot/generate)
 
 #### Step 2: Clone Your Repository
 
@@ -244,7 +244,7 @@ Open [http://localhost:3000](http://localhost:3000) to view your site. Press `Ct
 
 #### Step 3: Deploy to Vercel
 
-[![Deploy with Vercel](https://img.shields.io/badge/Deploy_with_Vercel-2563EB?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/new/clone?from=templates&project-name=frontier-pro&repository-name=frontier-pro&repository-url=https%3A%2F%2Fgithub.com%2Fgallop-software%2Ffrontier-pro)
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy_with_Vercel-2563EB?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/new/clone?from=templates&project-name=ascot&repository-name=ascot&repository-url=https%3A%2F%2Fgithub.com%2Fgallop-software%2Fascot)
 
 Select your repository, and Vercel will automatically deploy whenever you push changes. Push your environment variables with `npm run env` so the AI assistant, forms, and analytics work in production.
 
@@ -254,7 +254,7 @@ Congratulations! Your site is now live to the world. Share your new URL and star
 
 ## About Gallop Templates
 
-Frontier Metals is part of the [Gallop](https://gallop.software) template ecosystem. Gallop templates are designed to be built with AI — just describe what you want in plain English and watch your site come to life.
+Ascot is part of the [Gallop](https://gallop.software) template ecosystem. Gallop templates are designed to be built with AI — just describe what you want in plain English and watch your site come to life.
 
 ### Gallop AI Editor
 
@@ -318,7 +318,7 @@ The [team](https://webplant.media) behind Gallop has decades of combined experie
 ## Project Structure
 
 ```
-frontier/
+ascot/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── (hero)/            # Hero layout route group
@@ -514,7 +514,7 @@ Build-time tools for content and asset generation:
 ## Support & Community
 
 - **Documentation:** [gallop.software](https://gallop.software)
-- **Issues:** [GitHub Issues](https://github.com/gallop-software/frontier-pro/issues)
+- **Issues:** [GitHub Issues](https://github.com/gallop-software/ascot/issues)
 - **Slack:** [Join Community](https://join.slack.com/t/gallop-software/shared_invite/zt-358q3rdrp-H6kKvKzpR2qgB5xJviAOcw)
 - **Professional Services:** [Web Plant Media, LLC](https://webplant.media)
 

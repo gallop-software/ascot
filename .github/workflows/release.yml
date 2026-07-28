@@ -12,7 +12,7 @@ jobs:
   release:
     # Only run in the canonical repo. Template/forked copies inherit this file
     # but this guard makes every job a no-op there — no mirror, tags, or releases.
-    if: github.repository == 'gallop-software/steel-company-template'
+    if: github.repository == 'gallop-software/ascot'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -75,9 +75,9 @@ jobs:
           RELEASE_NOTES: ${{ steps.commits.outputs.commits }}
         run: |
           VERSION="v${{ steps.version-check.outputs.current_version }}"
-          REPO_NAME="steel-company-template"
+          REPO_NAME="ascot"
 
-          # Build a zip that extracts to a top-level steel-company-template/ folder
+          # Build a zip that extracts to a top-level ascot/ folder
           mkdir -p "$REPO_NAME-folder/$REPO_NAME"
           shopt -s dotglob nullglob
           rsync -a --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude="$REPO_NAME-folder" ./ "$REPO_NAME-folder/$REPO_NAME/"

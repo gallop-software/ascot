@@ -1,9 +1,9 @@
 {
-  "name": "speedwell",
+  "name": "ascot",
   "version": "1.0.0",
   "private": true,
-  "description": "A Next.js template for small businesses featuring high-quality feminine design. Build and deploy a professional small business website with speed and get highly ranked on Google. Manage content and images with AI using Gallop software. No CMS required.",
-  "homepage": "https://speedwell.gallop.software",
+  "description": "A Next.js template for steel manufacturers, metal roofing suppliers, and metal building dealers. Ship a product catalog, panel and trim profile pages, 3D viewers, and an AI sales assistant, and get highly ranked on Google. Manage content and images with AI using Gallop software. No CMS required.",
+  "homepage": "https://ascot.gallop.software",
   "author": {
     "name": "Gallop",
     "url": "https://gallop.software"
@@ -20,10 +20,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gallop-software/speedwell"
+    "url": "https://github.com/gallop-software/ascot"
   },
   "bugs": {
-    "url": "https://github.com/gallop-software/speedwell/issues"
+    "url": "https://github.com/gallop-software/ascot/issues"
   },
   "license": "MIT",
   "scripts": {

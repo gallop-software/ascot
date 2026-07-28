@@ -211,11 +211,11 @@ export function getStudioImage(
  * ```tsx
  * // Image in cloud returns CDN URL (defaults to 'large' size)
  * studioUrl('/placeholder.png')
- * // Returns: 'https://speedwell-cdn.gallop.software/placeholder.png'
+ * // Returns: 'https://ascot-cdn.gallop.software/placeholder.png'
  *
  * // Specify a size
  * studioUrl('/placeholder.png', 'medium')
- * // Returns: 'https://speedwell-cdn.gallop.software/placeholder.png'
+ * // Returns: 'https://ascot-cdn.gallop.software/placeholder.png'
  *
  * // Image not in cloud returns original path
  * studioUrl('/placeholder.png')
