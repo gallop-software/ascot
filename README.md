@@ -5,6 +5,7 @@
 A modern, AI-built website template for steel manufacturers, metal roofing suppliers, and metal building dealers. Ship a fast Next.js front end with a full product catalog, panel and trim profile pages, 3D building visualizers, and an AI sales assistant that answers customer questions and captures quote requests, all without a CMS.
 
 **🌐 Demo:** [ascot.gallop.software](https://ascot.gallop.software)  
+**☁️ Cloudflare Demo:** [ascot-cloudflare.gallop.software](https://ascot-cloudflare.gallop.software/)  
 **🎨 Template:** [gallop.software/templates](https://gallop.software/templates)  
 **📦 Repository:** [github.com/gallop-software/ascot](https://github.com/gallop-software/ascot)  
 **🏷️ Category:** Steel Manufacturer & Metal Building Template
