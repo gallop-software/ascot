@@ -47,20 +47,26 @@ function getCategorySlugs() {
   }
 }
 
-// Get project (case study) slugs. These render via the dynamic
-// /projects/[slug] route, so the filesystem crawl skips them — enumerate the
-// single-file sources in src/projects instead.
+// Get project (case study) slugs. Each project is its own route folder under
+// src/app/(hero)/projects/<slug>/, so enumerate the folders that have a page.tsx.
 function getPostSlugs() {
-  const projectsDir = path.resolve(__dirname, '../src/projects')
+  const projectsDir = path.resolve(__dirname, '../src/app/(hero)/projects')
   if (!fs.existsSync(projectsDir)) {
-    console.warn('Projects directory not found: src/projects')
+    console.warn('Projects directory not found: src/app/(hero)/projects')
     return []
   }
 
-  const files = fs
-    .readdirSync(projectsDir)
-    .filter((file) => file.endsWith('.tsx') && !file.startsWith('_'))
-  return files.map((file) => `projects/${file.replace(/\.tsx$/, '')}`)
+  return fs
+    .readdirSync(projectsDir, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        !entry.name.startsWith('_') &&
+        !entry.name.startsWith('[') &&
+        entry.name !== 'category' &&
+        fs.existsSync(path.join(projectsDir, entry.name, 'page.tsx'))
+    )
+    .map((entry) => `projects/${entry.name}`)
 }
 
 // Get panel profile slugs. These render via the dynamic /panels/[profile]

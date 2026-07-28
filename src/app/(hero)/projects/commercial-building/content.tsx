@@ -2,7 +2,6 @@ import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
-import type { PageMetadata } from '@/utils/page-helpers'
 
 export const TITLE = 'Commercial Building'
 const IMAGE = '/image-5.jpg'
@@ -43,7 +42,7 @@ function Details() {
   )
 }
 
-export default function Content() {
+export function Content() {
   return (
     <ProjectCaseStudy title={TITLE}>
       <Details />
@@ -65,24 +64,4 @@ export function BlogContent() {
       <Details />
     </>
   )
-}
-
-export const metadata: PageMetadata = {
-  title: 'Commercial Building Project | Redstone, TX | Frontier Metals',
-  description:
-    'A two-tone commercial metal building in Redstone, Texas with a standing seam roof, a full-length accent band run from one coil batch, and custom entry-canopy trim.',
-  slug: 'projects/commercial-building',
-  date: '2026-05-06',
-  categories: ['Commercial'],
-  featuredImage: '/image-5.jpg',
-  publishDate: '2026-05-06T00:00:00Z',
-  modifiedDate: '2026-05-06T00:00:00Z',
-  alternates: { canonical: '/projects/commercial-building' },
-  openGraph: {
-    type: 'article',
-    image: {
-      url: '/image-5.jpg',
-      alt: 'Commercial metal building in Redstone, Texas clad with Frontier Metals roof and wall panels',
-    },
-  },
 }

@@ -5,7 +5,6 @@ import { Section } from '@/components/section'
 import { generatePageMetadata, type PageMetadata } from '@/utils/page-helpers'
 import { getSlug } from '@/tools/get-slug'
 import { getTitle } from '@/tools/get-title'
-import { getCategorySlugs } from '@/tools/get-category-slugs'
 import { company } from '@/config'
 import blogData from '@/data/_blog.json'
 import { DateTime } from 'luxon'
@@ -33,15 +32,6 @@ function toCategoryArray(value?: string | string[]) {
     .split(/[,|/]/)
     .map((s: string) => s.trim())
     .filter(Boolean)
-}
-
-// Only the categories that actually have projects are real pages; anything
-// else 404s rather than rendering an empty grid at a 200.
-export const dynamicParams = false
-
-export async function generateStaticParams() {
-  const { categorySlugs } = await getCategorySlugs()
-  return categorySlugs.map((category) => ({ slug: category.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps) {

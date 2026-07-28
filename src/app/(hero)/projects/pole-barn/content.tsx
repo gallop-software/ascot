@@ -2,7 +2,6 @@ import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
-import type { PageMetadata } from '@/utils/page-helpers'
 
 export const TITLE = 'Pole Barn'
 const IMAGE = '/building-1.jpg'
@@ -42,7 +41,7 @@ function Details() {
   )
 }
 
-export default function Content() {
+export function Content() {
   return (
     <ProjectCaseStudy title={TITLE}>
       <Details />
@@ -64,24 +63,4 @@ export function BlogContent() {
       <Details />
     </>
   )
-}
-
-export const metadata: PageMetadata = {
-  title: 'Pole Barn Project | Redstone, TX | Frontier Metals',
-  description:
-    'A phased post-frame pole barn near Redstone, Texas — roof and three walls first, with the remaining walls and enclosed bays specified to match the same color run.',
-  slug: 'projects/pole-barn',
-  date: '2026-03-24',
-  categories: ['Pole Barns'],
-  featuredImage: '/building-1.jpg',
-  publishDate: '2026-03-24T00:00:00Z',
-  modifiedDate: '2026-03-24T00:00:00Z',
-  alternates: { canonical: '/projects/pole-barn' },
-  openGraph: {
-    type: 'article',
-    image: {
-      url: '/building-1.jpg',
-      alt: 'Pole barn near Redstone, Texas covered with Frontier Metals roofing and wall panels',
-    },
-  },
 }

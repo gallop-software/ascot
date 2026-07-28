@@ -45,7 +45,9 @@ const blogContentLoader: ContentLoader = async (
     return <div className="text-red-500">Error: No post ID provided</div>
   }
   try {
-    const postModule = await import(`../../projects/${componentId}.tsx`)
+    const postModule = await import(
+      `../../app/(hero)/projects/${componentId}/content.tsx`
+    )
     const Component = postModule.BlogContent || postModule.default
     return <Component />
   } catch (error) {

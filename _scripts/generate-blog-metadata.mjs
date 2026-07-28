@@ -8,17 +8,17 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const ROOT_DIR = path.resolve(__dirname, '..')
 
-const POSTS_DIR = path.join(ROOT_DIR, 'src/projects')
+const POSTS_DIR = path.join(ROOT_DIR, 'src/app/(hero)/projects')
 const OUTPUT_FILE = path.join(ROOT_DIR, '_data/_blog.json')
 
 function extractMetadata(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf8')
 
-    // Match `export const metadata: PageMetadata = { … }` (single-file shape).
+    // Match `const metadata: PageMetadata = { … }` (folder-per-project shape).
     // Must be a pure literal — it is evaluated with no scope.
     const metadataMatch = content.match(
-      /export const metadata[^=]*=\s*({[\s\S]*?^})/m
+      /^(?:export )?const metadata[^=]*=\s*({[\s\S]*?^})/m
     )
 
     if (!metadataMatch) {
@@ -62,19 +62,30 @@ async function generateBlogMetadata() {
     return
   }
 
-  const files = fs
-    .readdirSync(POSTS_DIR)
-    .filter((file) => file.endsWith('.tsx') && !file.startsWith('_'))
+  // One folder per project, each with page.tsx (metadata) + content.tsx (TITLE).
+  // Skips `category/`, which holds only the dynamic archive route.
+  const slugs = fs
+    .readdirSync(POSTS_DIR, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        !entry.name.startsWith('_') &&
+        !entry.name.startsWith('[') &&
+        fs.existsSync(path.join(POSTS_DIR, entry.name, 'page.tsx'))
+    )
+    .map((entry) => entry.name)
 
-  console.log(`📝 Found ${files.length} project files`)
+  console.log(`📝 Found ${slugs.length} project folders`)
 
   const posts = []
 
-  for (const file of files) {
-    const slug = file.replace(/\.tsx$/, '')
-    const filePath = path.join(POSTS_DIR, file)
+  for (const slug of slugs) {
+    const filePath = path.join(POSTS_DIR, slug, 'page.tsx')
+    const contentPath = path.join(POSTS_DIR, slug, 'content.tsx')
     const metadata = await extractMetadata(filePath)
-    const plainTitle = extractPlainTitle(filePath)
+    const plainTitle = fs.existsSync(contentPath)
+      ? extractPlainTitle(contentPath)
+      : null
 
     if (metadata) {
       posts.push({

@@ -2,7 +2,6 @@ import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
-import type { PageMetadata } from '@/utils/page-helpers'
 
 export const TITLE = 'Metal Roof Installation'
 const IMAGE = '/image-10.jpg'
@@ -42,7 +41,7 @@ function Details() {
   )
 }
 
-export default function Content() {
+export function Content() {
   return (
     <ProjectCaseStudy title={TITLE}>
       <Details />
@@ -64,24 +63,4 @@ export function BlogContent() {
       <Details />
     </>
   )
-}
-
-export const metadata: PageMetadata = {
-  title: 'Metal Roof Installation | Redstone, TX | Frontier Metals',
-  description:
-    'A hail-damage re-roof in Redstone, Texas turned around in a week with full-length roofing panels and rake and eave trim formed to the existing roof conditions.',
-  slug: 'projects/metal-roof-installation',
-  date: '2026-04-15',
-  categories: ['Metal Roofing'],
-  featuredImage: '/image-10.jpg',
-  publishDate: '2026-04-15T00:00:00Z',
-  modifiedDate: '2026-04-15T00:00:00Z',
-  alternates: { canonical: '/projects/metal-roof-installation' },
-  openGraph: {
-    type: 'article',
-    image: {
-      url: '/image-10.jpg',
-      alt: 'Metal roof installation in Redstone, Texas using Frontier Metals roofing panels',
-    },
-  },
 }

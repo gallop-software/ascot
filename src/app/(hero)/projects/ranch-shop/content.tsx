@@ -2,7 +2,6 @@ import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
-import type { PageMetadata } from '@/utils/page-helpers'
 
 export const TITLE = 'Ranch Shop'
 const IMAGE = '/image-4.jpg'
@@ -42,7 +41,7 @@ function Details() {
   )
 }
 
-export default function Content() {
+export function Content() {
   return (
     <ProjectCaseStudy title={TITLE}>
       <Details />
@@ -64,24 +63,4 @@ export function BlogContent() {
       <Details />
     </>
   )
-}
-
-export const metadata: PageMetadata = {
-  title: 'Ranch Shop Project | Redstone, TX | Frontier Metals',
-  description:
-    'A three-purpose ranch shop west of Redstone, Texas, specified from a sketch and built with heavier-gauge wall panels, matched trim, and fasteners from our floor.',
-  slug: 'projects/ranch-shop',
-  date: '2026-05-27',
-  categories: ['Shops'],
-  featuredImage: '/image-4.jpg',
-  publishDate: '2026-05-27T00:00:00Z',
-  modifiedDate: '2026-05-27T00:00:00Z',
-  alternates: { canonical: '/projects/ranch-shop' },
-  openGraph: {
-    type: 'article',
-    image: {
-      url: '/image-4.jpg',
-      alt: 'Ranch shop near Redstone, Texas finished with Frontier Metals roofing and wall panels',
-    },
-  },
 }

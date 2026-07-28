@@ -2,7 +2,6 @@ import { Heading } from '@/components/heading'
 import { Paragraph } from '@/components/paragraph'
 import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
-import type { PageMetadata } from '@/utils/page-helpers'
 
 export const TITLE = 'Equipment Shop'
 const IMAGE = '/image-8.jpg'
@@ -42,7 +41,7 @@ function Details() {
   )
 }
 
-export default function Content() {
+export function Content() {
   return (
     <ProjectCaseStudy title={TITLE}>
       <Details />
@@ -64,24 +63,4 @@ export function BlogContent() {
       <Details />
     </>
   )
-}
-
-export const metadata: PageMetadata = {
-  title: 'Equipment Shop Project | Redstone, TX | Frontier Metals',
-  description:
-    'A 60 x 100 equipment shop near Redstone, Texas, with roof and wall panels cut to length in our shop and delivered with trim, closures, and fasteners on one load.',
-  slug: 'projects/equipment-shop',
-  date: '2026-06-18',
-  categories: ['Shops'],
-  featuredImage: '/image-8.jpg',
-  publishDate: '2026-06-18T00:00:00Z',
-  modifiedDate: '2026-06-18T00:00:00Z',
-  alternates: { canonical: '/projects/equipment-shop' },
-  openGraph: {
-    type: 'article',
-    image: {
-      url: '/image-8.jpg',
-      alt: 'Steel equipment shop in Redstone, Texas built with Frontier Metals panels and trim',
-    },
-  },
 }

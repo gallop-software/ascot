@@ -29,7 +29,7 @@ Rebranding should mean editing `src/config.ts`, `src/catalog.ts`, and the `@them
 
 | File | Regenerate With | Triggered By |
 |---|---|---|
-| `_data/_blog.json` | `npm run blog` | Adding/editing projects in src/projects/<slug>.tsx |
+| `_data/_blog.json` | `npm run blog` | Adding/editing projects in src/app/(hero)/projects/<slug>/ |
 | `src/app/(demo)/block/[[...slug]]/_block-index.ts` | `npm run blocks` | Block additions/removals |
 | `public/search-index.json` | `npm run search` | Content changes |
 
@@ -95,13 +95,13 @@ src/app/
 - Example: `src/app/(default)/furniture/_blocks/hero.tsx`
 
 **Projects (posts):**
-- Each project is a single file at `src/projects/<slug>.tsx` exporting:
-  - `TITLE`: plain card title
-  - `default`: full-page content, wrapped in `<ProjectCaseStudy>`
-  - `BlogContent`: heading + body used for the sidebar preview
-  - `metadata: PageMetadata` including `date`, `categories`, `featuredImage`
-- Routes: archive `/projects`, case study `/projects/[slug]`, category archive `/projects/category/[slug]` (all under `src/app/(hero)/projects/`)
-- The blog grid (`src/components/blog/blog-client.tsx`) dynamic-imports `../../projects/<slug>.tsx` for the in-sidebar preview
+- Each project is a folder under `src/app/(hero)/projects/<slug>/` with two files:
+  - `page.tsx`: route + `const metadata: PageMetadata = {...}` (including `date`, `categories`, `featuredImage`) + `PageWrapper` wrapping `<Content />` imported from `./content`, with JSON-LD from `buildProjectStructuredData()`
+  - `content.tsx`: owns the project body (`TITLE`, `Details`, exported `Content` wrapped in `<ProjectCaseStudy>`, exported `BlogContent` for the sidebar/index card)
+- Routes: archive `/projects`, one static route per project at `/projects/<slug>`, category archive `/projects/category/[slug]` (all under `src/app/(hero)/projects/`)
+- **Do not** reintroduce a `/projects/[slug]` dynamic route that resolves content with a template-literal `import()`. On Cloudflare Workers that chunk fails to load intermittently and the `catch` turns it into a spurious 404. Static route folders with a direct `import { Content } from './content'` are the only shape that is reliable on Workers.
+- Dynamic routes (e.g. `category/[slug]`) must render on demand: no `generateStaticParams`, no `dynamicParams = false`. Prerendered dynamic params land in the OpenNext incremental cache, which has no backing store on Workers, so they 404.
+- The blog grid (`src/components/blog/blog-client.tsx`) dynamic-imports `../../app/(hero)/projects/<slug>/content.tsx` for the in-sidebar preview
 - `npm run blog` extracts each project's metadata block into `_data/_blog.json`; runtime code imports it via `@/data/_blog.json`
 
 **Components:**
@@ -208,7 +208,7 @@ Available state: `playVideo`, `offsetTop`, `windowHeight`, `lastOffsetTop`, `isS
 - Use the color prop on typography components (Heading, Paragraph, Label, Span, Accent)
 - Use props (fontSize, margin, fontWeight, textAlign) instead of className when a component prop exists
 - Import icons from @iconify/icons-heroicons/ or @iconify/icons-lucide/
-- Run npm run blog after adding/editing projects in src/projects/<slug>.tsx
+- Run npm run blog after adding/editing projects in src/app/(hero)/projects/<slug>/
 
 ## Do NOT
 
