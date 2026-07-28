@@ -1,4 +1,6 @@
 import { getPageSlugs } from '@/tools/get-page-slugs'
+import { getPostSlugs } from '@/tools/get-post-slugs'
+import { getCategorySlugs } from '@/tools/get-category-slugs'
 import { baseURL } from '@/app/metadata'
 import { PANEL_PROFILES } from '@/catalog'
 import type { MetadataRoute } from 'next'
@@ -13,6 +15,8 @@ const CATALOG_LAST_MODIFIED = '2026-07-15T00:00:00Z'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { pageSlugs } = await getPageSlugs()
+  const { postSlugs } = await getPostSlugs()
+  const { categorySlugs } = await getCategorySlugs()
 
   const pages = pageSlugs.map((item) => ({
     url: baseURL + item.uri,
@@ -34,5 +38,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...pages, ...panelProfiles]
+  // Project case studies live at /projects/<slug> (nested under the projects
+  // archive), so the filesystem scan can't discover them — enumerate from the
+  // generated blog metadata instead.
+  const projects = postSlugs.map((item) => ({
+    url: baseURL + item.uri,
+    lastModified: new Date(item.modified),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  // Project category archives at /projects/category/<slug>.
+  const categories = categorySlugs.map((item) => ({
+    url: baseURL + item.uri,
+    lastModified: item.lastModified ? new Date(item.lastModified) : new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.5,
+  }))
+
+  return [...pages, ...projects, ...categories, ...panelProfiles]
 }

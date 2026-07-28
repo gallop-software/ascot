@@ -19,6 +19,11 @@ export default {
     'src/hooks/**',
     // Tools/utilities
     'src/tools/**',
+    // Project case studies + their layout are loaded via template-literal
+    // dynamic import (blog grid sidebar + /projects/[slug]), which knip
+    // cannot trace statically.
+    'src/projects/**',
+    'src/components/project-case-study.tsx',
   ],
 
   // Dependencies used by config files or build tools (not direct imports)

@@ -29,7 +29,7 @@ Rebranding should mean editing `src/config.ts`, `src/catalog.ts`, and the `@them
 
 | File | Regenerate With | Triggered By |
 |---|---|---|
-| `_data/_blog.json` | `npm run blog` | Adding/editing posts in src/app/(post)/post/<slug>/ |
+| `_data/_blog.json` | `npm run blog` | Adding/editing projects in src/projects/<slug>.tsx |
 | `src/app/(demo)/block/[[...slug]]/_block-index.ts` | `npm run blocks` | Block additions/removals |
 | `public/search-index.json` | `npm run search` | Content changes |
 
@@ -94,12 +94,15 @@ src/app/
 - Import with relative paths: `import Hero from './_blocks/hero'`
 - Example: `src/app/(default)/furniture/_blocks/hero.tsx`
 
-**Posts:**
-- Each post is a folder under `src/app/(post)/post/<slug>/` with two files:
-  - `page.tsx`: route + `const metadata: PageMetadata = {...}` + `PageWrapper` wrapping `<Content />` imported from `./content`
-  - `content.tsx`: owns the post body (`TITLE`, `Details`, exported `Content` for the page route, exported `BlogContent` for the sidebar/index card)
-- The blog index (`src/components/blog/blog-client.tsx`) dynamic-imports `./content` to render the in-sidebar preview
-- `npm run blog` extracts the metadata block from each post's `page.tsx` into `_data/_blog.json`
+**Projects (posts):**
+- Each project is a single file at `src/projects/<slug>.tsx` exporting:
+  - `TITLE`: plain card title
+  - `default`: full-page content, wrapped in `<ProjectCaseStudy>`
+  - `BlogContent`: heading + body used for the sidebar preview
+  - `metadata: PageMetadata` including `date`, `categories`, `featuredImage`
+- Routes: archive `/projects`, case study `/projects/[slug]`, category archive `/projects/category/[slug]` (all under `src/app/(hero)/projects/`)
+- The blog grid (`src/components/blog/blog-client.tsx`) dynamic-imports `../../projects/<slug>.tsx` for the in-sidebar preview
+- `npm run blog` extracts each project's metadata block into `_data/_blog.json`; runtime code imports it via `@/data/_blog.json`
 
 **Components:**
 - Simple components: Single file in `src/components/`
@@ -205,7 +208,7 @@ Available state: `playVideo`, `offsetTop`, `windowHeight`, `lastOffsetTop`, `isS
 - Use the color prop on typography components (Heading, Paragraph, Label, Span, Accent)
 - Use props (fontSize, margin, fontWeight, textAlign) instead of className when a component prop exists
 - Import icons from @iconify/icons-heroicons/ or @iconify/icons-lucide/
-- Run npm run blog after adding/editing posts in src/app/(post)/post/<slug>/
+- Run npm run blog after adding/editing projects in src/projects/<slug>.tsx
 
 ## Do NOT
 

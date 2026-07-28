@@ -1,1 +1,67 @@
-[]
+[
+  {
+    "slug": "equipment-shop",
+    "metadata": {
+      "title": "Equipment Shop",
+      "description": "A 60 x 100 equipment shop near Redstone, Texas, with roof and wall panels cut to length in our shop and delivered with trim, closures, and fasteners on one load.",
+      "date": "2026-06-18",
+      "categories": [
+        "Shops"
+      ],
+      "featuredImage": "/image-8.jpg",
+      "author": ""
+    }
+  },
+  {
+    "slug": "ranch-shop",
+    "metadata": {
+      "title": "Ranch Shop",
+      "description": "A three-purpose ranch shop west of Redstone, Texas, specified from a sketch and built with heavier-gauge wall panels, matched trim, and fasteners from our floor.",
+      "date": "2026-05-27",
+      "categories": [
+        "Shops"
+      ],
+      "featuredImage": "/image-4.jpg",
+      "author": ""
+    }
+  },
+  {
+    "slug": "commercial-building",
+    "metadata": {
+      "title": "Commercial Building",
+      "description": "A two-tone commercial metal building in Redstone, Texas with a standing seam roof, a full-length accent band run from one coil batch, and custom entry-canopy trim.",
+      "date": "2026-05-06",
+      "categories": [
+        "Commercial"
+      ],
+      "featuredImage": "/image-5.jpg",
+      "author": ""
+    }
+  },
+  {
+    "slug": "metal-roof-installation",
+    "metadata": {
+      "title": "Metal Roof Installation",
+      "description": "A hail-damage re-roof in Redstone, Texas turned around in a week with full-length roofing panels and rake and eave trim formed to the existing roof conditions.",
+      "date": "2026-04-15",
+      "categories": [
+        "Metal Roofing"
+      ],
+      "featuredImage": "/image-10.jpg",
+      "author": ""
+    }
+  },
+  {
+    "slug": "pole-barn",
+    "metadata": {
+      "title": "Pole Barn",
+      "description": "A phased post-frame pole barn near Redstone, Texas — roof and three walls first, with the remaining walls and enclosed bays specified to match the same color run.",
+      "date": "2026-03-24",
+      "categories": [
+        "Pole Barns"
+      ],
+      "featuredImage": "/building-1.jpg",
+      "author": ""
+    }
+  }
+]

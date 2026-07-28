@@ -39,6 +39,7 @@ export const links: NavLink[] = [
   { href: '/trims', label: 'Trims' },
   { href: '/products', label: 'Products' },
   { href: '/buildings', label: 'Buildings' },
+  { href: '/projects', label: 'Projects' },
   {
     href: '/about',
     label: 'Company',

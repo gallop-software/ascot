@@ -36,6 +36,7 @@ export const productLinks: FooterLink[] = [
   { label: 'Trims', href: '/trims' },
   { label: 'Products', href: '/products' },
   { label: 'Buildings', href: '/buildings' },
+  { label: 'Projects', href: '/projects' },
 ]
 
 /**
@@ -55,6 +56,7 @@ export const quickLinks: FooterLink[] = [
   { label: 'Trims', href: '/trims' },
   { label: 'Buildings', href: '/buildings' },
   { label: 'Products', href: '/products' },
+  { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
