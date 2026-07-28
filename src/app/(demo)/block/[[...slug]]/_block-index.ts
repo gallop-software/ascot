@@ -32,6 +32,7 @@ export const blockImports: Record<string, () => Promise<{ default: ComponentType
   'products/cta': () => import('@/app/(hero)/products/_blocks/cta'),
   'products/hero': () => import('@/app/(hero)/products/_blocks/hero'),
   'products/products': () => import('@/app/(hero)/products/_blocks/products'),
+  'projects': () => import('@/app/(hero)/_blocks/projects'),
   'quote-form': () => import('@/app/(hero)/_blocks/quote-form'),
   'testimonials': () => import('@/app/(hero)/_blocks/testimonials'),
   'trims/cta': () => import('@/app/(hero)/trims/_blocks/cta'),
