@@ -5,8 +5,13 @@ import { baseURL } from '@/app/metadata'
 import { PANEL_PROFILES } from '@/catalog'
 import type { MetadataRoute } from 'next'
 
+// Fully static: built once at build time, served as an asset.
+//
+// Do NOT add `revalidate` here. It makes the route ISR, which on Cloudflare
+// Workers re-renders at runtime — and getPageSlugs() scans src/app with
+// readdirSync, which throws on Workers (no filesystem), returning a 500.
+// The sitemap is regenerated on every deploy anyway, so it cannot go stale.
 export const dynamic = 'force-static'
-export const revalidate = 86400
 
 // Catalog-driven pages have no per-content date; use a shared modified date so
 // lastModified reflects real content changes instead of every build's clock.
