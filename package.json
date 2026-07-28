@@ -108,8 +108,6 @@
     "prettier": "^3.8.3",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "puppeteer": "^24.43.1",
-    "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0",
     "typescript": "^5",
     "wrangler": "^4.113.0"
