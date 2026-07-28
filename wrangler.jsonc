@@ -4,23 +4,20 @@
   "name": "ascot",
   "compatibility_date": "2026-07-19",
   "compatibility_flags": ["nodejs_compat"],
-  "routes": [
-    { "pattern": "ascot-cloudflare.gallop.software", "custom_domain": true },
-  ],
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS",
+    "binding": "ASSETS"
   },
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "ascot",
-    },
+      "service": "ascot"
+    }
   ],
   "images": {
-    "binding": "IMAGES",
+    "binding": "IMAGES"
   },
   "observability": {
-    "enabled": true,
-  },
+    "enabled": true
+  }
 }
