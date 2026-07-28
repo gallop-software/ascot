@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import clsx from 'clsx'
-import { useState, type ReactElement } from 'react'
+import { useEffect, useState, type ReactElement } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Logo } from '@/components/logo'
 import { Icon } from '@/components/icon'
@@ -34,6 +34,26 @@ export function Navbar({ hero = false }: NavbarProps = {}): ReactElement {
   const { ref: sentinelRef, inView: navAtTop } = useInView({
     initialInView: true,
   })
+
+  // Cmd/Ctrl + K opens the search dialog.
+  useEffect(() => {
+    if (isSearching) {
+      return
+    }
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault()
+        setIsSearching(true)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [isSearching])
 
   // Dark charcoal nav bar contents, reused by the in-flow/overlay bar and (in
   // hero layout) by the fixed bar that slides in on scroll.
