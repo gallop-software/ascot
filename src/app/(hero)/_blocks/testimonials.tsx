@@ -9,7 +9,7 @@ export default function Testimonials() {
   return (
     <Section
       id="testimonials"
-      className="bg-body py-20 md:py-28"
+      className="bg-body py-20 md:py-28 overflow-hidden"
     >
       <div className="mb-12 max-w-3xl md:mb-16">
         <Heading as="h2">What Customers Say</Heading>
