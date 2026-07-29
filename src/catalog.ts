@@ -79,7 +79,7 @@ export const PANEL_PROFILES: PanelProfile[] = [
       alt: 'Pro-Rib structural rib metal roofing panel with 1-1/4 inch ribs on 12 inch centers',
     },
     featured: true,
-    viewerProfile: 'fm-r36',
+    viewerProfile: 'pro-rib',
     relatedProducts: [
       'long-life-panel-screws',
       'stitch-screws',
@@ -113,7 +113,7 @@ export const PANEL_PROFILES: PanelProfile[] = [
       alt: 'Standing seam metal roof panel with concealed fasteners and raised seams',
     },
     featured: true,
-    viewerProfile: 'fm-a36',
+    viewerProfile: 'standing-seam',
     relatedProducts: [
       'long-life-panel-screws',
       'butyl-sealant-tape',
@@ -147,7 +147,7 @@ export const PANEL_PROFILES: PanelProfile[] = [
       alt: 'Insulated metal wall panel showing the insulating core between steel faces',
     },
     featured: true,
-    viewerProfile: 'fm-u36',
+    viewerProfile: 'insulated-wall',
     relatedProducts: [
       'silicone-sealant',
       'butyl-sealant-tape',

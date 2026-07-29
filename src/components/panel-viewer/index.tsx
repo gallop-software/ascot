@@ -8,6 +8,7 @@ import { state, useSnapshot } from '@/state'
 import cubeIcon from '@iconify/icons-lucide/box'
 import { PanelStage } from './lazy-stage'
 import { PANEL_PROFILES, type PanelProfileId } from './profiles'
+import { PANEL_PROFILES as CATALOG_PANELS } from '@/catalog'
 
 interface PanelViewerProps {
   profile: PanelProfileId
@@ -34,6 +35,14 @@ export function PanelViewer({
   const spec = PANEL_PROFILES[profile]
   const [hovered, setHovered] = useState(false)
 
+  // Viewer geometry ids and public route slugs are deliberately kept identical
+  // ('pro-rib', 'standing-seam', 'insulated-wall'). Resolve through the catalog
+  // anyway so a future id that diverges from its slug produces a working link
+  // rather than a silent 404 — this link used to point at /panels/fm-r36.
+  const catalogPanel = CATALOG_PANELS.find(
+    (panel) => panel.viewerProfile === profile
+  )
+
   return (
     <div
       ref={ref}
@@ -54,7 +63,7 @@ export function PanelViewer({
       </div>
 
       <Link
-        href={`/panels/${profile}`}
+        href={`/panels/${catalogPanel?.slug ?? profile}`}
         icon={cubeIcon}
         iconPlacement="before"
         className="absolute bottom-2 right-2 rounded-md bg-body2 px-2.5 py-1 text-xs font-semibold text-contrast shadow-sm backdrop-blur"

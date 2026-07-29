@@ -11,7 +11,7 @@
  * span produced by {@link profileMetrics}.
  */
 
-export type PanelProfileId = 'fm-r36' | 'fm-a36' | 'fm-u36'
+export type PanelProfileId = 'pro-rib' | 'standing-seam' | 'insulated-wall'
 
 /** Display + variant metadata shared by every profile spec. */
 interface ProfileMeta {
@@ -79,7 +79,7 @@ export const PANEL_DEPTH = 20
 
 export const PANEL_PROFILES: Record<PanelProfileId, PanelProfileSpec> = {
   // PBR Panel: 1¼" major rib on 12" centers across 36" coverage.
-  'fm-r36': {
+  'pro-rib': {
     kind: 'rib',
     majorHeight: 1.25,
     majorHalfTop: 0.5,
@@ -101,7 +101,7 @@ export const PANEL_PROFILES: Record<PanelProfileId, PanelProfileSpec> = {
   },
   // AG Panel: ¾" rib on 9" centers across 36" coverage. No variant.
   // Ag-Panel cross-section geometry.
-  'fm-a36': {
+  'standing-seam': {
     kind: 'rib',
     majorHeight: 0.75,
     majorHalfTop: 0.25,
@@ -125,7 +125,7 @@ export const PANEL_PROFILES: Record<PanelProfileId, PanelProfileSpec> = {
   },
   // PBU Panel: ¾" rib on 6" centers (6 ribs × 6" = 36" coverage), wide flats.
   // Rib pitch = 2·ribHalfTop + 2·ribSlope + valley = 6 units (1 unit = 1 inch).
-  'fm-u36': {
+  'insulated-wall': {
     kind: 'u',
     ribHeight: 0.75,
     ribHalfTop: 0.515625,
