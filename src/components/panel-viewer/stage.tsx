@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
   OrbitControls,
@@ -304,7 +304,11 @@ function Scene({
 function FitView({ dist }: { dist: number }) {
   const camera = useThree((s) => s.camera)
 
-  useEffect(() => {
+  // Layout effect, not a passive one: passive effects can run after the first
+  // painted frame, which lets the scene show for a moment at the Canvas's
+  // default camera distance and then snap to the framed one, the "renders big,
+  // then shrinks" flash on load.
+  useLayoutEffect(() => {
     const dir = camera.position.clone()
     if (dir.lengthSq() === 0) dir.set(0, dist * 0.11, dist)
     dir.normalize().multiplyScalar(dist)
@@ -340,7 +344,9 @@ function PresetView({
   const presetRef = useRef(preset)
   presetRef.current = preset
 
-  useEffect(() => {
+  // Same reason as FitView: the studio applies its default preset on mount, so
+  // this has to land before the first painted frame.
+  useLayoutEffect(() => {
     if (!nonce || !presetRef.current) return
     const dir = PRESET_DIRECTIONS[presetRef.current]
       .clone()

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls, Environment, Lightformer } from '@react-three/drei'
 import * as THREE from 'three'
@@ -292,7 +292,10 @@ function FitView({
 }) {
   const camera = useThree((s) => s.camera)
   const key = dirOverride ? dirOverride.join(',') : ''
-  useEffect(() => {
+  // Layout effect, not a passive one: passive effects can run after the first
+  // painted frame, which shows the model for a moment at the Canvas's default
+  // camera distance before it snaps to the framed one.
+  useLayoutEffect(() => {
     const dir = dirOverride
       ? new THREE.Vector3(...dirOverride)
       : camera.position.clone().sub(target)
