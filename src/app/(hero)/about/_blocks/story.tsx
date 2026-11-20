@@ -34,10 +34,10 @@ export default function Story() {
             className="text-pretty"
           >
             Frontier Metals began as a regional panel and trim operation serving
-            contractors, farms, and ranches. Over more than 25 years, the company
-            expanded its manufacturing capabilities to include roofing and wall
-            panels, custom trim, structural components, and coordinated steel
-            building packages.
+            contractors, farms, and ranches. Over more than 25 years, the
+            company expanded its manufacturing capabilities to include roofing
+            and wall panels, custom trim, structural components, and coordinated
+            steel building packages.
           </Paragraph>
 
           <Paragraph
@@ -86,9 +86,10 @@ export default function Story() {
 
         <Column className="lg:col-span-5">
           <Image
-            src="/image-14.jpg"
+            src="https://ascot-cdn.gallop.software/images/image-14.jpg"
+            width={1122}
+            height={1402}
             alt="Frontier Metals operator forming a custom trim piece on a press brake"
-            size="large"
             rounded="rounded-none"
             aspect="aspect-[4/5]"
             className="w-full border border-accent3-dark object-cover"

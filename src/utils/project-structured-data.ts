@@ -20,7 +20,7 @@ export function buildProjectStructuredData(
       '@type': 'Article',
       headline: name,
       description: metadata.description,
-      image: metadata.featuredImage,
+      image: metadata.featuredImage?.url,
       datePublished: metadata.date,
       dateModified: metadata.modifiedDate || metadata.date,
       author: { '@id': businessId },

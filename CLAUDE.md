@@ -206,7 +206,7 @@ All colors use semantic tokens defined in `src/styles/tailwind.css` `@theme`:
 - `Column`
 - `Button` - props: `href`, `variant`, `icon`, `iconPlacement`, `margin`, `dark` (dark prop flips light/dark variant class sets (render-time boolean, not CSS dark mode))
 - `Icon` (Iconify icon wrapper. Always include sizing class (w-5 h-5))
-- `Image` - props: `size` (Always use size prop ('small'|'medium'|'large'|'full'). Uses getStudioImage() from src/utils/studio-helpers.ts)
+- `Image` - props: `src`, `width`, `height` (Pass the image's full CDN address with its width and height, taken from `gallop studio info <path>`. Never guess an address or a size)
 
 ## State Management
 
@@ -234,7 +234,7 @@ Available state: `playVideo`, `offsetTop`, `windowHeight`, `lastOffsetTop`, `isS
 - Use deep relative imports (`../../`) - use `@/` alias imports
 - Use gray-*, white, black, slate-*. Always map to a semantic token
 - Put text color in className when component has a color prop
-- Manually construct image URLs when a _data/_studio.json metadata entry exists
+- Guess or hand-build an image address or size - take them from `gallop studio info <path>`
 - Read _data/*.json with fs at runtime - import via @/data/* (no filesystem on Workers)
 - Manually edit files in _data/ (generated only)
 

@@ -10,14 +10,20 @@ const metadata: PageMetadata = {
   slug: 'projects/metal-roof-installation',
   date: '2026-04-15',
   categories: ['Metal Roofing'],
-  featuredImage: '/image-10.jpg',
+  featuredImage: {
+    url: 'https://ascot-cdn.gallop.software/images/image-10-lg.jpg',
+    width: 1400,
+    height: 788,
+  },
   publishDate: '2026-04-15T00:00:00Z',
   modifiedDate: '2026-04-15T00:00:00Z',
   alternates: { canonical: '/projects/metal-roof-installation' },
   openGraph: {
     type: 'article',
     image: {
-      url: '/image-10.jpg',
+      url: 'https://ascot-cdn.gallop.software/images/image-10-lg.jpg',
+      width: 1400,
+      height: 788,
       alt: 'Metal roof installation in Redstone, Texas using Frontier Metals roofing panels',
     },
   },
@@ -31,7 +37,11 @@ export default function Page() {
     <PageWrapper
       metadata={{
         ...metadata,
-        structuredData: buildProjectStructuredData(metadata, TITLE, 'metal-roof-installation'),
+        structuredData: buildProjectStructuredData(
+          metadata,
+          TITLE,
+          'metal-roof-installation'
+        ),
       }}
     >
       <Content />

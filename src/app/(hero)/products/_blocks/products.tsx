@@ -28,7 +28,8 @@ function ProductCard({ product }: { product: Product }) {
           <Image
             src={product.image.src}
             alt={product.image.alt}
-            size="medium"
+            width={product.image.width}
+            height={product.image.height}
             rounded="rounded-none"
             aspect="aspect-[3/2]"
             className="w-full object-cover"

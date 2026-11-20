@@ -23,7 +23,9 @@ const metadata: PageMetadata = {
   alternates: { canonical: '/projects' },
   openGraph: {
     image: {
-      url: '/image-8.jpg',
+      url: 'https://ascot-cdn.gallop.software/images/image-8-lg.jpg',
+      width: 1400,
+      height: 788,
       alt: 'Metal building project supplied by Frontier Metals in Redstone, Texas',
     },
   },

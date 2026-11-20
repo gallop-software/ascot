@@ -83,9 +83,10 @@ export default function Buildings() {
 
         <Column>
           <Image
-            src="/building-1.jpg"
+            src="https://ascot-cdn.gallop.software/images/building-1-lg.jpg"
+            width={1400}
+            height={1050}
             alt="Erected steel building frame with roof purlins and wall panels partially installed"
-            size="large"
             rounded="rounded-none"
             aspect="aspect-[4/3]"
             className="w-full object-cover"

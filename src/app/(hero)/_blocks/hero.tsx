@@ -15,9 +15,10 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/panels-1.jpg"
+        src="https://ascot-cdn.gallop.software/images/panels-1.jpg"
+        width={1672}
+        height={941}
         alt="Stacked metal roofing panels and steel coil stock on the Frontier Metals manufacturing floor"
-        size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover object-center"

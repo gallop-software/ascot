@@ -4,7 +4,11 @@ import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
 
 export const TITLE = 'Metal Roof Installation'
-const IMAGE = '/image-10.jpg'
+const IMAGE = {
+  src: 'https://ascot-cdn.gallop.software/images/image-10-lg.jpg',
+  width: 1400,
+  height: 788,
+}
 const IMAGE_ALT =
   'Metal roof installation in Redstone, Texas using Frontier Metals roofing panels'
 
@@ -12,8 +16,9 @@ function Details() {
   return (
     <>
       <Image
-        src={IMAGE}
-        size="large"
+        src={IMAGE.src}
+        width={IMAGE.width}
+        height={IMAGE.height}
         wrap={true}
         alt={IMAGE_ALT}
       />
@@ -27,10 +32,10 @@ function Details() {
 
       <Paragraph>
         Re-roofs rarely match the catalog. The existing rake and eave conditions
-        didn&apos;t line up with a stock profile, so we formed trim to fit what was
-        actually on the building and sent the closures and sealant that go with
-        those details — the parts that decide whether wind-driven rain stays
-        outside.
+        didn&apos;t line up with a stock profile, so we formed trim to fit what
+        was actually on the building and sent the closures and sealant that go
+        with those details — the parts that decide whether wind-driven rain
+        stays outside.
       </Paragraph>
 
       <Paragraph>

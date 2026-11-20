@@ -7,7 +7,7 @@ export interface PageMetadata {
   description?: string
   keywords?: string[]
   slug?: string
-  featuredImage?: string
+  featuredImage?: { url: string; width: number; height: number }
   focusKeyword?: string | string[]
   readingTimeMinutes?: number
   date?: string
@@ -34,6 +34,8 @@ export interface PageMetadata {
     description?: string
     image?: {
       url: string
+      width?: number
+      height?: number
       alt?: string
     }
   }

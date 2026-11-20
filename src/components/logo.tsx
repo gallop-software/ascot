@@ -43,9 +43,10 @@ export function Logo({
     >
       <span className="sr-only">{company.name}</span>
       <Image
-        src="/logo.png"
+        src="https://ascot-cdn.gallop.software/images/logo-sm.png"
+        width={300}
+        height={152}
         alt=""
-        size="small"
         lazy={false}
         rounded="rounded-none"
         className={clsx('flex-none', width ? 'h-auto w-full' : 'h-full w-auto')}

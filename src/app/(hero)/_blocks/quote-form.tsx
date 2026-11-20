@@ -139,11 +139,12 @@ export default function QuoteForm() {
 
         <Column>
           <Image
-            src="/image-14.jpg"
+            src="https://ascot-cdn.gallop.software/images/image-14.jpg"
+            width={1122}
+            height={1402}
             alt="Frontier Metals operator forming a custom trim piece on a press brake"
             className="h-auto w-full"
             rounded="rounded-none"
-            size="large"
             lazy={false}
           />
         </Column>

@@ -95,7 +95,7 @@ async function generateBlogMetadata() {
           description: metadata.description || '',
           date: metadata.date || '',
           categories: metadata.categories || [],
-          featuredImage: metadata.featuredImage || '',
+          featuredImage: metadata.featuredImage || undefined,
           author: metadata.author || '',
         },
       })

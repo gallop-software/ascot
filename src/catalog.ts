@@ -22,10 +22,24 @@ export interface Spec {
   value: string
 }
 
-export interface CatalogImage {
-  /** Descriptive placeholder path. Replace with real photography. */
+/** An image's full CDN address with its pixel size. */
+export interface ImageSource {
   src: string
+  width: number
+  height: number
+}
+
+export interface CatalogImage extends ImageSource {
+  /** Descriptive placeholder image. Replace with real photography. */
   alt: string
+}
+
+/** A panel's image at the three sizes its pages draw it. */
+export interface PanelImage extends CatalogImage {
+  /** Smaller copy for cards. */
+  medium: ImageSource
+  /** Full-size copy for the profile page header. */
+  full: ImageSource
 }
 
 // ============================================================================
@@ -44,7 +58,7 @@ export interface PanelProfile {
   gauges: string[]
   finishes: string[]
   specs: Spec[]
-  image: CatalogImage
+  image: PanelImage
   featured: boolean
   /** Present only for profiles with an interactive 3D model. */
   viewerProfile?: PanelProfileId
@@ -75,7 +89,19 @@ export const PANEL_PROFILES: PanelProfile[] = [
       { label: 'Available Gauges', value: '24, 26 & 29 ga.' },
     ],
     image: {
-      src: '/image-7.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-7-lg.jpg',
+      width: 1400,
+      height: 788,
+      medium: {
+        src: 'https://ascot-cdn.gallop.software/images/image-7-md.jpg',
+        width: 700,
+        height: 394,
+      },
+      full: {
+        src: 'https://ascot-cdn.gallop.software/images/image-7.jpg',
+        width: 1672,
+        height: 941,
+      },
       alt: 'Pro-Rib structural rib metal roofing panel with 1-1/4 inch ribs on 12 inch centers',
     },
     featured: true,
@@ -109,7 +135,19 @@ export const PANEL_PROFILES: PanelProfile[] = [
       { label: 'Available Gauges', value: '24 & 26 ga.' },
     ],
     image: {
-      src: '/image-10.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-10-lg.jpg',
+      width: 1400,
+      height: 788,
+      medium: {
+        src: 'https://ascot-cdn.gallop.software/images/image-10-md.jpg',
+        width: 700,
+        height: 394,
+      },
+      full: {
+        src: 'https://ascot-cdn.gallop.software/images/image-10.jpg',
+        width: 1672,
+        height: 941,
+      },
       alt: 'Standing seam metal roof panel with concealed fasteners and raised seams',
     },
     featured: true,
@@ -143,7 +181,19 @@ export const PANEL_PROFILES: PanelProfile[] = [
       { label: 'Core', value: 'Insulating foam' },
     ],
     image: {
-      src: '/image-9.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-9-lg.jpg',
+      width: 1400,
+      height: 788,
+      medium: {
+        src: 'https://ascot-cdn.gallop.software/images/image-9-md.jpg',
+        width: 700,
+        height: 394,
+      },
+      full: {
+        src: 'https://ascot-cdn.gallop.software/images/image-9.jpg',
+        width: 1672,
+        height: 941,
+      },
       alt: 'Insulated metal wall panel showing the insulating core between steel faces',
     },
     featured: true,
@@ -180,7 +230,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Cut-to-length roofing panels available in multiple profiles, gauges, finishes, and colors.',
     href: '/panels',
     image: {
-      src: '/image-6.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-6-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Stacked metal roofing panels in multiple colors on a manufacturing floor',
     },
   },
@@ -191,7 +243,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Strong exterior and interior panel systems for commercial, agricultural, and industrial buildings.',
     href: '/panels',
     image: {
-      src: '/image-10.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-10-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Metal wall panels being installed on a commercial steel building',
     },
   },
@@ -202,7 +256,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Frames, purlins, girts, base angles, eave struts, and other building-system components.',
     href: '/products',
     image: {
-      src: '/image-12.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-12-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Structural steel frame of a metal building against an open sky',
     },
   },
@@ -213,7 +269,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Standard and custom-formed trim manufactured for accurate fit and dependable weather protection.',
     href: '/trims',
     image: {
-      src: '/image-16.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-16-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Formed metal trim pieces bundled for delivery',
     },
   },
@@ -224,7 +282,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Screws, closures, sealants, ventilation products, pipe flashings, and installation tools.',
     href: '/products',
     image: {
-      src: '/image-17.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-17-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Metal roofing screws, closures, and sealant products arranged on a bench',
     },
   },
@@ -235,7 +295,9 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       'Coordinated steel packages for shops, barns, warehouses, garages, and commercial facilities.',
     href: '/buildings',
     image: {
-      src: '/building-1.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/building-1-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Completed commercial metal building with matching roof and wall panels',
     },
   },
@@ -278,7 +340,9 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Shop-primed' },
     ],
     image: {
-      src: '/image-18.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-18-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Primary rigid steel frames erected on a building site',
     },
     featured: true,
@@ -296,7 +360,9 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Shop-primed' },
     ],
     image: {
-      src: '/image-19.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-19-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Steel endwall framing on a metal building under construction',
     },
     featured: false,
@@ -314,7 +380,9 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/image-20.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-20-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Z-section steel roof purlins spanning between building frames',
     },
     featured: true,
@@ -332,7 +400,9 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/image-21.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-21-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Steel wall girts installed horizontally across a building frame',
     },
     featured: false,
@@ -350,7 +420,9 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/image-22.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-22-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Steel eave strut at the roof and wall transition of a metal building',
     },
     featured: false,
@@ -368,7 +440,9 @@ export const STRUCTURAL_COMPONENTS: Product[] = [
       { label: 'Finish', value: 'Galvanized' },
     ],
     image: {
-      src: '/image-23.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-23-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Galvanized base angle fastened along a concrete slab edge',
     },
     featured: false,
@@ -463,7 +537,9 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel attachment'],
     specs: [{ label: 'Washer', value: 'Bonded sealing washer' }],
     image: {
-      src: '/image-24.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-24-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Coated metal roofing screws with bonded sealing washers',
     },
     featured: true,
@@ -482,7 +558,9 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel sidelaps', 'Trim laps'],
     specs: [{ label: 'Use', value: 'Panel-to-panel' }],
     image: {
-      src: '/image-25.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-25-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Stitch screws used to fasten metal panel sidelaps together',
     },
     featured: false,
@@ -497,7 +575,9 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Panel laps', 'Trim joints'],
     specs: [{ label: 'Type', value: 'Non-hardening butyl' }],
     image: {
-      src: '/image-26.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-26-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Roll of butyl sealant tape used at metal panel laps',
     },
     featured: true,
@@ -512,7 +592,9 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Penetrations', 'Trim details'],
     specs: [{ label: 'Type', value: 'Gun-grade silicone' }],
     image: {
-      src: '/image-27.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-27-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Tubes of silicone sealant for metal building trim details',
     },
     featured: false,
@@ -531,7 +613,9 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Eave', 'Ridge', 'Base'],
     specs: [{ label: 'Fit', value: 'Matched to panel profile' }],
     image: {
-      src: '/image-28.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-28-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Foam closure strips shaped to match metal panel ribs',
     },
     featured: true,
@@ -546,7 +630,9 @@ export const ACCESSORY_PRODUCTS: Product[] = [
     applications: ['Roof ventilation'],
     specs: [{ label: 'Location', value: 'Roof ridge' }],
     image: {
-      src: '/image-29.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-29-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Ridge ventilation product installed along a metal roof ridge',
     },
     featured: false,
@@ -679,7 +765,9 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/image-4.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-4-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Metal agricultural barn with equipment doors on a working farm',
     },
   },
@@ -733,7 +821,9 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/image-5.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-5-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Commercial metal building with a finished exterior and entry canopy',
     },
   },
@@ -787,7 +877,9 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/building-2.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/building-2-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Industrial steel facility with wide clear span and large equipment doors',
     },
   },
@@ -841,7 +933,9 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/image-8.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-8-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Metal shop building with overhead doors and a wainscot color band',
     },
   },
@@ -895,7 +989,9 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/image-11.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-11-md.jpg',
+      width: 700,
+      height: 394,
       alt: 'Steel warehouse building with loading dock canopy and overhead doors',
     },
   },
@@ -949,7 +1045,9 @@ export const BUILDING_SYSTEMS: BuildingSystem[] = [
       },
     ],
     image: {
-      src: '/image-3.jpg',
+      src: 'https://ascot-cdn.gallop.software/images/image-3-md.jpg',
+      width: 700,
+      height: 525,
       alt: 'Simple metal storage building with roll-up doors',
     },
   },

@@ -32,7 +32,9 @@ function Content() {
 }
 
 const OG_IMAGE = {
-  url: '/logo.png',
+  url: 'https://ascot-cdn.gallop.software/images/logo-lg.png',
+  width: 1400,
+  height: 708,
   alt: `${company.name} logo`,
 }
 

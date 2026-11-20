@@ -8,7 +8,11 @@
       "categories": [
         "Shops"
       ],
-      "featuredImage": "/image-8.jpg",
+      "featuredImage": {
+        "url": "https://ascot-cdn.gallop.software/images/image-8-lg.jpg",
+        "width": 1400,
+        "height": 788
+      },
       "author": ""
     }
   },
@@ -21,7 +25,11 @@
       "categories": [
         "Shops"
       ],
-      "featuredImage": "/image-4.jpg",
+      "featuredImage": {
+        "url": "https://ascot-cdn.gallop.software/images/image-4-lg.jpg",
+        "width": 1400,
+        "height": 788
+      },
       "author": ""
     }
   },
@@ -34,7 +42,11 @@
       "categories": [
         "Commercial"
       ],
-      "featuredImage": "/image-5.jpg",
+      "featuredImage": {
+        "url": "https://ascot-cdn.gallop.software/images/image-5-lg.jpg",
+        "width": 1400,
+        "height": 788
+      },
       "author": ""
     }
   },
@@ -47,7 +59,11 @@
       "categories": [
         "Metal Roofing"
       ],
-      "featuredImage": "/image-10.jpg",
+      "featuredImage": {
+        "url": "https://ascot-cdn.gallop.software/images/image-10-lg.jpg",
+        "width": 1400,
+        "height": 788
+      },
       "author": ""
     }
   },
@@ -60,7 +76,11 @@
       "categories": [
         "Pole Barns"
       ],
-      "featuredImage": "/building-1.jpg",
+      "featuredImage": {
+        "url": "https://ascot-cdn.gallop.software/images/building-1-lg.jpg",
+        "width": 1400,
+        "height": 1050
+      },
       "author": ""
     }
   }

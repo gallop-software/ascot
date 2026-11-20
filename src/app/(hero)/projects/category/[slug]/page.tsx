@@ -21,7 +21,7 @@ interface BlogPost {
     title?: string
     date?: string
     categories?: string[]
-    featuredImage?: string
+    featuredImage?: { url: string; width: number; height: number }
   }
 }
 
