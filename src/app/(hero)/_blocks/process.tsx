@@ -28,9 +28,10 @@ export default function Process() {
       >
         <Column className="lg:col-span-2">
           <Image
-            src="/image-3.jpg"
+            src="https://ascot-cdn.gallop.software/images/image-3-lg.jpg"
+            width={1400}
+            height={1050}
             alt="Roll-forming line shaping a steel coil into ribbed roofing panels at the Frontier plant"
-            size="large"
             rounded="rounded-none"
             className="h-auto w-full"
           />

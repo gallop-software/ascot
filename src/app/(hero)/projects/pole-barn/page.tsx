@@ -10,14 +10,20 @@ const metadata: PageMetadata = {
   slug: 'projects/pole-barn',
   date: '2026-03-24',
   categories: ['Pole Barns'],
-  featuredImage: '/building-1.jpg',
+  featuredImage: {
+    url: 'https://ascot-cdn.gallop.software/images/building-1-lg.jpg',
+    width: 1400,
+    height: 1050,
+  },
   publishDate: '2026-03-24T00:00:00Z',
   modifiedDate: '2026-03-24T00:00:00Z',
   alternates: { canonical: '/projects/pole-barn' },
   openGraph: {
     type: 'article',
     image: {
-      url: '/building-1.jpg',
+      url: 'https://ascot-cdn.gallop.software/images/building-1-lg.jpg',
+      width: 1400,
+      height: 1050,
       alt: 'Pole barn near Redstone, Texas covered with Frontier Metals roofing and wall panels',
     },
   },
@@ -31,7 +37,11 @@ export default function Page() {
     <PageWrapper
       metadata={{
         ...metadata,
-        structuredData: buildProjectStructuredData(metadata, TITLE, 'pole-barn'),
+        structuredData: buildProjectStructuredData(
+          metadata,
+          TITLE,
+          'pole-barn'
+        ),
       }}
     >
       <Content />

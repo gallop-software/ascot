@@ -240,7 +240,7 @@ Describing a visual bug is hard. Show it instead.
 - Push assets to a CDN so they load fast worldwide
 - Drop in a font and it converts to WOFF2, the format browsers load fastest
 
-Studio keeps its records in `_data/_studio.json`. That file is generated — let Studio manage it.
+Each image on the CDN carries its own record (size, thumbnails, alt text and caption). `_data/_studio.json` holds only Studio's settings for this project — let Studio manage it.
 
 ### SEO
 
@@ -686,7 +686,7 @@ ascot/
 │   └── .../
 ├── _data/                    # Generated metadata — never edit by hand
 │   ├── _blog.json           # Blog metadata (npm run blog)
-│   └── _studio.json         # Studio media metadata
+│   └── _studio.json         # Studio settings (bucket, thumbnail sizes)
 ├── _scripts/                 # Build scripts (Node-only, not imported at runtime)
 │   ├── generate-blog-metadata.mjs
 │   ├── generate-search.mjs

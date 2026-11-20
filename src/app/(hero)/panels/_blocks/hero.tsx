@@ -13,9 +13,10 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/image-6.jpg"
+        src="https://ascot-cdn.gallop.software/images/image-6.jpg"
+        width={1672}
+        height={941}
         alt="Stacked metal roofing panels in multiple colors on a manufacturing floor"
-        size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"
@@ -56,9 +57,9 @@ export default function Hero() {
             className="text-pretty"
           >
             Three roll-formed profiles covering exposed-fastener structural rib,
-            concealed-fastener standing seam, and insulated wall systems. Compare
-            coverage, rib geometry, and gauge, then request a quote on the
-            profile that fits the project.
+            concealed-fastener standing seam, and insulated wall systems.
+            Compare coverage, rib geometry, and gauge, then request a quote on
+            the profile that fits the project.
           </Paragraph>
 
           <Buttons margin="mt-0 mb-0">

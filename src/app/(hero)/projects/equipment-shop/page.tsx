@@ -10,14 +10,20 @@ const metadata: PageMetadata = {
   slug: 'projects/equipment-shop',
   date: '2026-06-18',
   categories: ['Shops'],
-  featuredImage: '/image-8.jpg',
+  featuredImage: {
+    url: 'https://ascot-cdn.gallop.software/images/image-8-lg.jpg',
+    width: 1400,
+    height: 788,
+  },
   publishDate: '2026-06-18T00:00:00Z',
   modifiedDate: '2026-06-18T00:00:00Z',
   alternates: { canonical: '/projects/equipment-shop' },
   openGraph: {
     type: 'article',
     image: {
-      url: '/image-8.jpg',
+      url: 'https://ascot-cdn.gallop.software/images/image-8-lg.jpg',
+      width: 1400,
+      height: 788,
       alt: 'Steel equipment shop in Redstone, Texas built with Frontier Metals panels and trim',
     },
   },
@@ -31,7 +37,11 @@ export default function Page() {
     <PageWrapper
       metadata={{
         ...metadata,
-        structuredData: buildProjectStructuredData(metadata, TITLE, 'equipment-shop'),
+        structuredData: buildProjectStructuredData(
+          metadata,
+          TITLE,
+          'equipment-shop'
+        ),
       }}
     >
       <Content />

@@ -1,13 +1,15 @@
 import React from 'react'
 import { clsx } from 'clsx'
 import { Container } from '@/components/container'
-import { studioUrl } from '@/utils/studio-helpers'
 
 interface SectionProps {
   children: React.ReactNode
   className?: string
   innerAlign?: 'wide' | 'content' | 'none' | 'full' | 'navbar'
+  /** Full address of the background image */
   imageSrc?: string
+  imageWidth?: number
+  imageHeight?: number
   imageAlt?: string
   imageClassName?: string
   overlayColor?: string
@@ -19,6 +21,8 @@ export function Section({
   className,
   innerAlign,
   imageSrc,
+  imageWidth,
+  imageHeight,
   imageAlt,
   imageClassName,
   overlayColor,
@@ -32,7 +36,9 @@ export function Section({
       {imageSrc && (
         <>
           <img
-            src={studioUrl(imageSrc, 'full')}
+            src={imageSrc}
+            width={imageWidth}
+            height={imageHeight}
             alt={imageAlt || ''}
             className={clsx(
               'object-cover object-center absolute inset-0 w-full h-full -z-[2]',

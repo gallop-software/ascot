@@ -19,7 +19,8 @@ function SystemCard({ system }: { system: BuildingSystem }) {
         <Image
           src={system.image.src}
           alt={system.image.alt}
-          size="medium"
+          width={system.image.width}
+          height={system.image.height}
           rounded="rounded-none"
           aspect="aspect-[3/2]"
           className="w-full object-cover"

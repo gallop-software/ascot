@@ -1,4 +1,3 @@
-import { getStudioImage } from '@/utils/studio-helpers'
 import {
   company,
   address,
@@ -12,15 +11,14 @@ import {
 export const baseURL =
   process.env.NEXT_PUBLIC_PRODUCTION_URL || 'http://localhost:3000'
 
-const logoImageData = getStudioImage('/logo.png', 'large')
-
-const businessImageData = getStudioImage('/image-15.jpg', 'large')
-
 export const defaultOGImage = {
-  url: logoImageData?.url || '',
-  width: logoImageData?.width || 0,
-  height: logoImageData?.height || 0,
+  url: 'https://ascot-cdn.gallop.software/images/logo-lg.png',
+  width: 1400,
+  height: 708,
 }
+
+const businessImageUrl =
+  'https://ascot-cdn.gallop.software/images/image-15-lg.jpg'
 
 // Canonical @id references for the site's core entities. Page-level schema
 // (Service, Product, Breadcrumb) points back to these instead of redefining
@@ -82,7 +80,7 @@ export const defaultStructuredData = [
     '@id': organizationId,
     name: company.name,
     url: baseURL,
-    logo: logoImageData?.url || '',
+    logo: defaultOGImage.url,
     email: contact.email,
     telephone: contact.phoneSchema,
     address: postalAddress,
@@ -113,8 +111,8 @@ export const defaultStructuredData = [
     description: company.description,
     slogan: company.tagline,
     url: baseURL,
-    logo: logoImageData?.url || '',
-    image: businessImageData?.url || '',
+    logo: defaultOGImage.url,
+    image: businessImageUrl,
     telephone: contact.phoneSchema,
     email: contact.email,
     priceRange: '$$',

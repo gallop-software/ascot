@@ -13,9 +13,10 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/image-16.jpg"
+        src="https://ascot-cdn.gallop.software/images/image-16.jpg"
+        width={1672}
+        height={941}
         alt="Formed metal trim pieces bundled for delivery"
-        size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"

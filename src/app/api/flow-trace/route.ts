@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { DateTime, Duration } from 'luxon'
-import { studioUrl } from '@/utils/studio-helpers'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -210,12 +209,7 @@ function renderEmailHtml(args: {
 
   const baseUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL || ''
 
-  // studioUrl returns an absolute CDN URL for processed images and a
-  // root-relative path otherwise; only prepend the origin in the latter case.
-  const logoPath = studioUrl('/logo.png', 'medium')
-  const logoSrc = /^https?:\/\//.test(logoPath)
-    ? logoPath
-    : `${baseUrl}${logoPath}`
+  const logoSrc = 'https://ascot-cdn.gallop.software/images/logo-md.png'
 
   const event = {
     When: timeNow.toFormat('MM/dd/yy hh:mm:ss a'),

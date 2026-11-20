@@ -9,7 +9,7 @@ export interface ProductCategoryCardProps {
   title: string
   description: string
   href: string
-  image: { src: string; alt: string }
+  image: { src: string; width: number; height: number; alt: string }
   /**
    * Descriptive link text that must name the destination, e.g.
    * "View Roofing Panels". Never "Learn More": a screen-reader user pulling up
@@ -46,7 +46,8 @@ export function ProductCategoryCard({
         <Image
           src={image.src}
           alt={image.alt}
-          size="medium"
+          width={image.width}
+          height={image.height}
           rounded="rounded-none"
           aspect="aspect-[3/2]"
           className="w-full object-cover"

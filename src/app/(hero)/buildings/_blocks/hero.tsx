@@ -13,9 +13,10 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/building-1.jpg"
+        src="https://ascot-cdn.gallop.software/images/building-1.jpg"
+        width={1448}
+        height={1086}
         alt="Erected steel building frame with roof and wall panels being installed"
-        size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"
@@ -25,10 +26,7 @@ export default function Hero() {
       <Container className="relative pt-40 pb-20 md:pt-40 md:pb-28 lg:pt-68 lg:pb-36">
         <Breadcrumbs
           className="mb-8"
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Buildings' },
-          ]}
+          items={[{ label: 'Home', href: '/' }, { label: 'Buildings' }]}
         />
 
         <div className="max-w-3xl">
@@ -55,8 +53,8 @@ export default function Hero() {
             className="max-w-2xl text-pretty"
           >
             Panels, trim, structural framing, fasteners, and accessories
-            coordinated into one package, sized to the building you are
-            actually putting up, with a takeoff you can hand to a crew.
+            coordinated into one package, sized to the building you are actually
+            putting up, with a takeoff you can hand to a crew.
           </Paragraph>
 
           <Buttons margin="mt-0 mb-0">

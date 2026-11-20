@@ -50,9 +50,10 @@ export function PanelProfileCard({
       ) : (
         <div className="overflow-hidden border-b border-accent3-dark">
           <Image
-            src={panel.image.src}
+            src={panel.image.medium.src}
             alt={panel.image.alt}
-            size="medium"
+            width={panel.image.medium.width}
+            height={panel.image.medium.height}
             rounded="rounded-none"
             aspect="aspect-[3/2]"
             className="w-full object-cover"

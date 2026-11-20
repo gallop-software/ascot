@@ -47,7 +47,7 @@ function buildStructuredData(panel: PanelProfile): object[] {
       description: panel.description,
       category: 'Metal Roofing and Wall Panels',
       url,
-      image: `${baseURL}${panel.image.src}`,
+      image: panel.image.src,
       brand: { '@type': 'Brand', name: company.name },
       // Only measured geometry from the catalog, never the compliance
       // placeholders above.
@@ -107,7 +107,12 @@ export async function generateMetadata({ params }: PageProps) {
     modifiedDate: '2026-07-15T00:00:00Z',
     alternates: { canonical: `/panels/${profile}` },
     openGraph: {
-      image: { url: panel.image.src, alt: panel.image.alt },
+      image: {
+        url: panel.image.src,
+        width: panel.image.width,
+        height: panel.image.height,
+        alt: panel.image.alt,
+      },
     },
   }
   return generatePageMetadata(metadata)
@@ -131,9 +136,10 @@ export default async function Page({ params }: PageProps) {
       {/* Header */}
       <section className="relative overflow-hidden bg-body2">
         <Image
-          src={panel.image.src}
+          src={panel.image.full.src}
           alt={panel.image.alt}
-          size="full"
+          width={panel.image.full.width}
+          height={panel.image.full.height}
           rounded="rounded-none"
           lazy={false}
           className={clsx(
@@ -213,7 +219,8 @@ export default async function Page({ params }: PageProps) {
             <Image
               src={panel.image.src}
               alt={panel.image.alt}
-              size="large"
+              width={panel.image.width}
+              height={panel.image.height}
               rounded="rounded-none"
               aspect="aspect-[16/9]"
               lazy={false}
@@ -285,7 +292,8 @@ export default async function Page({ params }: PageProps) {
                     <Image
                       src={product.image.src}
                       alt={product.image.alt}
-                      size="medium"
+                      width={product.image.width}
+                      height={product.image.height}
                       rounded="rounded-none"
                       aspect="aspect-[3/2]"
                       className="w-full object-cover"
@@ -355,7 +363,9 @@ export default async function Page({ params }: PageProps) {
       )}
 
       <Section
-        imageSrc="/panels-1.jpg"
+        imageSrc="https://ascot-cdn.gallop.software/images/panels-1.jpg"
+        imageWidth={1672}
+        imageHeight={941}
         imageAlt=""
         overlayColor="bg-accent2/88"
         className="py-20 lg:py-28"

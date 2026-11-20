@@ -4,7 +4,11 @@ import { Image } from '@/components/image'
 import { ProjectCaseStudy } from '@/components/project-case-study'
 
 export const TITLE = 'Ranch Shop'
-const IMAGE = '/image-4.jpg'
+const IMAGE = {
+  src: 'https://ascot-cdn.gallop.software/images/image-4-lg.jpg',
+  width: 1400,
+  height: 788,
+}
 const IMAGE_ALT =
   'Ranch shop near Redstone, Texas finished with Frontier Metals roofing and wall panels'
 
@@ -12,8 +16,9 @@ function Details() {
   return (
     <>
       <Image
-        src={IMAGE}
-        size="large"
+        src={IMAGE.src}
+        width={IMAGE.width}
+        height={IMAGE.height}
         wrap={true}
         alt={IMAGE_ALT}
       />

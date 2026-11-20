@@ -2,13 +2,12 @@ import { clsx } from 'clsx'
 import Link from 'next/link'
 import { Paragraph } from '@/components/paragraph'
 import type { ComponentProps } from 'react'
-import { getStudioImage } from '@/utils/studio-helpers'
 
 export interface ImageProps extends Omit<
   ComponentProps<'img'>,
   'alt' | 'title'
 > {
-  /** Image source URL */
+  /** Full address of the image */
   src: string
   /** Alt text for accessibility - optional, falls back to empty string */
   alt?: string
@@ -24,10 +23,8 @@ export interface ImageProps extends Omit<
   width?: number | undefined
   /** Image height - uses natural height if not provided */
   height?: number | undefined
-  /** Link href - if provided and is an image file, enables media lightbox */
+  /** Link href - if provided and is an image file, enables media lightbox (pass the full-size image's address) */
   href?: string
-  /** Image size variant to use from metadata - 'small', 'medium', 'large', or 'full' */
-  size?: 'small' | 'medium' | 'large' | 'full'
   /** Rounded corners class - overrides default rounded classes */
   rounded?: string
   /** Aspect ratio class - overrides default aspect ratio classes */
@@ -48,7 +45,6 @@ export function Image({
   width,
   height,
   href,
-  size,
   rounded,
   aspect,
   mediaLink = false,
@@ -60,22 +56,10 @@ export function Image({
   const hasExplicitWidth = width !== undefined
   const hasExplicitHeight = height !== undefined
 
-  // Default to 'large' size for metadata lookup if no size specified
-  const effectiveSize = size || 'large'
-
-  // Get resolved image from metadata (URL + dimensions)
-  const studioImage = getStudioImage(src, effectiveSize)
-
-  // Resolve src and dimensions
-  const resolvedSrc = studioImage?.url || src
+  // The address and dimensions are used as given
+  const resolvedSrc = src
   let resolvedWidth: number | 'auto' | undefined = width
   let resolvedHeight: number | 'auto' | undefined = height
-
-  // Use metadata dimensions if not explicitly provided
-  if (!hasExplicitWidth && !hasExplicitHeight && studioImage) {
-    resolvedWidth = studioImage.width
-    resolvedHeight = studioImage.height
-  }
 
   // If user explicitly provided only width or height, set the other to 'auto'
   if (hasExplicitWidth && !hasExplicitHeight) {
@@ -93,10 +77,9 @@ export function Image({
     mediaLinkHref = href
     isMediaLink = true
   }
-  // If href is not set but mediaLink is true, use full size image for lightbox
+  // If href is not set but mediaLink is true, link to the image itself
   else if (!href && mediaLink) {
-    const fullImage = getStudioImage(src, 'full')
-    mediaLinkHref = fullImage?.url || src
+    mediaLinkHref = src
     isMediaLink = true
   }
 

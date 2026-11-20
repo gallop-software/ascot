@@ -10,14 +10,20 @@ const metadata: PageMetadata = {
   slug: 'projects/ranch-shop',
   date: '2026-05-27',
   categories: ['Shops'],
-  featuredImage: '/image-4.jpg',
+  featuredImage: {
+    url: 'https://ascot-cdn.gallop.software/images/image-4-lg.jpg',
+    width: 1400,
+    height: 788,
+  },
   publishDate: '2026-05-27T00:00:00Z',
   modifiedDate: '2026-05-27T00:00:00Z',
   alternates: { canonical: '/projects/ranch-shop' },
   openGraph: {
     type: 'article',
     image: {
-      url: '/image-4.jpg',
+      url: 'https://ascot-cdn.gallop.software/images/image-4-lg.jpg',
+      width: 1400,
+      height: 788,
       alt: 'Ranch shop near Redstone, Texas finished with Frontier Metals roofing and wall panels',
     },
   },
@@ -31,7 +37,11 @@ export default function Page() {
     <PageWrapper
       metadata={{
         ...metadata,
-        structuredData: buildProjectStructuredData(metadata, TITLE, 'ranch-shop'),
+        structuredData: buildProjectStructuredData(
+          metadata,
+          TITLE,
+          'ranch-shop'
+        ),
       }}
     >
       <Content />

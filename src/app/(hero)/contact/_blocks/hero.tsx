@@ -16,9 +16,10 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-body2">
       <Image
-        src="/image-3.jpg"
+        src="https://ascot-cdn.gallop.software/images/image-3.jpg"
+        width={1448}
+        height={1086}
         alt="Entrance to the Frontier Metals manufacturing plant and will-call yard"
-        size="full"
         rounded="rounded-none"
         lazy={false}
         className="absolute inset-0 h-full w-full object-cover"
@@ -54,9 +55,9 @@ export default function Hero() {
             margin="mb-8"
             className="text-pretty"
           >
-            Call the plant, send us drawings, or stop by the counter. Whether you
-            need a single trim piece or a full building package, you will reach
-            someone who can talk through the details.
+            Call the plant, send us drawings, or stop by the counter. Whether
+            you need a single trim piece or a full building package, you will
+            reach someone who can talk through the details.
           </Paragraph>
 
           <Buttons margin="mt-0 mb-0">

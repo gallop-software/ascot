@@ -9,7 +9,9 @@ import { cta } from '@/config'
 export default function Cta() {
   return (
     <Section
-      imageSrc="/panels-1.jpg"
+      imageSrc="https://ascot-cdn.gallop.software/images/panels-1.jpg"
+      imageWidth={1672}
+      imageHeight={941}
       imageAlt=""
       overlayColor="bg-accent2/88"
       className="py-20 lg:py-28"
@@ -28,8 +30,8 @@ export default function Cta() {
         className="max-w-2xl text-pretty"
       >
         Send dimensions, a sketch, or construction drawings and we will work
-        through the package with you: panels, trim, framing, and the
-        accessories that get missed.
+        through the package with you: panels, trim, framing, and the accessories
+        that get missed.
       </Paragraph>
       <Buttons margin="mt-0 mb-0">
         <Button

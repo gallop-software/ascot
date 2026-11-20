@@ -1,4 +1,3 @@
-import { studioUrl } from '@/utils/studio-helpers'
 import { NextResponse } from 'next/server'
 
 export const runtime = 'nodejs'
@@ -39,14 +38,7 @@ function renderValueCell(v: unknown): string {
 }
 
 function renderEmailHtml(payload: Record<string, any>) {
-  const baseUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL || ''
-
-  // studioUrl returns an absolute CDN URL for processed images and a
-  // root-relative path otherwise; only prepend the origin in the latter case.
-  const logoPath = studioUrl('/logo.png')
-  const logoSrc = /^https?:\/\//.test(logoPath)
-    ? logoPath
-    : `${baseUrl}${logoPath}`
+  const logoSrc = 'https://ascot-cdn.gallop.software/images/logo-lg.png'
   const rows: string[] = []
 
   for (const [key, val] of Object.entries(payload)) {
