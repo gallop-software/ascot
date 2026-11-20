@@ -29,6 +29,8 @@ yarn-error.log*
 .env*.*
 !.env.local.sample
 !.env.production.sample
+!.env.local.age
+!.env.production.age
 
 # vercel
 .vercel
